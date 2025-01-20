@@ -41,9 +41,11 @@ body {
 
 /* Logo Styling */
 .logo {
-  font-size: 24px;
+  font-size: 2rem; /* Adjust the font size for the overall logo */
   font-weight: bold;
-  white-space: nowrap; /* Prevent text from wrapping to next line */
+  display: flex;
+  align-items: center;
+  gap: 7px; 
 }
 
 .rohan {

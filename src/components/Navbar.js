@@ -27,8 +27,9 @@ const Navbar = () => {
       <div className="navbar-content">
         {/* First column: Logo / Name */}
         <div className="logo">
-          Rohan Goyal
-        </div>
+  <span className="rohan">Rohan</span>
+  <span className="goyal">Goyal</span>
+</div>
 
         {/* Second column: Nav links */}
         <ul className="nav-links">
