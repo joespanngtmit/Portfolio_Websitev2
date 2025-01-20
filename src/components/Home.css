@@ -1,0 +1,179 @@
+/* Home Section Styling */
+.home-section {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+/* Container for Content (Text and Profile Picture) */
+.home-container {
+  display: flex;
+  justify-content: space-between; /* Space between the text and profile picture */
+  align-items: center; /* Center vertically */
+  width: 100%;
+  max-width: 1200px; /* Limit the max width */
+  margin-top: 30px; /* Adds margin from the top */
+}
+
+/* Left Column (Text) Styling */
+.home-text {
+  text-align: left; /* Left-align text */
+  max-width: 600px;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align text to the left */
+  justify-content: center; /* Center vertically */
+}
+
+/* Profile Picture Styling */
+.profile-pic {
+  width: 300px; /* Increased the width */
+  height: 300px; /* Increased the height */
+  border-radius: 50%; /* Make it circular */
+  object-fit: cover;
+  border: 10px #6f0165; /* Darker glow color for border */
+  box-shadow: 0 0 30px 15px rgba(146, 33, 146, 0.8); /* More spread and a stronger glow */
+  transition: box-shadow 0.3s ease, border 0.3s ease; /* Smooth transition for glowing effect */
+  margin-left: -30px; /* Keep the profile picture left alignment */
+  margin-right: 40px;
+  margin-top: 20px; /* Adds space on top of the profile picture */
+}
+
+/* Optional: Add a hover effect for more intense glow */
+.profile-pic:hover {
+  box-shadow: 0 0 40px 20px rgba(146, 33, 146, 1); /* More intense glowing effect on hover */
+  border: 10px #922192; /* Change the border to a more intense glow color on hover */
+}
+
+/* Text Styling */
+.home-text p {
+  font-size: 1.5rem; /* Increased font size for "Hello, I'm" */
+  font-weight: bold;
+  margin: 0;
+}
+
+.home-text h1 {
+  font-size: 3rem; /* Kept size consistent for the main heading */
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.home-text h2 {
+  font-size: 1.5rem; /* Decreased font size for the subheading */
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+/* Typewriter Effect Text */
+.home-text h2 span {
+  color: #d136ca; /* Changed typewriter effect text color */
+  font-weight: bold;
+}
+
+/* More specific selector for the last paragraph */
+.home-text .last-paragraph {
+  font-size: 1.2rem !important; /* Decreased font size */
+  line-height: 1.4 !important; /* Adjust spacing between lines */
+  font-weight: normal !important; /* Remove bold styling */
+  margin: 5px auto !important; /* Reduced margin to decrease space between last paragraph and social icons */
+}
+
+/* Social Icons Styling */
+.social-icons {
+  display: flex;
+  justify-content: flex-start; /* Align social icons to the left */
+  gap: 10px; /* Reduced gap between icons */
+  margin-top: 10px; /* Reduced space between social icons and the last paragraph */
+}
+
+/* Styling for individual icons */
+.social-icons a {
+  font-size: 2rem; /* Increased font size for the icons */
+  color: white; /* Default color for icons */
+  border: 2px solid transparent; /* White border around the icon */
+  border-radius: 50%; /* Make them circular */
+  padding: 12px; /* Adjusted padding to make a perfect circle around the icon */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Transparent background */
+  transition: all 0.3s ease; /* Smooth transition for any changes */
+}
+
+/* Hover effect for light theme */
+body.light-theme .social-icons a:hover {
+  transform: scale(1.1); /* Slightly scale the icon on hover */
+}
+
+body.light-theme .facebook:hover {
+  color: #3b5998; /* Facebook color on hover */
+}
+
+body.light-theme .twitter:hover {
+  color: #00acee; /* Twitter color on hover */
+}
+
+body.light-theme .instagram:hover {
+  color: #e1306c; /* Instagram color on hover */
+}
+
+body.light-theme .linkedin:hover {
+  color: #0077b5; /* LinkedIn color on hover */
+}
+
+/* Hover effect for dark theme */
+body.dark-theme .social-icons a:hover {
+  transform: scale(1.1); /* Slightly scale the icon on hover */
+}
+
+body.dark-theme .facebook:hover {
+  color: #3b5998; /* Facebook color on hover */
+}
+
+body.dark-theme .twitter:hover {
+  color: #00acee; /* Twitter color on hover */
+}
+
+body.dark-theme .instagram:hover {
+  color: #e1306c; /* Instagram color on hover */
+}
+
+body.dark-theme .linkedin:hover {
+  color: #0077b5; /* LinkedIn color on hover */
+}
+
+/* Social icon general hover effect */
+.social-icon {
+  font-size: 30px;
+  color: #555;
+  text-decoration: none;
+  background-color: transparent;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Button Styling */
+.home-text button {
+  margin-top: 20px; /* Reduced margin-top for better spacing */
+  padding: 12px 25px; /* Adjusted padding for a bigger button */
+  font-size: 1rem; /* Adjusted font size */
+  font-weight: bold;
+  color: #d136ca; /* Text color */
+  background-color: transparent; /* Make the button background transparent */
+  border: 2px solid #d136ca; /* Add a border with color #d136ca */
+  border-radius: 50px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+  perspective: 1000px;
+}
+
+.home-text button:hover {
+  transform: translateY(-5px) rotateX(10deg) rotateY(10deg); /* Apply 3D movement on hover */
+  background-color: #d136ca;
+  color: white;
+}

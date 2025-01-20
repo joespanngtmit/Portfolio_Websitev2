@@ -1,0 +1,167 @@
+/* Global Theme Variables */
+:root {
+  --bg-color: #0a0a0a; /* Default background (dark mode) */
+  --text-color: white; /* Default text color (light for dark mode) */
+  --accent-color: #D136CA; /* Purple accent color */
+  --light-bg-color: #f1f1f1; /* Light theme background color */
+  --light-text-color: #333; /* Light theme text color */
+}
+
+/* Apply global theme variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);  /* This will dynamically change based on theme */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar Styling */
+.navbar {
+  position: sticky; /* Make it stick to the top when scrolling */
+  top: 0; /* Stick at the top */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 15px 0;
+  z-index: 10;
+  height: 80px;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* Optional: Control the max width of the navbar */
+  align-items: center;
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap; /* Prevent text from wrapping to next line */
+}
+
+.rohan {
+  color: var(--accent-color); /* Purple color */
+}
+
+.goyal {
+  color: var(--text-color); /* Dynamic color */
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  margin-right: 20px; /* Ensure right-alignment with spacing */
+}
+
+.nav-links li {
+  font-size: 18px;
+  position: relative;
+}
+
+/* Link Styling */
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+/* Hover Effect */
+.nav-links li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.4s ease;
+}
+
+.nav-links li a:hover::before {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  color: var(--accent-color);
+}
+
+/* Social Icons Styling */
+.social-icons a {
+  font-size: 2rem;
+  color: var(--text-color);  /* Use --text-color for social icons */
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+/* Ensure the social icons change color in light mode */
+body.light-theme .social-icons a {
+  color: black; /* Turn icons black in light mode */
+}
+
+body.dark-theme .social-icons a {
+  color: white; /* Default color in dark mode */
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Theme Switch Button */
+.theme-switch {
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: transparent;
+  border: 2px solid var(--text-color);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-switch:hover {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* Ensuring Navbar Content is aligned */
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Theme Button right-alignment */
+.navbar-content .theme-switch {
+  order: 2; /* Places it after the nav links */
+  margin-left: 20px; /* Adds a small space before the theme switch button */
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end; /* Align links to the right */
+  width: 100%;
+}
