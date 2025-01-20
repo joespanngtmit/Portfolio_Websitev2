@@ -5,6 +5,7 @@ import About from "./components/AboutMe";
 import SkillsTree from "./components/SkillsTree";
 import ConnectMe from "./components/ConnectMe";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import './App.css'; // Ensure this file contains smooth scrolling CSS
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
   return (
     <Router>
       <div className="App">
+        <Navbar />
         <Home />
         <About />
         <SkillsTree />

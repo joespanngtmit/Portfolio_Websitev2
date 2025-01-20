@@ -1,71 +1,147 @@
 import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer"; // Import Intersection Observer
-import "../App.css"; // Assuming this has necessary CSS styles
+import { useInView } from "react-intersection-observer";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaXTwitter,
+} from "react-icons/fa6";
+import "../App.css"; // Global styles for the app
+import "../components/Home.css"; // Home section specific styles
 
 function Home() {
-  const [text, setText] = useState(""); // State to handle displayed text
-  const [index, setIndex] = useState(0); // Index to track the text
-  const textArray = ["Rohan Goyal", "Data Enthusiast", "Python Developer"]; // Texts for the typewriter effect
+  const [text, setText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const textArray = ["Data Analyst", "Python Developer", "Photographer"];
 
-  // Intersection observer hook to trigger animations when section is in view
   const { ref: homeRef, inView: homeInView } = useInView({
-    triggerOnce: true, // Trigger animation only once
-    threshold: 0.5, // Trigger when 50% of section is visible
+    triggerOnce: true,
+    threshold: 0.5,
   });
 
   useEffect(() => {
-    // Disable scroll when hovering over the section
-    const disableScroll = () => {
-      document.body.style.overflow = "hidden"; // Disable scroll
+    // Detect the system's preferred theme
+    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+
+    // Apply the theme based on system preference
+    if (prefersDarkMode.matches) {
+      document.body.classList.add("dark-theme");
+      document.body.classList.remove("light-theme");
+    } else {
+      document.body.classList.add("light-theme");
+      document.body.classList.remove("dark-theme");
+    }
+
+    // Listen for changes to the theme preference
+    const themeChangeListener = (e) => {
+      if (e.matches) {
+        document.body.classList.add("dark-theme");
+        document.body.classList.remove("light-theme");
+      } else {
+        document.body.classList.add("light-theme");
+        document.body.classList.remove("dark-theme");
+      }
     };
 
-    // Enable scroll when exiting the section
-    const enableScroll = () => {
-      document.body.style.overflow = "auto"; // Enable scroll
-    };
+    prefersDarkMode.addEventListener("change", themeChangeListener);
 
-    const homeSection = document.getElementById("home");
-    homeSection.addEventListener("mouseenter", disableScroll);
-    homeSection.addEventListener("mouseleave", enableScroll);
-
-    // Cleanup the event listeners
+    // Clean up the event listener when the component unmounts
     return () => {
-      homeSection.removeEventListener("mouseenter", disableScroll);
-      homeSection.removeEventListener("mouseleave", enableScroll);
+      prefersDarkMode.removeEventListener("change", themeChangeListener);
     };
   }, []);
 
   useEffect(() => {
-    const currentText = textArray[index];
-    let i = 0;
+    if (charIndex < textArray[currentIndex].length) {
+      const typingTimer = setTimeout(() => {
+        setText((prevText) => prevText + textArray[currentIndex][charIndex]);
+        setCharIndex((prevCharIndex) => prevCharIndex + 1);
+      }, 100);
 
-    const typingInterval = setInterval(() => {
-      setText((prev) => currentText.substring(0, i + 1));
-      i++;
-      if (i === currentText.length) {
-        clearInterval(typingInterval);
-        setTimeout(() => {
-          setIndex((prevIndex) => (prevIndex + 1) % textArray.length); // Move to the next text
-        }, 2000); // Delay before starting the next text
-      }
-    }, 100); // Typing speed (100ms per character)
+      return () => clearTimeout(typingTimer);
+    } else {
+      const delayTimer = setTimeout(() => {
+        setText("");
+        setCharIndex(0);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % textArray.length);
+      }, 2000);
 
-    return () => clearInterval(typingInterval); // Cleanup interval
-  }, [index]);
+      return () => clearTimeout(delayTimer);
+    }
+  }, [charIndex, currentIndex, textArray]);
 
   return (
     <section
       id="home"
-      className={`home-section ${homeInView ? "animate-in" : ""}`} // Apply animation when in view
-      ref={homeRef} // Set ref for Intersection Observer
+      className={`home-section ${homeInView ? "animate-in" : ""}`}
+      ref={homeRef}
     >
       <div className="home-container">
-        <img
-          src={require("../assets/profile.png")}
-          alt="Rohan Goyal"
-          className="profile-pic"
-        />
-        <h1 className="home-title">{text}</h1>
+        {/* Left Column for Text */}
+        <div className="home-text">
+          <p>Hello, I'm</p>
+          <h1>Rohan Goyal</h1>
+          <h2>
+            And I'm a <span>{text}</span>
+          </h2>
+          <p className="last-paragraph">
+            Hey, I’m Rohan Goyal — a Data Analyst uncovering stories in numbers,
+            a Python Developer creating impactful solutions, and a Photographer
+            capturing life’s essence. I blend data, code, and creativity to
+            solve complex problems and create lasting memories.
+          </p>
+          <div className="social-icons">
+            <a
+              href="https://facebook.com/yourhandle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon facebook"
+            >
+              <FaFacebook size={30} />
+            </a>
+            <a
+              href="https://x.com/yourhandle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon x-icon"
+            >
+              <FaXTwitter size={30} /> {/* X Twitter logo */}
+            </a>
+            <a
+              href="https://instagram.com/yourhandle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon instagram"
+            >
+              <FaInstagram size={30} />
+            </a>
+            <a
+              href="https://linkedin.com/in/yourhandle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon linkedin"
+            >
+              <FaLinkedin size={30} />
+            </a>
+          </div>
+
+          <button
+            className="home-text"
+            onClick={() => (window.location.href = "/assets/resume.pdf")}
+          >
+            Download CV
+          </button>
+        </div>
+
+        {/* Right Column for Profile Picture */}
+        <div className="profile-container">
+          <img
+            src={require("../assets/profile.jpg")} // Correct path to profile image
+            alt="Rohan Goyal"
+            className="profile-pic"
+          />
+        </div>
       </div>
     </section>
   );

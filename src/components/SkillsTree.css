@@ -1,7 +1,6 @@
 .tree-container {
   width: 100%;
   height: 100vh;
-  background: black; /* Set background to black */
   display: flex;
   justify-content: center;
   align-items: center;
