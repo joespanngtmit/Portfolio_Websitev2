@@ -10,7 +10,7 @@
 /* Apply global theme variables */
 body {
   background-color: var(--bg-color);
-  color: var(--text-color);  /* This will dynamically change based on theme */
+  color: var(--text-color);
   margin: 0;
   font-family: Arial, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -18,8 +18,8 @@ body {
 
 /* Navbar Styling */
 .navbar {
-  position: sticky; /* Make it stick to the top when scrolling */
-  top: 0; /* Stick at the top */
+  position: sticky;
+  top: 0;
   left: 0;
   right: 0;
   display: flex;
@@ -35,25 +35,25 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 1200px; /* Optional: Control the max width of the navbar */
+  max-width: 1200px;
   align-items: center;
 }
 
 /* Logo Styling */
 .logo {
-  font-size: 2rem; /* Adjust the font size for the overall logo */
+  font-size: 2rem;
   font-weight: bold;
   display: flex;
   align-items: center;
-  gap: 7px; 
+  gap: 7px;
 }
 
 .rohan {
-  color: var(--accent-color); /* Purple color */
+  color: var(--accent-color);
 }
 
 .goyal {
-  color: var(--text-color); /* Dynamic color */
+  color: var(--text-color);
 }
 
 /* Nav Links */
@@ -62,25 +62,23 @@ body {
   display: flex;
   gap: 20px;
   margin: 0;
-  margin-right: 20px; /* Ensure right-alignment with spacing */
+  margin-right: 20px;
+  width: 100%;
+  justify-content: flex-end; /* Align to the right for large screens */
 }
 
 .nav-links li {
   font-size: 18px;
-  position: relative;
 }
 
-/* Link Styling */
 .nav-links li a {
   text-decoration: none;
   color: var(--text-color);
   position: relative;
   overflow: hidden;
   transition: color 0.3s ease;
-  display: inline-block;
 }
 
-/* Hover Effect */
 .nav-links li a::before {
   content: '';
   position: absolute;
@@ -98,33 +96,6 @@ body {
 
 .nav-links li a:hover {
   color: var(--accent-color);
-}
-
-/* Social Icons Styling */
-.social-icons a {
-  font-size: 2rem;
-  color: var(--text-color);  /* Use --text-color for social icons */
-  border: 2px solid transparent;
-  border-radius: 50%;
-  padding: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  transition: all 0.3s ease;
-}
-
-/* Ensure the social icons change color in light mode */
-body.light-theme .social-icons a {
-  color: black; /* Turn icons black in light mode */
-}
-
-body.dark-theme .social-icons a {
-  color: white; /* Default color in dark mode */
-}
-
-.social-icon:hover {
-  transform: scale(1.2);
 }
 
 /* Theme Switch Button */
@@ -148,22 +119,77 @@ body.dark-theme .social-icons a {
   color: var(--bg-color);
 }
 
-/* Ensuring Navbar Content is aligned */
-.navbar-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+/* Hamburger Icon */
+.hamburger-icon {
+  display: none; /* Hidden by default on large screens */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: space-around;
+  height: 30px;
+  width: 30px;
 }
 
-/* Theme Button right-alignment */
-.navbar-content .theme-switch {
-  order: 2; /* Places it after the nav links */
-  margin-left: 20px; /* Adds a small space before the theme switch button */
+.hamburger-icon .bar {
+  width: 30px;
+  height: 4px;
+  background-color: var(--text-color);
+  border-radius: 5px;
+  transition: transform 0.3s ease;
 }
 
-.nav-links {
+.hamburger-icon.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-icon.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Show the menu when hamburger is clicked */
+.nav-links.show {
   display: flex;
-  justify-content: flex-end; /* Align links to the right */
+  flex-direction: column;
+  gap: 20px;
+  position: absolute;
+  top: 80px; /* Position the menu below the navbar */
+  right: 0;
+  background-color: var(--bg-color);
   width: 100%;
+  padding: 20px;
+  z-index: 5;
+  box-sizing: border-box; /* Make sure the padding does not cause overflow */
+  margin: 0; /* Remove margin to ensure it stays within screen bounds */
+}
+
+/* Ensure nav links are vertically centered in small screen */
+.nav-links.show li {
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Make hamburger visible on small screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide nav links on small screens by default */
+  }
+
+  .hamburger-icon {
+    display: flex; /* Show hamburger icon on small screens */
+  }
+
+  .theme-switch {
+    display: none; /* Hide theme switch button on small screens */
+  }
+
+  /* Position the navbar content in a single row on small screens */
+  .navbar-content {
+    flex-direction: row; /* Keep items in a row */
+    align-items: center; /* Center them vertically */
+    justify-content: space-between; /* Ensure space between logo and hamburger */
+  }
 }
