@@ -9,11 +9,18 @@ import {
 import "../App.css"; // Global styles for the app
 import "../components/Home.css"; // Home section specific styles
 
+// Import images for both dark and light themes
+import profileDark from "../assets/profile.jpg";
+import profileLight from "../assets/profile1.jpg";
+
 function Home() {
   const [text, setText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
+  const [profilePic, setProfilePic] = useState(profileDark); // Default profile picture for dark theme
   const textArray = ["Data Analyst", "Python Developer", "Photographer"];
+  const [isLoading, setIsLoading] = useState(true); // Loading state
+  const [isLoaded, setIsLoaded] = useState(false); // To track loading completion
 
   const { ref: homeRef, inView: homeInView } = useInView({
     triggerOnce: true,
@@ -21,27 +28,41 @@ function Home() {
   });
 
   useEffect(() => {
+    // Set loading state to hide all content during ball popping
+    document.body.classList.add('loading');
+
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsLoaded(true); // Set to true after loading
+      document.body.classList.remove('loading'); // Remove loading state after loading is done
+    }, 3000); // Adjust this based on your loading time
+  }, []);
+
+  useEffect(() => {
     // Detect the system's preferred theme
     const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 
-    // Apply the theme based on system preference
-    if (prefersDarkMode.matches) {
-      document.body.classList.add("dark-theme");
-      document.body.classList.remove("light-theme");
-    } else {
-      document.body.classList.add("light-theme");
-      document.body.classList.remove("dark-theme");
-    }
-
-    // Listen for changes to the theme preference
-    const themeChangeListener = (e) => {
-      if (e.matches) {
+    // Forcefully check and apply the theme (this will handle a fallback if necessary)
+    const applyTheme = () => {
+      if (prefersDarkMode.matches) {
         document.body.classList.add("dark-theme");
         document.body.classList.remove("light-theme");
+        setProfilePic(profileDark); // Dark theme profile picture
+        console.log("Applied Dark Theme");
       } else {
         document.body.classList.add("light-theme");
         document.body.classList.remove("dark-theme");
+        setProfilePic(profileLight); // Light theme profile picture
+        console.log("Applied Light Theme");
       }
+    };
+
+    // Apply theme immediately on mount
+    applyTheme();
+
+    // Listen for changes to the theme preference
+    const themeChangeListener = (e) => {
+      applyTheme(); // Reapply theme when system preference changes
     };
 
     prefersDarkMode.addEventListener("change", themeChangeListener);
@@ -78,8 +99,11 @@ function Home() {
       ref={homeRef}
     >
       <div className="home-container">
+        {/* Loading Ball */}
+        {isLoading && <div className={`loader-ball ${isLoaded ? 'expand' : ''}`}></div>}
+
         {/* Left Column for Text */}
-        <div className="home-text">
+        <div className={`home-text ${isLoaded ? "content-visible" : "hidden-content"}`}>
           <p>Hello, I'm</p>
           <h1>Rohan Goyal</h1>
           <h2>
@@ -137,7 +161,7 @@ function Home() {
         {/* Right Column for Profile Picture */}
         <div className="profile-container">
           <img
-            src={require("../assets/profile.jpg")} // Correct path to profile image
+            src={profilePic} // Use the dynamic profile picture path
             alt="Rohan Goyal"
             className="profile-pic"
           />

@@ -12,7 +12,6 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   margin: 0;
-  font-family: Arial, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -186,6 +185,22 @@ body {
     display: none; /* Hide theme switch button on small screens */
   }
 
+  /* Logo size decrease for smaller screens */
+  .logo {
+    font-size: 1.5rem; /* Reduce logo size */
+    gap: 5px;
+  }
+
+  .hamburger-icon {
+    height: 25px; /* Reduce hamburger icon height */
+    width: 25px; /* Reduce hamburger icon width */
+  }
+
+  .hamburger-icon .bar {
+    width: 25px; /* Reduce width of hamburger bars */
+    height: 3px; /* Reduce height of hamburger bars */
+  }
+
   /* Position the navbar content in a single row on small screens */
   .navbar-content {
     flex-direction: row; /* Keep items in a row */
@@ -193,3 +208,12 @@ body {
     justify-content: space-between; /* Ensure space between logo and hamburger */
   }
 }
+
+/* Prevent overlap with profile photo only on small screens */
+@media (max-width: 375px) {
+  /* Add top margin for profile section to prevent overlap */
+  .profile-photo {
+    margin-top: 120px; /* Ensure the profile photo starts below the navbar */
+  }
+}
+

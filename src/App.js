@@ -24,10 +24,19 @@ const App = () => {
     <Router>
       <div className="App">
         <Navbar />
-        <Home />
-        <About />
-        <SkillsTree />
-        <ConnectMe />
+        {/* Sections with padding to avoid navbar overlap */}
+        <div className="content-section home">
+          <Home />
+        </div>
+        <div className="content-section about">
+          <About />
+        </div>
+        <div className="content-section skillsTree">
+          <SkillsTree />
+        </div>
+        <div className="content-section connectMe">
+          <ConnectMe />
+        </div>
         <Footer />
       </div>
     </Router>

@@ -15,6 +15,8 @@
   width: 100%;
   max-width: 1200px; /* Limit the max width */
   margin-top: 30px; /* Adds margin from the top */
+  flex-wrap: wrap; /* Allow items to wrap on small screens */
+  transition: all 0.3s ease; /* Smooth transition for layout changes */
 }
 
 /* Left Column (Text) Styling */
@@ -25,20 +27,22 @@
   flex-direction: column; /* Stack items vertically */
   align-items: flex-start; /* Align text to the left */
   justify-content: center; /* Center vertically */
+  transition: transform 0.3s ease; /* Smooth transition for text */
 }
 
 /* Profile Picture Styling */
 .profile-pic {
-  width: 300px; /* Increased the width */
-  height: 300px; /* Increased the height */
+  width: 300px; /* Initial size */
+  height: 300px; /* Initial size */
   border-radius: 50%; /* Make it circular */
   object-fit: cover;
   border: 10px #6f0165; /* Darker glow color for border */
   box-shadow: 0 0 30px 15px rgba(146, 33, 146, 0.8); /* More spread and a stronger glow */
-  transition: box-shadow 0.3s ease, border 0.3s ease; /* Smooth transition for glowing effect */
+  transition: box-shadow 0.3s ease, border 0.3s ease, transform 0.3s ease; /* Smooth transition */
   margin-left: -30px; /* Keep the profile picture left alignment */
   margin-right: 40px;
   margin-top: 20px; /* Adds space on top of the profile picture */
+  transform-origin: center; /* Ensure proper scaling and transition */
 }
 
 /* Optional: Add a hover effect for more intense glow */
@@ -91,7 +95,7 @@
 /* Styling for individual icons */
 .social-icons a {
   font-size: 2rem; /* Increased font size for the icons */
-  color: white; /* Default color for icons */
+  color: white; /* Default color for icons in dark theme */
   border: 2px solid transparent; /* White border around the icon */
   border-radius: 50%; /* Make them circular */
   padding: 12px; /* Adjusted padding to make a perfect circle around the icon */
@@ -100,6 +104,11 @@
   justify-content: center;
   background-color: transparent; /* Transparent background */
   transition: all 0.3s ease; /* Smooth transition for any changes */
+}
+
+/* Social icons in light theme should have black color */
+body.light-theme .social-icons a {
+  color: black; /* Default color for icons in light theme */
 }
 
 /* Hover effect for light theme */
@@ -176,4 +185,173 @@ body.dark-theme .linkedin:hover {
   transform: translateY(-5px) rotateX(10deg) rotateY(10deg); /* Apply 3D movement on hover */
   background-color: #d136ca;
   color: white;
+}
+
+/* For screens between 849px and 768px, stack profile picture above text */
+@media (max-width: 849px) and (min-width: 768px) {
+  .home-container {
+    flex-direction: column; /* Stack profile picture and text vertically */
+    align-items: center; /* Center the content */
+    justify-content: center; /* Vertically center */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+
+  .profile-pic {
+    width: 220px; /* Adjust profile picture size */
+    height: 220px; /* Adjust profile picture size */
+    margin-bottom: 20px; /* Space between profile picture and text */
+    margin-top: 30px; /* Added space at the top to prevent overlap with navbar */
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease; /* Smooth transition */
+    transform: scale(0.9); /* Smoothly scale down the profile picture */
+  }
+
+  .home-text {
+    text-align: center; /* Center the text */
+    padding-left: 10px; /* Add some padding for better spacing */
+  }
+}
+
+/* For smaller screens, rearrange the profile picture and text */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column; /* Stack profile picture above text */
+    align-items: center; /* Center the content */
+    transition: all 0.3s ease; /* Ensure smooth transition */
+  }
+
+  .profile-container {
+    order: -1; /* Ensures the profile picture is on top */
+  }
+
+  .profile-pic {
+    width: 200px; /* Smaller profile picture */
+    height: 200px;
+    margin-bottom: 20px; /* Space between profile picture and text */
+    margin-top: 130px; /* Added space at the top to prevent overlap with navbar */
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease; /* Smooth transition */
+    transform: scale(0.5); /* Smoothly scale down the profile picture */
+    animation: popIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Keyframes for the pop-in effect */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* If you want to have a pop-out effect when the user interacts, for example, hovering: */
+.profile-photo:hover {
+  animation: popOut 0.8s ease-out forwards; /* Apply pop-out on hover */
+}
+
+@keyframes popOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+  .home-text {
+    text-align: center; /* Center the text */
+  }
+
+  /* Adjust font size for smaller screens */
+  .home-text p {
+    font-size: 1.2rem;
+  }
+
+  .home-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .home-text h2 {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+/* Global Loading State - Hides All Content Except Ball */
+body.loading * {
+  visibility: hidden; /* Hides all content, including navbar and home components */
+}
+
+body.loading .loader-ball {
+  visibility: visible; /* Ensures the ball is visible during loading */
+}
+
+/* Loader Ball */
+.loader-ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #d136ca; /* Accent color for the ball */
+  position: fixed; /* Use fixed position to center the ball */
+  top: 50%;
+  left: 50%;
+  margin-left: -25px; /* Center the ball horizontally */
+  margin-top: -25px; /* Center the ball vertically */
+  animation: bounce-in 2s ease-in-out 2, expand-out 1.5s 2s forwards; /* Bounce 2-3 times then expand */
+  z-index: 9999; /* Ensure it's on top */
+  visibility: hidden; /* Hide the ball initially */
+}
+
+/* Bounce Animation for Ball (Bouncing 2-3 times) */
+@keyframes bounce-in {
+  0% {
+    transform: scale(0) translateY(-100px);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.2) translateY(-20px);
+  }
+  50% {
+    transform: scale(1) translateY(0);
+  }
+  75% {
+    transform: scale(1.2) translateY(-10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation for Ball Expanding and Covering Screen */
+@keyframes expand-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(30);
+    opacity: 0;
+  }
+}
+
+/* Ball Expanding After Loading */
+.loader-ball.expand {
+  animation: expand-out 1.5s forwards; /* Expands and fades out */
+}
+
+/* Content Visibility After Loading */
+.content-visible {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.hidden-content {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
