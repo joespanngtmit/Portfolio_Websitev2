@@ -8,10 +8,13 @@ import {
 } from "react-icons/fa6";
 import "../App.css"; // Global styles for the app
 import "../components/Home.css"; // Home section specific styles
+import ParticleBackground from "./ParticlesBackground";
 
 // Import images for both dark and light themes
 import profileDark from "../assets/profile.jpg";
 import profileLight from "../assets/profile1.jpg";
+
+// Import the ParticleBackground component
 
 function Home() {
   const [text, setText] = useState("");
@@ -98,6 +101,9 @@ function Home() {
       className={`home-section ${homeInView ? "animate-in" : ""}`}
       ref={homeRef}
     >
+      {/* Add the ParticleBackground here to sit behind the content */}
+      <ParticleBackground />
+
       <div className="home-container">
         {/* Loading Ball */}
         {isLoading && <div className={`loader-ball ${isLoaded ? 'expand' : ''}`}></div>}
