@@ -4,6 +4,12 @@
   height: 100vh;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
 #tsparticles {
   position: absolute;
   top: 0;

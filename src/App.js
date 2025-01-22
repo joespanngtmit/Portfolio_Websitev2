@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/AboutMe";
@@ -7,39 +7,45 @@ import ConnectMe from "./components/ConnectMe";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ParticlesBackground from "./components/ParticlesBackground"; // Import the particles background
-import './App.css'; // Ensure this file contains smooth scrolling CSS
+import "./App.css"; // Ensure this file contains smooth scrolling CSS
 
 const App = () => {
-  const [openCategory, setOpenCategory] = useState(null);
+  const [activeSection, setActiveSection] = useState("home"); // State to track the active section
+  const [themeColor, setThemeColor] = useState("#ffffff"); // State for dynamic particle color
 
-  // Simplified scroll behavior without custom event handling
-  useEffect(() => {
-    // Optional: You can add logic to handle animations or other effects on scroll if needed
-  }, []);
-
-  const handleCategoryClick = (category) => {
-    setOpenCategory(openCategory === category ? null : category);
+  // Function to dynamically render the active section
+  const renderActiveSection = () => {
+    switch (activeSection) {
+      case "home":
+        return <Home />;
+      case "about":
+        return <About />;
+      case "skills":
+        return <SkillsTree />;
+      case "connect":
+        return <ConnectMe />;
+      default:
+        return <Home />;
+    }
   };
 
   return (
     <Router>
       <div className="App">
-        {/* Add the ParticleBackground component */}
-        <ParticlesBackground />
-        <Navbar />
-        {/* Sections with padding to avoid navbar overlap */}
-        <div className="content-section home">
-          <Home />
+        {/* Conditionally render ParticleBackground only on the Home page */}
+        {activeSection === "home" && <ParticlesBackground themeColor={themeColor} />}
+
+        {/* Navbar passes the activeSection setter and themeColor setter */}
+        <Navbar 
+          setActiveSection={setActiveSection} 
+          setThemeColor={setThemeColor} 
+        />
+        
+        {/* Only render the active section */}
+        <div className="content-section">
+          {renderActiveSection()}
         </div>
-        <div className="content-section about">
-          <About />
-        </div>
-        <div className="content-section skillsTree">
-          <SkillsTree />
-        </div>
-        <div className="content-section connectMe">
-          <ConnectMe />
-        </div>
+        
         <Footer />
       </div>
     </Router>

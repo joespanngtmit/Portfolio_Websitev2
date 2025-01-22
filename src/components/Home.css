@@ -117,19 +117,15 @@ body.light-theme .social-icons a:hover {
 }
 
 body.light-theme .facebook:hover {
-  color: #3b5998; /* Facebook color on hover */
-}
-
-body.light-theme .twitter:hover {
-  color: #00acee; /* Twitter color on hover */
+  color: #1a4195; /* Facebook color on hover */
 }
 
 body.light-theme .instagram:hover {
-  color: #e1306c; /* Instagram color on hover */
+  color: #b52354; /* Instagram color on hover */
 }
 
 body.light-theme .linkedin:hover {
-  color: #0077b5; /* LinkedIn color on hover */
+  color: #013d5d; /* LinkedIn color on hover */
 }
 
 /* Hover effect for dark theme */
@@ -138,19 +134,15 @@ body.dark-theme .social-icons a:hover {
 }
 
 body.dark-theme .facebook:hover {
-  color: #3b5998; /* Facebook color on hover */
-}
-
-body.dark-theme .twitter:hover {
-  color: #00acee; /* Twitter color on hover */
+  color: #2b4d97; /* Facebook color on hover */
 }
 
 body.dark-theme .instagram:hover {
-  color: #e1306c; /* Instagram color on hover */
+  color: #c72b5f; /* Instagram color on hover */
 }
 
 body.dark-theme .linkedin:hover {
-  color: #0077b5; /* LinkedIn color on hover */
+  color: #016296; /* LinkedIn color on hover */
 }
 
 /* Social icon general hover effect */

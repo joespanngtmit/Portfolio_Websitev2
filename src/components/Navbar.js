@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ setActiveSection, setThemeColor }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for toggling the menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
+    const newThemeColor = isDarkTheme ? "#333" : "#ffffff"; // Adjust as needed
+    setThemeColor(newThemeColor);
 
     if (isDarkTheme) {
       document.documentElement.style.setProperty("--bg-color", "white");
@@ -21,9 +23,13 @@ const Navbar = () => {
     }
   };
 
-  // Function to toggle the menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -34,19 +40,36 @@ const Navbar = () => {
           <span className="goyal">Goyal</span>
         </div>
 
-        {/* Hamburger Icon for Small Screens */}
-        <div className={`hamburger-icon ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}>
+        <div
+          className={`hamburger-icon ${isMenuOpen ? "open" : ""}`}
+          onClick={toggleMenu}
+        >
           <div className="bar"></div>
           <div className="bar"></div>
           <div className="bar"></div>
         </div>
 
-        {/* Nav Links */}
         <ul className={`nav-links ${isMenuOpen ? "show" : ""}`}>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="#home" onClick={() => handleNavClick("home")}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about" onClick={() => handleNavClick("about")}>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#skills" onClick={() => handleNavClick("skills")}>
+              Skills
+            </a>
+          </li>
+          <li>
+            <a href="#connect" onClick={() => handleNavClick("connect")}>
+              Connect
+            </a>
+          </li>
         </ul>
 
         <button className="theme-switch" onClick={toggleTheme}>

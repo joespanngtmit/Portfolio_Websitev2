@@ -70,31 +70,32 @@ body {
   font-size: 18px;
 }
 
+/* Nav Links */
 .nav-links li a {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--text-color); /* Dynamic text color based on theme */
   position: relative;
-  overflow: hidden;
-  transition: color 0.3s ease;
+  display: inline-block; /* Required for pseudo-element positioning */
+  transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .nav-links li a::before {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 0; /* Position underline exactly at the bottom */
   left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: var(--accent-color);
-  transition: width 0.4s ease;
+  width: 0; /* Initially, no underline */
+  height: 2px; /* Thickness of the underline */
+  background-color: var(--accent-color); /* Dynamic accent color */
+  transition: width 0.3s ease; /* Smooth underline animation */
 }
 
 .nav-links li a:hover::before {
-  width: 100%;
+  width: 100%; /* Expand underline to full width */
 }
 
 .nav-links li a:hover {
-  color: var(--accent-color);
+  color: var(--accent-color); /* Change text color on hover */
 }
 
 /* Theme Switch Button */
