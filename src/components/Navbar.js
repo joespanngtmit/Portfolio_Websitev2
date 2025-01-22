@@ -72,9 +72,16 @@ const Navbar = ({ setActiveSection, setThemeColor }) => {
           </li>
         </ul>
 
-        <button className="theme-switch" onClick={toggleTheme}>
-          Switch Theme
-        </button>
+        {/* Slide Toggle Button for Theme Change */}
+        <label className="theme-switch">
+        <div className="slider-shadow"></div>
+          <input
+            type="checkbox"
+            checked={isDarkTheme}
+            onChange={toggleTheme}
+          />
+          <span className="slider"></span>
+        </label>
       </div>
     </nav>
   );

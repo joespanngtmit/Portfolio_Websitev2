@@ -5,6 +5,8 @@
   --accent-color: #D136CA; /* Purple accent color */
   --light-bg-color: #f1f1f1; /* Light theme background color */
   --light-text-color: #333; /* Light theme text color */
+  --dark-slider-bg: url('../assets/dark.jpg'); /* Dark theme slider background */
+  --light-slider-bg: url('../assets/light.jpg'); /* Light theme slider background */
 }
 
 /* Apply global theme variables */
@@ -70,58 +72,110 @@ body {
   font-size: 18px;
 }
 
-/* Nav Links */
 .nav-links li a {
   text-decoration: none;
   color: var(--text-color); /* Dynamic text color based on theme */
   position: relative;
-  display: inline-block; /* Required for pseudo-element positioning */
-  transition: color 0.3s ease; /* Smooth color transition */
+  display: inline-block;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a::before {
   content: '';
   position: absolute;
-  bottom: 0; /* Position underline exactly at the bottom */
+  bottom: 0;
   left: 0;
-  width: 0; /* Initially, no underline */
-  height: 2px; /* Thickness of the underline */
-  background-color: var(--accent-color); /* Dynamic accent color */
-  transition: width 0.3s ease; /* Smooth underline animation */
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
 }
 
 .nav-links li a:hover::before {
-  width: 100%; /* Expand underline to full width */
+  width: 100%;
 }
 
 .nav-links li a:hover {
-  color: var(--accent-color); /* Change text color on hover */
+  color: var(--accent-color);
 }
 
-/* Theme Switch Button */
+/* Slide Toggle Button for Theme Change */
 .theme-switch {
-  padding: 8px 15px;
-  font-size: 14px;
-  font-weight: bold;
-  color: var(--text-color);
-  background-color: transparent;
-  border: 2px solid var(--text-color);
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  display: inline-block;
+  width: 170px; /* Adjusted width */
+  height: 50px; /* Adjusted height */
 }
 
-.theme-switch:hover {
-  background-color: var(--text-color);
-  color: var(--bg-color);
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  background-image: var(--dark-slider-bg); /* Default to dark theme image */
+  background-size: cover;
+  background-position: center;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+/* Shadow Effect for Slider */
+.slider-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--accent-color); /* Accent shadow color */
+  filter: blur(10px); /* Shadow blur */
+  border-radius: 50px;
+  z-index: -1; /* Place behind the slider */
+}
+
+/* Slider Button */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 42px; /* Increased size */
+  width: 42px; /* Increased size */
+  border-radius: 50px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+/* When checked, the slider moves */
+input:checked + .slider {
+  background-color: #4caf50; /* Light theme green */
+}
+
+input:checked + .slider:before {
+  transform: translateX(70px); /* Adjusted for wider slider */
+}
+
+/* When dark theme is active */
+body.dark-theme .theme-switch .slider {
+  background-image: var(--dark-slider-bg);
+}
+
+/* When light theme is active */
+body.light-theme .theme-switch .slider {
+  background-image: var(--light-slider-bg);
 }
 
 /* Hamburger Icon */
 .hamburger-icon {
-  display: none; /* Hidden by default on large screens */
+  display: none;
   cursor: pointer;
   flex-direction: column;
   gap: 5px;
@@ -150,71 +204,39 @@ body {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Show the menu when hamburger is clicked */
 .nav-links.show {
   display: flex;
   flex-direction: column;
   gap: 20px;
   position: absolute;
-  top: 80px; /* Position the menu below the navbar */
+  top: 80px;
   right: 0;
   background-color: var(--bg-color);
   width: 100%;
   padding: 20px;
   z-index: 5;
-  box-sizing: border-box; /* Make sure the padding does not cause overflow */
-  margin: 0; /* Remove margin to ensure it stays within screen bounds */
 }
 
-/* Ensure nav links are vertically centered in small screen */
 .nav-links.show li {
   font-size: 20px;
   text-align: center;
 }
 
-/* Make hamburger visible on small screens */
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* Hide nav links on small screens by default */
+    display: none;
   }
 
   .hamburger-icon {
-    display: flex; /* Show hamburger icon on small screens */
+    display: flex;
   }
 
   .theme-switch {
-    display: none; /* Hide theme switch button on small screens */
+    display: none;
   }
 
-  /* Logo size decrease for smaller screens */
   .logo {
-    font-size: 1.5rem; /* Reduce logo size */
+    font-size: 1.5rem;
     gap: 5px;
   }
-
-  .hamburger-icon {
-    height: 25px; /* Reduce hamburger icon height */
-    width: 25px; /* Reduce hamburger icon width */
-  }
-
-  .hamburger-icon .bar {
-    width: 25px; /* Reduce width of hamburger bars */
-    height: 3px; /* Reduce height of hamburger bars */
-  }
-
-  /* Position the navbar content in a single row on small screens */
-  .navbar-content {
-    flex-direction: row; /* Keep items in a row */
-    align-items: center; /* Center them vertically */
-    justify-content: space-between; /* Ensure space between logo and hamburger */
-  }
 }
-
-/* Prevent overlap with profile photo only on small screens */
-@media (max-width: 375px) {
-  /* Add top margin for profile section to prevent overlap */
-  .profile-photo {
-    margin-top: 120px; /* Ensure the profile photo starts below the navbar */
-  }
-}
-
