@@ -6,6 +6,7 @@ import SkillsTree from "./components/SkillsTree";
 import ConnectMe from "./components/ConnectMe";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import ParticlesBackground from "./components/ParticlesBackground"; // Import the particles background
 import './App.css'; // Ensure this file contains smooth scrolling CSS
 
 const App = () => {
@@ -23,6 +24,8 @@ const App = () => {
   return (
     <Router>
       <div className="App">
+        {/* Add the ParticleBackground component */}
+        <ParticlesBackground />
         <Navbar />
         {/* Sections with padding to avoid navbar overlap */}
         <div className="content-section home">
