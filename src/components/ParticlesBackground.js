@@ -29,9 +29,9 @@ const ParticleBackground = ({ themeColor }) => {
           },
         },
         particles: {
-          color: '#8f0d88', // Dynamic color for particles
+          color: '#8f0d88', // Fixed color for particle shape
           links: {
-            color: themeColor, // Dynamic color for particle links
+            color: themeColor, // Dynamic color for particle links based on themeColor
             distance: 150,
             enable: true,
             opacity: 0.5,

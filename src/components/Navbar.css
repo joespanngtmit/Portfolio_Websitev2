@@ -1,10 +1,10 @@
 /* Global Theme Variables */
 :root {
-  --bg-color: #0a0a0a; /* Default background (dark mode) */
-  --text-color: white; /* Default text color (light for dark mode) */
-  --accent-color: #D136CA; /* Purple accent color */
+  --bg-color: #0a0a0a; /* Dark mode background */
+  --text-color: white; /* Default text color (for dark mode) */
   --light-bg-color: #f1f1f1; /* Light theme background color */
-  --light-text-color: #333; /* Light theme text color */
+  --light-text-color: #0a0a0a; /* Light theme text color */
+  --accent-color: #D136CA; /* Accent color */
   --dark-slider-bg: url('../assets/dark.jpg'); /* Dark theme slider background */
   --light-slider-bg: url('../assets/light.jpg'); /* Light theme slider background */
 }
@@ -16,6 +16,19 @@ body {
   margin: 0;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* Dark Theme */
+body.dark-theme {
+  background-color: var(--bg-color); /* Dark theme background */
+  color: var(--text-color); /* White text */
+}
+
+/* Light Theme */
+body.light-theme {
+  background-color: var(--light-bg-color); /* Light theme background */
+  color: var(--light-text-color); /* Dark text for light theme */
+}
+
 
 /* Navbar Styling */
 .navbar {
@@ -53,8 +66,8 @@ body {
   color: var(--accent-color);
 }
 
-.goyal {
-  color: var(--text-color);
+body.light-theme .goyal {
+  color: var(--light-text-color);
 }
 
 /* Nav Links */
@@ -99,6 +112,26 @@ body {
   color: var(--accent-color);
 }
 
+
+/* Change text color in light theme */
+body.light-theme .nav-links li a {
+  color: var(--light-text-color); /* Dark text color for light theme */
+}
+
+body.light-theme .nav-links li a:hover {
+  color: var(--accent-color); /* Accent color remains the same */
+}
+
+/* Change text color in dark theme */
+body.dark-theme .nav-links li a {
+  color: var(--text-color); /* White text color for dark theme */
+}
+
+body.dark-theme .nav-links li a:hover {
+  color: var(--accent-color); /* Accent color remains the same */
+}
+
+
 /* Slide Toggle Button for Theme Change */
 .theme-switch {
   position: relative;
@@ -126,6 +159,16 @@ body {
   background-position: center;
   transition: 0.4s;
   border-radius: 50px;
+}
+
+/* When dark theme is active */
+body.dark-theme .theme-switch .slider {
+  background-image: var(--dark-slider-bg);
+}
+
+/* When light theme is active */
+body.light-theme .theme-switch .slider {
+  background-image: var(--light-slider-bg);
 }
 
 /* Shadow Effect for Slider */

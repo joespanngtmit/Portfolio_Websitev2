@@ -272,8 +272,6 @@ body.dark-theme .linkedin:hover {
   }
 }
 
-
-
 /* Global Loading State - Hides All Content Except Ball */
 body.loading * {
   visibility: hidden; /* Hides all content, including navbar and home components */

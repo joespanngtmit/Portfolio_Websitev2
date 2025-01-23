@@ -7,11 +7,11 @@ import ConnectMe from "./components/ConnectMe";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ParticlesBackground from "./components/ParticlesBackground"; // Import the particles background
+import { ThemeProvider } from "./components/ThemeContext"; // Import ThemeProvider
 import "./App.css"; // Ensure this file contains smooth scrolling CSS
 
 const App = () => {
   const [activeSection, setActiveSection] = useState("home"); // State to track the active section
-  const [themeColor, setThemeColor] = useState("#ffffff"); // State for dynamic particle color
 
   // Function to dynamically render the active section
   const renderActiveSection = () => {
@@ -30,25 +30,22 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <div className="App">
-        {/* Conditionally render ParticleBackground only on the Home page */}
-        {activeSection === "home" && <ParticlesBackground themeColor={themeColor} />}
+    <ThemeProvider>
+      <Router>
+        <div className="App">
+          {/* Conditionally render ParticleBackground only on the Home page */}
+          {activeSection === "home" && <ParticlesBackground />}
 
-        {/* Navbar passes the activeSection setter and themeColor setter */}
-        <Navbar 
-          setActiveSection={setActiveSection} 
-          setThemeColor={setThemeColor} 
-        />
-        
-        {/* Only render the active section */}
-        <div className="content-section">
-          {renderActiveSection()}
+          {/* Navbar passes the activeSection setter */}
+          <Navbar setActiveSection={setActiveSection} />
+
+          {/* Only render the active section */}
+          <div className="content-section">{renderActiveSection()}</div>
+
+          <Footer />
         </div>
-        
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </ThemeProvider>
   );
 };
 
