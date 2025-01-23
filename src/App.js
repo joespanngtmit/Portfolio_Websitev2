@@ -35,6 +35,7 @@ const App = () => {
         <div className="App">
           {/* Conditionally render ParticleBackground only on the Home page */}
           {activeSection === "home" && <ParticlesBackground />}
+          {activeSection === "ConnectMe" && <Footer />}
 
           {/* Navbar passes the activeSection setter */}
           <Navbar setActiveSection={setActiveSection} />
@@ -42,7 +43,7 @@ const App = () => {
           {/* Only render the active section */}
           <div className="content-section">{renderActiveSection()}</div>
 
-          <Footer />
+          
         </div>
       </Router>
     </ThemeProvider>

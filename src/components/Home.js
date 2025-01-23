@@ -136,9 +136,9 @@ function Home() {
 
           <button
             className="home-text"
-            onClick={() => (window.location.href = "/assets/resume.pdf")}
+            onClick={() => (window.location.href = "#about")}
           >
-            Download CV
+            Wan'na Connect
           </button>
         </div>
 

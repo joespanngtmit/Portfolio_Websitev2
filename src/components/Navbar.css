@@ -17,18 +17,16 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark Theme */
+/* Theme-specific styling */
 body.dark-theme {
-  background-color: var(--bg-color); /* Dark theme background */
-  color: var(--text-color); /* White text */
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
-/* Light Theme */
 body.light-theme {
-  background-color: var(--light-bg-color); /* Light theme background */
-  color: var(--light-text-color); /* Dark text for light theme */
+  background-color: var(--light-bg-color);
+  color: var(--light-text-color);
 }
-
 
 /* Navbar Styling */
 .navbar {
@@ -48,12 +46,11 @@ body.light-theme {
 .navbar-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   max-width: 1200px;
-  align-items: center;
 }
 
-/* Logo Styling */
 .logo {
   font-size: 2rem;
   font-weight: bold;
@@ -87,7 +84,7 @@ body.light-theme .goyal {
 
 .nav-links li a {
   text-decoration: none;
-  color: var(--text-color); /* Dynamic text color based on theme */
+  color: var(--text-color);
   position: relative;
   display: inline-block;
   transition: color 0.3s ease;
@@ -112,32 +109,33 @@ body.light-theme .goyal {
   color: var(--accent-color);
 }
 
-
-/* Change text color in light theme */
+/* Light Theme specific styles */
 body.light-theme .nav-links li a {
-  color: var(--light-text-color); /* Dark text color for light theme */
+  color: var(--light-text-color);
 }
 
 body.light-theme .nav-links li a:hover {
-  color: var(--accent-color); /* Accent color remains the same */
+  color: var(--accent-color);
 }
 
-/* Change text color in dark theme */
-body.dark-theme .nav-links li a {
-  color: var(--text-color); /* White text color for dark theme */
+/* Nav Links in Hamburger Menu */
+.nav-links.show {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.dark-theme .nav-links li a:hover {
-  color: var(--accent-color); /* Accent color remains the same */
+body.light-theme .nav-links.show {
+  background-color: var(--light-bg-color);
+  color: var(--light-text-color);
 }
-
 
 /* Slide Toggle Button for Theme Change */
 .theme-switch {
   position: relative;
   display: inline-block;
-  width: 170px; /* Adjusted width */
-  height: 50px; /* Adjusted height */
+  width: 170px;
+  height: 50px;
 }
 
 .theme-switch input {
@@ -146,6 +144,122 @@ body.dark-theme .nav-links li a:hover {
   height: 0;
 }
 
+/* Adjustments for Small Screens */
+@media (max-width: 768px) {
+  .theme-switch {
+    width: 80px;
+    height: 40px;
+  }
+
+  .theme-switch .slider:before {
+    height: 30px;
+    width: 30px;
+    left: 5px;
+    bottom: 5px;
+  }
+
+  .theme-switch input:checked + .slider:before {
+    transform: translateX(40px);
+  }
+
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .logo {
+    flex-grow: 1;
+    font-size: 1.5rem;
+    gap: 5px;
+  }
+
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Hamburger icon should be visible */
+  .hamburger-icon {
+    display: flex;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    z-index: 15;
+    transition: transform 0.3s ease;
+  }
+
+  .hamburger-icon:hover {
+    transform: scale(1.1);
+  }
+
+  .hamburger-icon .bar {
+    height: 4px;
+    width: 100%;
+    background-color: var(--text-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  body.light-theme .hamburger-icon .bar {
+    background-color: var(--light-text-color);
+  }
+
+  /* Animation for the open state */
+  .hamburger-icon.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger-icon.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-icon.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    background-color: var(--accent-color);
+  }
+
+  .hamburger-icon:not(.open) .bar {
+    background-color: var(--text-color);
+  }
+
+  .hamburger-icon .bar + .bar {
+    margin-top: 5px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger-icon {
+    display: flex;
+  }
+
+  .nav-links.show {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: var(--bg-color);
+    width: 100%;
+    padding: 20px;
+    z-index: 5;
+  }
+
+  .nav-links.show li {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+/* Slider Styles */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -154,42 +268,39 @@ body.dark-theme .nav-links li a:hover {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  background-image: var(--dark-slider-bg); /* Default to dark theme image */
+  background-image: var(--dark-slider-bg);
   background-size: cover;
   background-position: center;
   transition: 0.4s;
   border-radius: 50px;
 }
 
-/* When dark theme is active */
 body.dark-theme .theme-switch .slider {
   background-image: var(--dark-slider-bg);
 }
 
-/* When light theme is active */
 body.light-theme .theme-switch .slider {
   background-image: var(--light-slider-bg);
 }
 
-/* Shadow Effect for Slider */
 .slider-shadow {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--accent-color); /* Accent shadow color */
-  filter: blur(10px); /* Shadow blur */
+  background: var(--accent-color);
+  filter: blur(10px);
   border-radius: 50px;
-  z-index: -1; /* Place behind the slider */
+  z-index: -1;
 }
 
-/* Slider Button */
+/* General Slider Button Style */
 .slider:before {
   position: absolute;
   content: "";
-  height: 42px; /* Increased size */
-  width: 42px; /* Increased size */
+  height: 42px;
+  width: 42px;
   border-radius: 50px;
   left: 4px;
   bottom: 4px;
@@ -199,87 +310,9 @@ body.light-theme .theme-switch .slider {
 
 /* When checked, the slider moves */
 input:checked + .slider {
-  background-color: #4caf50; /* Light theme green */
+  background-color: #4caf50;
 }
 
 input:checked + .slider:before {
-  transform: translateX(70px); /* Adjusted for wider slider */
-}
-
-/* When dark theme is active */
-body.dark-theme .theme-switch .slider {
-  background-image: var(--dark-slider-bg);
-}
-
-/* When light theme is active */
-body.light-theme .theme-switch .slider {
-  background-image: var(--light-slider-bg);
-}
-
-/* Hamburger Icon */
-.hamburger-icon {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 5px;
-  justify-content: space-around;
-  height: 30px;
-  width: 30px;
-}
-
-.hamburger-icon .bar {
-  width: 30px;
-  height: 4px;
-  background-color: var(--text-color);
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
-.hamburger-icon.open .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger-icon.open .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-icon.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-.nav-links.show {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: absolute;
-  top: 80px;
-  right: 0;
-  background-color: var(--bg-color);
-  width: 100%;
-  padding: 20px;
-  z-index: 5;
-}
-
-.nav-links.show li {
-  font-size: 20px;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .hamburger-icon {
-    display: flex;
-  }
-
-  .theme-switch {
-    display: none;
-  }
-
-  .logo {
-    font-size: 1.5rem;
-    gap: 5px;
-  }
+  transform: translateX(70px);
 }

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
-import ParticleBackground from './ParticlesBackground'; // Import your ParticleBackground component
+import ParticleBackground from "./ParticlesBackground"; // Import your ParticleBackground component
 import "./Navbar.css";
 
 const Navbar = ({ setActiveSection }) => {
@@ -22,7 +22,7 @@ const Navbar = ({ setActiveSection }) => {
     <>
       {/* Pass themeColor to the ParticleBackground */}
       <ParticleBackground themeColor={themeColor} />
-      
+
       <nav className={`navbar ${isDarkTheme ? "dark-navbar" : "light-navbar"}`}>
         <div className="navbar-content">
           <div className="logo">
@@ -33,10 +33,13 @@ const Navbar = ({ setActiveSection }) => {
           <div
             className={`hamburger-icon ${isMenuOpen ? "open" : ""}`}
             onClick={toggleMenu}
+            role="button"
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle navigation menu"
           >
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
           </div>
 
           <ul className={`nav-links ${isMenuOpen ? "show" : ""}`}>
