@@ -1,9 +1,11 @@
+// App.js
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/AboutMe";
-import SkillsTree from "./components/SkillsTree";
+import Skills from "./components/Skills";
 import ConnectMe from "./components/ConnectMe";
+import AllCertifications from "./components/AllCertifications"; // Import the new component
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./components/ThemeContext";
@@ -21,8 +23,9 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/skills" element={<SkillsTree />} />
+              <Route path="/skills" element={<Skills />} />
               <Route path="/connect" element={<ConnectMe />} />
+              <Route path="/certifications" element={<AllCertifications />} /> {/* New route */}
             </Routes>
           </div>
           <Footer />

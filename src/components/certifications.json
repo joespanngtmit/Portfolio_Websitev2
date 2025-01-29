@@ -1,0 +1,42 @@
+[
+    {
+      "name": "Certified Data Analyst",
+      "issuer": "Data Analysis Institute",
+      "date": "June 2023"
+    },
+    {
+      "name": "Certified Python Developer",
+      "issuer": "Python Certification Board",
+      "date": "August 2023"
+    },
+    {
+      "name": "Certified Machine Learning Engineer",
+      "issuer": "Machine Learning Academy",
+      "date": "October 2023"
+    },
+    {
+      "name": "Certified Data Scientist",
+      "issuer": "Data Science Academy",
+      "date": "December 2023"
+    },
+    {
+      "name": "Certified Full Stack Developer",
+      "issuer": "Full Stack Institute",
+      "date": "February 2024"
+    },
+    {
+      "name": "Certified Cybersecurity Analyst",
+      "issuer": "Cybersecurity Institute",
+      "date": "April 2024"
+    },
+    {
+        "name": "Certified Cybersecurity Analyst",
+        "issuer": "Cybersecurity Institute",
+        "date": "April 2024"
+      },
+      {
+        "name": "Certified Cybersecurity Analyst",
+        "issuer": "Cybersecurity Institute",
+        "date": "April 2024"
+      }
+  ]
