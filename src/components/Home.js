@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
 import {
   FaFacebook,
@@ -23,7 +23,7 @@ function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [profilePic, setProfilePic] = useState(profileDark); // Default profile picture for dark theme
-  const textArray = ["Data Analyst", "Python Developer", "Photographer"];
+  const textArray = useMemo(() => ["Data Analyst", "Python Developer", "Photographer"], []);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -67,6 +67,9 @@ function Home() {
     }
   }, [charIndex, currentIndex, textArray]);
 
+  // Determine the theme color based on the current theme
+  const themeColor = isDarkTheme ? '#ffffff' : '#000000';
+
   return (
     <section
       id="home"
@@ -75,7 +78,7 @@ function Home() {
       aria-labelledby="home-title"
     >
       {/* Particle Background */}
-      <ParticleBackground />
+      <ParticleBackground themeColor={themeColor} />
 
       <div className="home-container">
         {/* Loading Animation */}
@@ -154,7 +157,6 @@ function Home() {
             src={profilePic} // Dynamic profile picture based on theme
             alt="Rohan Goyal"
             className="profile-pic"
-            role="img"
             aria-label="Profile picture of Rohan Goyal"
           />
         </div>

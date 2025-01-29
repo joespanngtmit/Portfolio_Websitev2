@@ -1,69 +1,56 @@
 import React from 'react';
-import '../components/AboutMe.css';
+import './AboutMe.css';
 
-function About() {
+const AboutMe = () => {
   return (
-    <section className="about-section" aria-labelledby="about-title">
-      {/* Left Column - Profile Image */}
-      <div className="about-left">
-        <img
-          src="profile.jpg"
-          alt="Rohan Goyal"
-          className="profile-image"
-          role="img"
-          aria-label="Profile picture of Rohan Goyal"
-        />
-      </div>
-
-      {/* Right Column - Content */}
-      <div className="about-right">
-        <h2 className="about-title" id="about-title">
-          About Me
-        </h2>
-        <p className="about-description">
-          I'm Rohan Goyal, a passionate Data Analyst with over 3 years of experience. I specialize in Python, SQL, and Data Visualization tools like Tableau and Power BI. My mission is to transform complex data into actionable insights and drive impactful decision-making.
-        </p>
-
-        {/* Skills Section */}
-        <div className="skills" aria-labelledby="skills-label">
-          <span className="skill-badge" role="button" aria-label="Python skill badge">
-            Python
-          </span>
-          <span className="skill-badge" role="button" aria-label="SQL skill badge">
-            SQL
-          </span>
-          <span className="skill-badge" role="button" aria-label="Tableau skill badge">
-            Tableau
-          </span>
-          <span className="skill-badge" role="button" aria-label="Power BI skill badge">
-            Power BI
-          </span>
-          <span className="skill-badge" role="button" aria-label="Excel skill badge">
-            Excel
-          </span>
-          <span className="skill-badge" role="button" aria-label="Data Cleaning skill badge">
-            Data Cleaning
-          </span>
-          <span className="skill-badge" role="button" aria-label="Machine Learning skill badge">
-            Machine Learning
-          </span>
-        </div>
-
-        {/* Call-to-Action Button */}
-        <div style={{ marginTop: '30px' }}>
-          <a
-            href="/resume.pdf"
-            download
-            className="cta-button"
-            role="button"
-            aria-label="Download Rohan Goyal's resume"
-          >
-            Download Resume
-          </a>
+    <section className="about-me-section" aria-labelledby="about-me-title">
+      <div className="about-me-container">
+        <h2 id="about-me-title" className="about-me-title">About Me</h2>
+        <div className="about-me-card">
+          <div className="about-me-profile-picture">
+            <img src="profile.jpg" alt="Rohan Goyal" className="about-me-profile-image" />
+          </div>
+          <div className="about-me-content">
+            <p className="about-me-introduction">
+              I'm Rohan Goyal, a passionate Data Analyst with over 3 years of experience. I specialize in Python, SQL, and Data Visualization tools like Tableau and Power BI. My mission is to transform complex data into actionable insights and drive impactful decision-making.
+            </p>
+            <div className="about-me-key-details">
+              <div className="about-me-detail-item">
+                <h3 className="about-me-detail-title">Skills</h3>
+                <ul className="about-me-detail-list">
+                  <li>Python</li>
+                  <li>SQL</li>
+                  <li>Tableau</li>
+                  <li>Power BI</li>
+                  <li>Excel</li>
+                </ul>
+              </div>
+              <div className="about-me-detail-item">
+                <h3 className="about-me-detail-title">Experience</h3>
+                <ul className="about-me-detail-list">
+                  <li>Data Analyst - 3 years</li>
+                  <li>Python Developer - 2 years</li>
+                </ul>
+              </div>
+              <div className="about-me-detail-item">
+                <h3 className="about-me-detail-title">Personal Traits</h3>
+                <ul className="about-me-detail-list">
+                  <li>Creative</li>
+                  <li>Tech-savvy</li>
+                  <li>Analytical</li>
+                </ul>
+              </div>
+            </div>
+            <div className="about-me-cta-button">
+              <a href="/resume.pdf" download className="about-me-download-resume">
+                Download Resume
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default About;
+export default AboutMe;

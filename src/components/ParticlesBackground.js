@@ -2,7 +2,6 @@ import React from "react";
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import '../components/ParticlesBackground'
 
 const ParticleBackground = ({ themeColor }) => {
   const particlesInit = useCallback(async (engine) => {
@@ -15,7 +14,7 @@ const ParticleBackground = ({ themeColor }) => {
       init={particlesInit}
       options={{
         background: {
-          color: { value: "" },
+          color: { value: "" }, // Transparent background
         },
         fpsLimit: 60,
         interactivity: {
@@ -29,7 +28,7 @@ const ParticleBackground = ({ themeColor }) => {
           },
         },
         particles: {
-          color: '#8f0d88', // Fixed color for particle shape
+          color: '#D136CA', // Use themeColor for particle color
           links: {
             color: themeColor, // Dynamic color for particle links based on themeColor
             distance: 150,

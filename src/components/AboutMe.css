@@ -1,134 +1,133 @@
-/* Updated AboutMe.css */
+.about-me-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
 
-/* General Styles for the About Section */
-.about-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 60px 10%;
-    color: #f5f5f5; /* Soft white for better readability */
-    min-height: 100vh;
+.about-me-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-me-container {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.about-me-card {
+  /* background-color: var(--light-bg-color); */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-me-profile-picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 5px solid var(--accent-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.about-me-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-me-content {
+  width: 100%;
+  max-width: 600px;
+}
+
+.about-me-introduction {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.about-me-key-details {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.about-me-detail-item {
+  flex: 1;
+  margin: 10px;
+}
+
+.about-me-detail-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--accent-color);
+}
+
+.about-me-detail-list {
+  list-style: none;
+  padding: 0;
+}
+
+.about-me-detail-list li {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.about-me-cta-button {
+  text-align: center;
+}
+
+.about-me-download-resume {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color));
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.about-me-download-resume:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .about-me-card {
+    flex-direction: column;
   }
-  
-  /* Left Section Styling */
-  .about-left {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .about-me-profile-picture {
+    margin-bottom: 40px;
   }
-  
-  .profile-image {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    border: 5px solid rgba(106, 13, 173, 0.8); /* Bright Purple Border */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease;
+
+  .about-me-key-details {
+    flex-direction: column;
   }
-  
-  .profile-image:hover {
-    transform: scale(1.05);
+
+  .about-me-detail-item {
+    margin: 10px 0;
   }
-  
-  /* Right Section Styling */
-  .about-right {
-    flex: 2;
-    padding-left: 40px;
-  }
-  
-  .about-title {
-    font-size: 2.8rem;
-    font-weight: 700;
-    background: linear-gradient(90deg, #8a2be2, #00c6ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
-  }
-  
-  .about-description {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #dcdcdc; /* Light gray for a softer look */
-    margin-bottom: 30px;
-  }
-  
-  /* Skill Badges */
-  .skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  
-  .skill-badge {
-    padding: 10px 20px;
-    border: 2px solid #8a2be2; /* Bright Purple */
-    border-radius: 30px;
-    background: rgba(138, 43, 226, 0.2); /* Soft Purple Background */
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .skill-badge:hover {
-    background: #8a2be2; /* Bright Purple on Hover */
-    color: #ffffff;
-    transform: scale(1.1);
-  }
-  
-  /* Call-to-Action Button */
-  .cta-button {
-    display: inline-block;
-    padding: 12px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #ffffff;
-    background: linear-gradient(90deg, #8a2be2, #00c6ff);
-    border: none;
-    border-radius: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    text-decoration: none;
-  }
-  
-  .cta-button:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-    transform: translateY(-3px);
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .about-section {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .about-left {
-      margin-bottom: 20px;
-    }
-  
-    .about-right {
-      padding-left: 0;
-    }
-  
-    .about-title {
-      font-size: 2.2rem;
-    }
-  
-    .about-description {
-      font-size: 1rem;
-    }
-  
-    .skill-badge {
-      font-size: 0.9rem;
-      padding: 8px 16px;
-    }
-  
-    .cta-button {
-      font-size: 0.9rem;
-      padding: 10px 25px;
-    }
-  }
-  
+}
