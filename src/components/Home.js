@@ -72,6 +72,7 @@ function Home() {
       id="home"
       className={`home-section ${homeInView ? "animate-in" : ""}`}
       ref={homeRef}
+      aria-labelledby="home-title"
     >
       {/* Particle Background */}
       <ParticleBackground />
@@ -89,7 +90,7 @@ function Home() {
           }`}
         >
           <p>Hello, I'm</p>
-          <h1>Rohan Goyal</h1>
+          <h1 id="home-title">Rohan Goyal</h1>
           <h2>
             And I'm a <span>{text}</span>
           </h2>
@@ -99,12 +100,13 @@ function Home() {
             capturing life’s essence. I blend data, code, and creativity to
             solve complex problems and create lasting memories.
           </p>
-          <div className="social-icons">
+          <div className="social-icons" aria-label="Social media links">
             <a
               href="https://facebook.com/yourhandle"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon facebook"
+              aria-label="Facebook profile"
             >
               <FaFacebook size={30} />
             </a>
@@ -113,6 +115,7 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon x-icon"
+              aria-label="X profile"
             >
               <FaXTwitter size={30} /> {/* X Twitter logo */}
             </a>
@@ -121,6 +124,7 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon instagram"
+              aria-label="Instagram profile"
             >
               <FaInstagram size={30} />
             </a>
@@ -129,6 +133,7 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon linkedin"
+              aria-label="LinkedIn profile"
             >
               <FaLinkedin size={30} />
             </a>
@@ -137,6 +142,7 @@ function Home() {
           <button
             className="home-text"
             onClick={() => (window.location.href = "#about")}
+            aria-label="Navigate to About section"
           >
             Wan'na Connect
           </button>
@@ -148,6 +154,8 @@ function Home() {
             src={profilePic} // Dynamic profile picture based on theme
             alt="Rohan Goyal"
             className="profile-pic"
+            role="img"
+            aria-label="Profile picture of Rohan Goyal"
           />
         </div>
       </div>

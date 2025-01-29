@@ -36,42 +36,69 @@ const Navbar = ({ setActiveSection }) => {
             role="button"
             aria-expanded={isMenuOpen}
             aria-label="Toggle navigation menu"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                toggleMenu();
+              }
+            }}
           >
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
           </div>
 
-          <ul className={`nav-links ${isMenuOpen ? "show" : ""}`}>
-            <li>
-              <a href="#home" onClick={() => handleNavClick("home")}>
+          <ul
+            className={`nav-links ${isMenuOpen ? "show" : ""}`}
+            role="navigation"
+            aria-label="Main navigation"
+          >
+            <li role="presentation">
+              <a
+                href="#home"
+                onClick={() => handleNavClick("home")}
+                aria-label="Home section"
+              >
                 Home
               </a>
             </li>
-            <li>
-              <a href="#about" onClick={() => handleNavClick("about")}>
+            <li role="presentation">
+              <a
+                href="#about"
+                onClick={() => handleNavClick("about")}
+                aria-label="About section"
+              >
                 About
               </a>
             </li>
-            <li>
-              <a href="#skills" onClick={() => handleNavClick("skills")}>
+            <li role="presentation">
+              <a
+                href="#skills"
+                onClick={() => handleNavClick("skills")}
+                aria-label="Skills section"
+              >
                 Skills
               </a>
             </li>
-            <li>
-              <a href="#connect" onClick={() => handleNavClick("connect")}>
+            <li role="presentation">
+              <a
+                href="#connect"
+                onClick={() => handleNavClick("connect")}
+                aria-label="Connect section"
+              >
                 Connect
               </a>
             </li>
           </ul>
 
           {/* Slide Toggle Button for Theme Change */}
-          <label className="theme-switch">
+          <label className="theme-switch" role="switch" aria-checked={!isDarkTheme}>
             <div className="slider-shadow"></div>
             <input
               type="checkbox"
               checked={!isDarkTheme} // Checkbox reflects the opposite of isDarkTheme
               onChange={toggleTheme} // Toggle the theme when switched
+              aria-label="Toggle theme"
             />
             <span className="slider"></span>
           </label>
