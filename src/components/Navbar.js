@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
@@ -7,6 +7,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
   const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [top, setTop] = useState(0); // State to manage the top position of the navbar
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -18,8 +19,28 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     navigate(`/${section}`);
   };
 
+  useEffect(() => {
+    let lastScrollTop = 0;
+
+    const handleScroll = () => {
+      const currentScrollTop = window.pageYOffset;
+      if (currentScrollTop > lastScrollTop) {
+        setTop(-80); // Hide navbar
+      } else {
+        setTop(0); // Show navbar
+      }
+      lastScrollTop = currentScrollTop;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className={`navbar ${isDarkTheme ? "dark-navbar" : "light-navbar"}`}>
+    <nav
+      className={`navbar ${isDarkTheme ? "dark-navbar" : "light-navbar"}`}
+      style={{ top: `${top}px` }}
+    >
       <div className="navbar-content">
         <div className="logo">
           <span className="rohan">Rohan</span>

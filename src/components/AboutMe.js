@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./AboutMe.css";
 import profileDark from "../assets/profile.jpg";
 import profileLight from "../assets/profile1.jpg";
@@ -6,6 +6,14 @@ import { ThemeContext } from "../components/ThemeContext";
 
 const AboutMe = () => {
   const { isDarkTheme } = useContext(ThemeContext); // Access theme context
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleDownloadClick = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 1000); // Adjust the duration based on your animation
+  };
 
   return (
     <section className="about-me-section" aria-labelledby="about-me-title">
@@ -48,14 +56,8 @@ const AboutMe = () => {
               <a
                 href="/resume.pdf"
                 download
-                className="about-me-download-resume"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.scrollTo({
-                    top: document.body.scrollHeight,
-                    behavior: "smooth",
-                  });
-                }}
+                className={`about-me-download-resume ${isAnimating ? 'animating' : ''}`}
+                onClick={handleDownloadClick}
                 aria-label="Download Rohan Goyal's Resume"
               >
                 Download Resume 📝
