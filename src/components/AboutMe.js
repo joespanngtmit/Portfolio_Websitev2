@@ -1,49 +1,64 @@
-import React from 'react';
-import './AboutMe.css';
+import React, { useContext } from "react";
+import "./AboutMe.css";
+import profileDark from "../assets/profile.jpg";
+import profileLight from "../assets/profile1.jpg";
+import { ThemeContext } from "../components/ThemeContext";
 
 const AboutMe = () => {
+  const { isDarkTheme } = useContext(ThemeContext); // Access theme context
+
   return (
     <section className="about-me-section" aria-labelledby="about-me-title">
       <div className="about-me-container">
-        <h2 id="about-me-title" className="about-me-title">About Me</h2>
+        <h2 id="about-me-title" className="about-me-title">
+          👋 About Me
+        </h2>
         <div className="about-me-card">
           <div className="about-me-profile-picture">
-            <img src="profile.jpg" alt="Rohan Goyal" className="about-me-profile-image" />
+            <img
+              src={isDarkTheme ? profileDark : profileLight} // Dynamic profile picture based on theme
+              alt="Rohan Goyal"
+              className="about-me-profile-image"
+              onMouseEnter={(e) => (e.target.style.transform = "scale(1.05)")}
+              onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+            />
           </div>
           <div className="about-me-content">
             <p className="about-me-introduction">
-              I'm Rohan Goyal, a passionate Data Analyst with over 3 years of experience. I specialize in Python, SQL, and Data Visualization tools like Tableau and Power BI. My mission is to transform complex data into actionable insights and drive impactful decision-making.
+              Hey there! I'm Rohan Goyal, a passionate Data Analyst with over 3
+              years of experience. 📊 I love diving into complex data and
+              uncovering hidden insights that drive impactful decisions. 🚀
             </p>
-            <div className="about-me-key-details">
-              <div className="about-me-detail-item">
-                <h3 className="about-me-detail-title">Skills</h3>
-                <ul className="about-me-detail-list">
-                  <li>Python</li>
-                  <li>SQL</li>
-                  <li>Tableau</li>
-                  <li>Power BI</li>
-                  <li>Excel</li>
-                </ul>
-              </div>
-              <div className="about-me-detail-item">
-                <h3 className="about-me-detail-title">Experience</h3>
-                <ul className="about-me-detail-list">
-                  <li>Data Analyst - 3 years</li>
-                  <li>Python Developer - 2 years</li>
-                </ul>
-              </div>
-              <div className="about-me-detail-item">
-                <h3 className="about-me-detail-title">Personal Traits</h3>
-                <ul className="about-me-detail-list">
-                  <li>Creative</li>
-                  <li>Tech-savvy</li>
-                  <li>Analytical</li>
-                </ul>
-              </div>
-            </div>
+            <p className="about-me-introduction">
+              When I'm not crunching numbers, you can find me behind the camera,
+              capturing life's moments through my lens. 📸 I'm also a big fan of
+              hitting the open road on my bike, feeling the wind in my hair, and
+              exploring new places. 🚴‍♂️
+            </p>
+            <p className="about-me-introduction">
+              I believe in blending creativity with technical expertise to solve
+              complex problems and create lasting memories. 🎨💡 My mission is
+              to keep growing, learning, and making a meaningful impact, both in
+              my professional and personal life.
+            </p>
+            <blockquote className="about-me-quote">
+              "The journey of a thousand miles begins with one step." - Lao Tzu
+            </blockquote>
             <div className="about-me-cta-button">
-              <a href="/resume.pdf" download className="about-me-download-resume">
-                Download Resume
+              <a
+                href="/resume.pdf"
+                download
+                className="about-me-download-resume"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: "smooth",
+                  });
+                }}
+                aria-label="Download Rohan Goyal's Resume"
+              >
+                Download Resume 📝
               </a>
             </div>
           </div>
