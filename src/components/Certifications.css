@@ -13,6 +13,9 @@
   font-weight: bold;
   margin-bottom: 20px;
   color: var(--accent-color);
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-50px); /* Initial position for slideDown */
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .certifications-list {
@@ -36,9 +39,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 1; /* Initially visible */
-  transform: translateY(0); /* Initial position */
-  transition: opacity 1s ease, transform 1s ease;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Initial position for slideUp */
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  will-change: opacity, transform; /* Hint for browser */
 }
 
 /* Inner flipping container */
@@ -131,6 +135,18 @@
   from {
     opacity: 0;
     transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
   }
   to {
     opacity: 1;

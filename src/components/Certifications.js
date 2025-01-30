@@ -9,22 +9,29 @@ const Certifications = ({ limit }) => {
     const handleScroll = () => {
       const certificationsContainer = certificationsRef.current;
       const certifications = certificationsContainer.querySelectorAll('.certification-card');
+      const heading = certificationsContainer.querySelector('.certifications-title');
       const certificationsContainerTop = certificationsContainer.getBoundingClientRect().top;
       const certificationsContainerBottom = certificationsContainer.getBoundingClientRect().bottom;
       const windowHeight = window.innerHeight;
 
       if (certificationsContainerTop < windowHeight && certificationsContainerBottom > 0) {
-        // Certifications are in view, show them
+        // Certifications and heading are in view, show them
         certifications.forEach((cert, index) => {
           cert.style.animation = `slideUp 1.5s ease forwards`;
           cert.style.animationDelay = `${index * 0.3}s`;
         });
+
+        // Show the heading
+        heading.style.animation = `slideDown 1.5s ease forwards`;
       } else {
-        // Certifications are not in view, hide them
+        // Certifications and heading are not in view, hide them
         certifications.forEach((cert, index) => {
           cert.style.animation = `fadeOut 1.5s ease forwards`;
           cert.style.animationDelay = `${index * 0.3}s`;
         });
+
+        // Hide the heading
+        heading.style.animation = `fadeOut 1.5s ease forwards`;
       }
     };
 
