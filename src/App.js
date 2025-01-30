@@ -1,14 +1,14 @@
 // App.js
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/AboutMe";
-import Skills from "./components/Skills";
+import Home from "./components/Home/Home";
+import About from "./components/Aboutme/AboutMe";
+import Skills from "./components/Skills/Skills";
 import ConnectMe from "./components/ConnectMe";
-import AllCertifications from "./components/AllCertifications"; // Import the new component
+import AllCertifications from "./components/Certification/AllCertifications"; // Import the new component
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import { ThemeProvider } from "./components/ThemeContext";
+import Navbar from "./components/Navbar/Navbar";
+import { ThemeProvider } from "./components/ParticleBackground/ThemeContext";
 import "./App.css";
 
 const App = () => {

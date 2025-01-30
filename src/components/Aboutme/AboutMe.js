@@ -1,50 +1,45 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import "./AboutMe.css";
-import profileDark from "../assets/profile.jpg";
-import profileLight from "../assets/profile1.jpg";
-import { ThemeContext } from "../components/ThemeContext";
+import profileDark from "../../assets/profile.jpg";
+import profileLight from "../../assets/profile1.jpg";
+import { ThemeContext } from "../ParticleBackground/ThemeContext";
 
 const AboutMe = () => {
   const { isDarkTheme } = useContext(ThemeContext); // Access theme context
   const aboutMeRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const aboutMeContainer = aboutMeRef.current;
-      const aboutMeElements = aboutMeContainer.querySelectorAll('.about-me-title, .about-me-card, .about-me-introduction, .about-me-quote');
-      const aboutMeContainerTop = aboutMeContainer.getBoundingClientRect().top;
-      const aboutMeContainerBottom = aboutMeContainer.getBoundingClientRect().bottom;
-      const windowHeight = window.innerHeight;
+  const handleScroll = () => {
+    const aboutMeContainer = aboutMeRef.current;
+    const aboutMeElements = aboutMeContainer.querySelectorAll('.about-me-title, .about-me-card, .about-me-introduction, .about-me-quote');
+    const aboutMeContainerTop = aboutMeContainer.getBoundingClientRect().top;
+    const aboutMeContainerBottom = aboutMeContainer.getBoundingClientRect().bottom;
+    const windowHeight = window.innerHeight;
 
-      if (aboutMeContainerTop < windowHeight && aboutMeContainerBottom > 0) {
-        // About Me section is in view, show elements
-        aboutMeElements.forEach((element, index) => {
-          if (element.classList.contains('about-me-title')) {
-            element.style.animation = `slideDown 1.5s ease forwards`;
-          } else if (element.classList.contains('about-me-card')) {
-            element.style.animation = `slideUp 1.5s ease forwards`;
-            element.style.animationDelay = `${index * 0.3}s`;
-          } else if (element.classList.contains('about-me-introduction') || element.classList.contains('about-me-quote')) {
-            element.style.animation = `fadeIn 1.5s ease forwards`;
-            element.style.animationDelay = `${index * 0.3}s`;
-          }
-        });
-      } else {
-        // About Me section is not in view, hide elements
-        aboutMeElements.forEach((element, index) => {
-          element.style.animation = `fadeOut 1.5s ease forwards`;
+    if (aboutMeContainerTop < windowHeight && aboutMeContainerBottom > 0) {
+      aboutMeElements.forEach((element, index) => {
+        if (element.classList.contains('about-me-title')) {
+          element.style.animation = `slideDown 1.5s ease forwards`;
+        } else if (element.classList.contains('about-me-card')) {
+          element.style.animation = `slideUp 1.5s ease forwards`;
           element.style.animationDelay = `${index * 0.3}s`;
-        });
-      }
-    };
+        } else if (element.classList.contains('about-me-introduction') || element.classList.contains('about-me-quote')) {
+          element.style.animation = `fadeIn 1.5s ease forwards`;
+          element.style.animationDelay = `${index * 0.3}s`;
+        }
+      });
+    } else {
+      aboutMeElements.forEach((element, index) => {
+        element.style.animation = `fadeOut 1.5s ease forwards`;
+        element.style.animationDelay = `${index * 0.3}s`;
+      });
+    }
+  };
 
-    // Trigger animations when the component mounts
-    handleScroll();
-
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  handleScroll();
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []); // Empty dependency array to run only once
 
   return (
     <section className="about-me-section" aria-labelledby="about-me-title" ref={aboutMeRef}>

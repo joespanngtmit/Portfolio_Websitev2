@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { ThemeContext } from "./ThemeContext";
+import { ThemeContext } from "../ParticleBackground/ThemeContext";
 import { useNavigate } from "react-router-dom";
-import "./Navbar.css";
+import "../Navbar/Navbar.css";
 
 const Navbar = ({ activeSection, setActiveSection }) => {
   const { isDarkTheme, toggleTheme } = useContext(ThemeContext);

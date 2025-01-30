@@ -6,16 +6,16 @@ import {
   FaLinkedin,
   FaXTwitter,
 } from "react-icons/fa6";
-import "../App.css"; // Global styles for the app
-import "../components/Home.css"; // Home section-specific styles
-import ParticleBackground from "./ParticlesBackground";
+import "../../App.css"; // Global styles for the app
+import "../Home/Home.css"; // Home section-specific styles
+import ParticleBackground from "../ParticleBackground/ParticlesBackground";
 
 // Import images for both dark and light themes
-import profileDark from "../assets/profile.jpg";
-import profileLight from "../assets/profile1.jpg";
+import profileDark from "../../assets/profile.jpg";
+import profileLight from "../../assets/profile1.jpg";
 
 // Import ThemeContext
-import { ThemeContext } from "../components/ThemeContext";
+import { ThemeContext } from "../ParticleBackground/ThemeContext";
 
 function Home() {
   const { isDarkTheme } = useContext(ThemeContext); // Access theme context

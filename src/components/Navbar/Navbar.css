@@ -4,8 +4,8 @@
   --light-bg-color: #f1f1f1; /* Light theme background color */
   --light-text-color: #0a0a0a; /* Light theme text color */
   --accent-color: #D136CA; /* Accent color */
-  --dark-slider-bg: url('../assets/dark.jpg'); /* Dark theme slider background */
-  --light-slider-bg: url('../assets/light.jpg'); /* Light theme slider background */
+  --dark-slider-bg: url('../../assets/dark.jpg'); /* Dark theme slider background */
+  --light-slider-bg: url('../../assets/light.jpg'); /* Light theme slider background */
 }
 
 body.dark-theme {

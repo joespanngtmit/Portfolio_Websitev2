@@ -1,11 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Skills.css';
-import skillsData from '../components/Skills.json';
-import Certifications from './Certifications';
+import skillsData from '../Skills/Skills.json';
+import Certifications from '../Certification/Certifications';
 
 const Skills = () => {
   const [expandedSkill, setExpandedSkill] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const skillsRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const skillsContainer = skillsRef.current;
+      const skillsContainerTop = skillsContainer.getBoundingClientRect().top;
+      const skillsContainerBottom = skillsContainer.getBoundingClientRect().bottom;
+      const windowHeight = window.innerHeight;
+
+      if (skillsContainerTop < windowHeight && skillsContainerBottom > 0) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleSkillClick = (skill) => {
     if (expandedSkill === skill) {
@@ -28,7 +49,7 @@ const Skills = () => {
   };
 
   return (
-    <div className="hierarchy">
+    <div className={`hierarchy ${isVisible ? 'visible' : ''}`} ref={skillsRef}>
       <div className="node ceo">
         <h2>My Skills</h2>
       </div>
