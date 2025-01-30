@@ -102,6 +102,16 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </li>
           <li role="presentation">
             <a
+              href="/education"
+              onClick={() => handleNavClick("Education")}
+              className={activeSection === "education" ? "active" : ""}
+              aria-label="Education section"
+            >
+              Education
+            </a>
+          </li>
+          <li role="presentation">
+            <a
               href="/connect"
               onClick={() => handleNavClick("connect")}
               className={activeSection === "connect" ? "active" : ""}
@@ -112,7 +122,11 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </li>
         </ul>
 
-        <label className="theme-switch" role="switch" aria-checked={!isDarkTheme}>
+        <label
+          className="theme-switch"
+          role="switch"
+          aria-checked={!isDarkTheme}
+        >
           <div className="slider-shadow"></div>
           <input
             type="checkbox"

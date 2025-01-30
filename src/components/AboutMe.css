@@ -23,6 +23,7 @@ body.light-theme {
   margin-bottom: 40px;
   background: linear-gradient(90deg, var(--accent-color), var(--accent-color));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
   position: relative;
