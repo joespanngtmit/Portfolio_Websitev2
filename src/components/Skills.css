@@ -1,3 +1,4 @@
+/* Skills Section Styling */
 .hierarchy {
   display: flex;
   flex-direction: column;
@@ -32,6 +33,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  opacity: 0; /* Initially hidden */
+  transform: translateX(-50px); /* Initial position for slideLeft */
+}
+
+.manager:nth-child(4), .manager:nth-child(5), .manager:nth-child(6) {
+  transform: translateX(50px); /* Initial position for slideRight */
 }
 
 .manager:hover {
@@ -117,9 +124,77 @@
 .sub-managers.visible {
   opacity: 1;
   transform: translateY(0);
-  animation: fadeIn 0.5s ease forwards;
+  animation: fadeIn 1s ease forwards;
 }
 
 .sub-managers.hidden {
-  animation: fadeOut 0.5s ease forwards;
+  animation: fadeOut 1s ease forwards;
+}
+
+/* Slide Down Animation for My Skills Heading */
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.node.ceo {
+  animation: slideDown 2s ease forwards; /* Increased duration to 2 seconds */
+}
+
+/* Slide Left and Right Animations for Skill Branches */
+@keyframes slideLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.node.manager:nth-child(1) {
+  animation: slideLeft 2s ease forwards;
+}
+
+.node.manager:nth-child(2) {
+  animation: slideLeft 2s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.node.manager:nth-child(3) {
+  animation: slideLeft 2s ease forwards;
+  animation-delay: 1s;
+}
+
+.node.manager:nth-child(4) {
+  animation: slideRight 2s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.node.manager:nth-child(5) {
+  animation: slideRight 2s ease forwards;
+  animation-delay: 1s;
+}
+
+.node.manager:nth-child(6) {
+  animation: slideRight 2s ease forwards;
+  animation-delay: 1.5s;
 }

@@ -1,124 +1,151 @@
+/* Certifications Section Styling */
 .certifications-section {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: transparent;
-    text-align: center;
-    border: none;
-    box-shadow: none;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: transparent;
+  text-align: center;
+  border: none;
+  box-shadow: none;
+}
+
+.certifications-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+.certifications-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Outer stable card (Fixed Size) */
+.certification-card {
+  width: 300px; /* Fixed width to prevent shrinking */
+  height: 250px; /* Fixed height */
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  background-color: transparent;
+  perspective: 1000px; /* Enables 3D effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1; /* Initially visible */
+  transform: translateY(0); /* Initial position */
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Inner flipping container */
+.certification-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Flip effect on hover */
+.certification-card:hover .certification-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back styles */
+.certification-card-front,
+.certification-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Front side */
+.certification-card-front {
+  background-color: var(--card-color);
+}
+
+/* Back side */
+.certification-card-back {
+  background-color: var(--accent-color);
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* View More Button Styles (Ensuring it stays original on flip) */
+.view-more-button {
+  padding: 10px 15px;
+  background-color: white;
+  color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.view-more-button:hover {
+  background-color: lightgray;
+}
+
+/* View All Button Styles (Restored) */
+.view-all-button-container {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.view-all-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.view-all-button:hover {
+  background-color: #d136ca;
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
   }
-  
-  .certifications-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: var(--accent-color);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .certifications-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-items: center;
-    padding: 0;
-    max-width: 1200px;
-    margin: 0 auto;
+}
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Outer stable card (Fixed Size) */
-  .certification-card {
-    width: 300px; /* Fixed width to prevent shrinking */
-    height: 250px; /* Fixed height */
-    border: 2px solid var(--accent-color);
-    border-radius: 10px;
-    background-color: transparent;
-    perspective: 1000px; /* Enables 3D effect */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  to {
+    opacity: 0;
+    transform: translateY(50px);
   }
-  
-  /* Inner flipping container */
-  .certification-card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease-in-out;
-  }
-  
-  /* Flip effect on hover */
-  .certification-card:hover .certification-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  /* Front & Back styles */
-  .certification-card-front,
-  .certification-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Front side */
-  .certification-card-front {
-    background-color: var(--card-color);
-  }
-  
-  /* Back side */
-  .certification-card-back {
-    background-color: var(--accent-color);
-    color: white;
-    transform: rotateY(180deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* View More Button Styles (Ensuring it stays original on flip) */
-  .view-more-button {
-    padding: 10px 15px;
-    background-color: white;
-    color: var(--accent-color);
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .view-more-button:hover {
-    background-color: lightgray;
-  }
-  
-  /* View All Button Styles (Restored) */
-  .view-all-button-container {
-    text-align: right;
-    margin-top: 20px;
-  }
-  
-  .view-all-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .view-all-button:hover {
-    background-color: #d136ca;
-  }
-  
+}

@@ -1,56 +1,50 @@
 [
-    {
-      "name": "Data Analytics",
-      "subSkills": [
-        "Data Cleaning",
-        "Data Transformation",
-        "Data Visualization",
-        "Data Pipelines",
-        "ETL Processes",
-        "Data Warehousing",
-        "A/B Testing",
-        "Hypothesis Testing"
-      ]
-    },
-    {
-      "name": "Programming Languages",
-      "subSkills": [
-        "Python",
-        "SQL",
-        "R",
-        "Core Java",
-        "HTML",
-        "CSS",
-        "(React, NodeJS)"
-      ]
-    },
-    {
-      "name": "Databases",
-      "subSkills": [
-        "MySQL",
-        "PostgreSQL",
-        "MongoDB",
-        "DB2",
-        "Oracle"
-      ]
-    },
-    {
-      "name": "Machine Learning",
-      "subSkills": [
-        "Linear Regression",
-        "Logistic Regression",
-        "Random Forest",
-        "K-Means Clustering",
-        "XGBoost",
-        "KNN"
-      ]
-    },
-    {
-      "name": "Version Control",
-      "subSkills": [
-        "Git",
-        "GitHub",
-        "GitLab"
-      ]
-    }
-  ]
+  {
+    "name": "Programming Languages",
+    "subSkills": [
+      "Python",
+      "SQL",
+      "R",
+      "Core Java",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  },
+  {
+    "name": "Data Analytics",
+    "subSkills": [
+      "Data Cleaning",
+      "Data Transformation",
+      "Data Visualization",
+      "Data Pipelines",
+      "ETL Processes",
+      "Data Warehousing",
+      "A/B Testing",
+      "Hypothesis Testing"
+    ]
+  },
+  {
+    "name": "Databases",
+    "subSkills": ["MySQL", "PostgreSQL", "MongoDB", "DB2", "Oracle"]
+  },
+  {
+    "name": "Frameworks / Libraries",
+    "subSkills": ["ReactJS", "NodeJS", "NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-Learn"]
+  },
+  {
+    "name": "Machine Learning",
+    "subSkills": [
+      "Linear Regression",
+      "Logistic Regression",
+      "Random Forest",
+      "K-Means Clustering",
+      "XGBoost",
+      "KNN"
+    ]
+  },
+  {
+    "name": "Version Control",
+    "subSkills": ["Git", "GitHub", "GitLab"]
+  }
+]

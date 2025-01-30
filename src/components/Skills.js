@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Skills.css';
-import skillsData from '../components/Skills.json'; // Adjust the path based on your project structure
-import Certifications from './Certifications'; // Import the Certifications component
+import skillsData from '../components/Skills.json';
+import Certifications from './Certifications';
 
 const Skills = () => {
   const [expandedSkill, setExpandedSkill] = useState(null);
@@ -13,14 +13,14 @@ const Skills = () => {
       setTimeout(() => {
         setExpandedSkill(null);
         setIsAnimating(false);
-      }, 500); // Adjust the timeout to match your animation duration
+      }, 500);
     } else {
       if (expandedSkill) {
         setIsAnimating(true);
         setTimeout(() => {
           setExpandedSkill(skill);
           setIsAnimating(false);
-        }, 500); // Adjust the timeout to match your animation duration
+        }, 500);
       } else {
         setExpandedSkill(skill);
       }
@@ -48,7 +48,7 @@ const Skills = () => {
           ))}
         </div>
       )}
-      <Certifications limit={6} /> {/* Include the Certifications component with a limit */}
+      <Certifications limit={6} />
     </div>
   );
 };
