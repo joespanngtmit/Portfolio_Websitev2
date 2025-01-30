@@ -26,6 +26,9 @@ body.light-theme {
   -webkit-text-fill-color: transparent;
   display: inline-block;
   position: relative;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-50px); /* Initial position for slideDown */
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 /* Waving effect for the hand emoji */
@@ -61,6 +64,9 @@ body.light-theme {
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Initial position for slideUp */
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .about-me-profile-picture {
@@ -85,6 +91,11 @@ body.light-theme {
   text-align: center;
   padding: 0 5px; /* Adjusted padding to reduce space on the sides */
   margin: 0 auto; /* Center the content */
+}
+
+.about-me-introduction, .about-me-quote {
+  opacity: 0; /* Initially hidden */
+  transition: opacity 1.5s ease;
 }
 
 .about-me-introduction {
@@ -216,5 +227,51 @@ body.light-theme {
 
   .about-me-detail-item {
     margin: 10px 0;
+  }
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

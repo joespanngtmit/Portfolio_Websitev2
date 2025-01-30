@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useRef, useContext } from 'react';
 import "./AboutMe.css";
 import profileDark from "../assets/profile.jpg";
 import profileLight from "../assets/profile1.jpg";
@@ -6,17 +6,48 @@ import { ThemeContext } from "../components/ThemeContext";
 
 const AboutMe = () => {
   const { isDarkTheme } = useContext(ThemeContext); // Access theme context
-  const [isAnimating, setIsAnimating] = useState(false);
+  const aboutMeRef = useRef(null);
 
-  const handleDownloadClick = () => {
-    setIsAnimating(true);
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 1000); // Adjust the duration based on your animation
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutMeContainer = aboutMeRef.current;
+      const aboutMeElements = aboutMeContainer.querySelectorAll('.about-me-title, .about-me-card, .about-me-introduction, .about-me-quote');
+      const aboutMeContainerTop = aboutMeContainer.getBoundingClientRect().top;
+      const aboutMeContainerBottom = aboutMeContainer.getBoundingClientRect().bottom;
+      const windowHeight = window.innerHeight;
+
+      if (aboutMeContainerTop < windowHeight && aboutMeContainerBottom > 0) {
+        // About Me section is in view, show elements
+        aboutMeElements.forEach((element, index) => {
+          if (element.classList.contains('about-me-title')) {
+            element.style.animation = `slideDown 1.5s ease forwards`;
+          } else if (element.classList.contains('about-me-card')) {
+            element.style.animation = `slideUp 1.5s ease forwards`;
+            element.style.animationDelay = `${index * 0.3}s`;
+          } else if (element.classList.contains('about-me-introduction') || element.classList.contains('about-me-quote')) {
+            element.style.animation = `fadeIn 1.5s ease forwards`;
+            element.style.animationDelay = `${index * 0.3}s`;
+          }
+        });
+      } else {
+        // About Me section is not in view, hide elements
+        aboutMeElements.forEach((element, index) => {
+          element.style.animation = `fadeOut 1.5s ease forwards`;
+          element.style.animationDelay = `${index * 0.3}s`;
+        });
+      }
+    };
+
+    // Trigger animations when the component mounts
+    handleScroll();
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <section className="about-me-section" aria-labelledby="about-me-title">
+    <section className="about-me-section" aria-labelledby="about-me-title" ref={aboutMeRef}>
       <div className="about-me-container">
         <h2 id="about-me-title" className="about-me-title">
           👋 About Me
@@ -56,8 +87,7 @@ const AboutMe = () => {
               <a
                 href="/resume.pdf"
                 download
-                className={`about-me-download-resume ${isAnimating ? 'animating' : ''}`}
-                onClick={handleDownloadClick}
+                className="about-me-download-resume"
                 aria-label="Download Rohan Goyal's Resume"
               >
                 Download Resume 📝
