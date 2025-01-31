@@ -29,35 +29,45 @@ const Education = () => {
   const cardsRef = useRef([]);
   const timelineRef = useRef(null);
   const [cardOffsets, setCardOffsets] = useState([]);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1185);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1185);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const calculateOffsets = () => {
-      let cumulativeHeight = 0;
-      let offsets = [];
+        let cumulativeHeight = 0;
+        let offsets = [];
 
-      cardsRef.current.forEach((card, index) => {
-        if (card) {
-          offsets.push(cumulativeHeight);
-          cumulativeHeight += card.offsetHeight + 40; // Add margin-bottom for spacing
-          card.classList.add(index % 2 === 0 ? 'odd' : 'even');
+        cardsRef.current.forEach((card, index) => {
+            if (card) {
+                offsets.push(cumulativeHeight);
+                cumulativeHeight += card.offsetHeight + 40; // Add margin-bottom for spacing
+                card.classList.add(index % 2 === 0 ? 'odd' : 'even');
+            }
+        });
+
+        setCardOffsets(offsets);
+        if (timelineRef.current) {
+            timelineRef.current.style.height = `${cumulativeHeight}px`;
         }
-      });
-
-      setCardOffsets(offsets);
-      if (timelineRef.current) {
-        timelineRef.current.style.height = `${cumulativeHeight}px`;
-      }
     };
 
     calculateOffsets();
 
     const handleResize = () => {
-      calculateOffsets();
+        calculateOffsets();
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []); // Empty dependency array to run only once on mount
+  }, []);
 
   return (
     <section className="education-section" aria-labelledby="education-title">
@@ -74,31 +84,34 @@ const Education = () => {
               </div>
             </div>
 
-            {/* Date next to the checkpoint */}
-            <div
-              className={`education-date ${index % 2 === 0 ? 'odd' : 'even'}`}
-              style={{
-                top: `${cardOffsets[index] + 45}px`,
-                left: index % 2 === 0 ? 'auto' : '465px',
-                right: index % 2 === 0 ? '470px' : 'auto',
-              }}
-            >
-              {edu.duration}
-            </div>
+            {/* Date next to the checkpoint (only on large screens) */}
+            {!isSmallScreen && (
+              <div
+                className={`education-date ${index % 2 === 0 ? 'odd' : 'even'}`}
+                style={{
+                  top: `${cardOffsets[index] + 45}px`,
+                  left: index % 2 === 0 ? 'auto' : '465px',
+                  right: index % 2 === 0 ? '470px' : 'auto',
+                }}
+              >
+                {edu.duration}
+              </div>
+            )}
 
             {/* Education Card */}
             <div
               className="education-card"
               ref={(el) => (cardsRef.current[index] = el)}
               style={{
-                left: index % 2 === 0 ? '105px' : 'auto',
-                right: index % 2 === 0 ? 'auto' : '105px',
-                top: `${cardOffsets[index] + 20}px`,
-                transform: index % 2 === 0 ? 'translateX(25%)' : 'translateX(-25%)',
+                left: isSmallScreen ? '0' : index % 2 === 0 ? '105px' : 'auto',
+                right: isSmallScreen ? '0' : index % 2 === 0 ? 'auto' : '105px',
+                top: isSmallScreen ? `${cardOffsets[index]}px` : `${cardOffsets[index] + 20}px`,
+                transform: isSmallScreen ? 'none' : index % 2 === 0 ? 'translateX(25%)' : 'translateX(-25%)',
               }}
             >
               <h3 className="institution-name">{edu.institution}</h3>
               <h4 className="degree-name">{edu.degree}</h4>
+              {isSmallScreen && <p className="duration">{edu.duration}</p>} {/* Duration inside the card on small screens */}
               <p className="description">{edu.description}</p>
               <div className="triangle"></div> {/* Triangle element */}
             </div>
