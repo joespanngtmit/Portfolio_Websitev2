@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './Education.css';
+import Experience from '../Experience/Experience'; // Import the Experience component
 
 const Education = () => {
   const educationData = [
@@ -30,63 +31,33 @@ const Education = () => {
   const [cardOffsets, setCardOffsets] = useState([]);
 
   useEffect(() => {
-    const cards = cardsRef.current;
-    let cumulativeHeight = 0;
-    let offsets = [];
+    const calculateOffsets = () => {
+      let cumulativeHeight = 0;
+      let offsets = [];
 
-    cards.forEach((card, index) => {
-      if (card) {
-        offsets.push(cumulativeHeight);
-        cumulativeHeight += card.offsetHeight + 40; // Add margin-bottom for spacing
-        card.classList.add(index % 2 === 0 ? 'odd' : 'even');
-
-        // Adjust triangle position
-        const triangle = card.querySelector('.triangle');
-        if (triangle) {
-          // Calculate the vertical position of the triangle to align with the checkpoint
-          const checkpointOffset = cardOffsets[index] + 50; // Adjust based on checkpoint position
-          triangle.style.transform = `translateY(${checkpointOffset}px)`; // Align the triangle with the checkpoint
+      cardsRef.current.forEach((card, index) => {
+        if (card) {
+          offsets.push(cumulativeHeight);
+          cumulativeHeight += card.offsetHeight + 40; // Add margin-bottom for spacing
+          card.classList.add(index % 2 === 0 ? 'odd' : 'even');
         }
+      });
+
+      setCardOffsets(offsets);
+      if (timelineRef.current) {
+        timelineRef.current.style.height = `${cumulativeHeight}px`;
       }
-    });
+    };
 
-    setCardOffsets(offsets);
+    calculateOffsets();
 
-    if (timelineRef.current) {
-      timelineRef.current.style.height = `${cumulativeHeight}px`;
-    }
-
-    // Adjust layout on window resize
     const handleResize = () => {
-      setCardOffsets([]);
-      setTimeout(() => {
-        let newOffsets = [];
-        let newCumulativeHeight = 0;
-        cards.forEach((card, index) => {
-          if (card) {
-            newOffsets.push(newCumulativeHeight);
-            newCumulativeHeight += card.offsetHeight + 40; // Add margin-bottom for spacing
-            card.classList.add(index % 2 === 0 ? 'odd' : 'even');
-
-            // Adjust triangle position
-            const triangle = card.querySelector('.triangle');
-            if (triangle) {
-              // Calculate the vertical position of the triangle to align with the checkpoint
-              const checkpointOffset = newOffsets[index] + 50; // Adjust based on checkpoint position
-              triangle.style.transform = `translateY(${checkpointOffset}px)`; // Align the triangle with the checkpoint
-            }
-          }
-        });
-        setCardOffsets(newOffsets);
-        if (timelineRef.current) {
-          timelineRef.current.style.height = `${newCumulativeHeight}px`;
-        }
-      }, 100);
+      calculateOffsets();
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [cardOffsets]); // Include cardOffsets in the dependency array
+  }, []); // Empty dependency array to run only once on mount
 
   return (
     <section className="education-section" aria-labelledby="education-title">
@@ -97,7 +68,7 @@ const Education = () => {
         {educationData.map((edu, index) => (
           <div key={index} className="education-wrapper">
             {/* Checkpoint (Graduation Cap Icon) */}
-            <div className="education-checkpoint" style={{ top: `${cardOffsets[index] + 25}px` }}>
+            <div className="education-checkpoint" style={{ top: `${cardOffsets[index] + 45}px` }}>
               <div className="checkpoint-icon">
                 <i className="fas fa-graduation-cap"></i>
               </div>
@@ -107,8 +78,8 @@ const Education = () => {
             <div
               className={`education-date ${index % 2 === 0 ? 'odd' : 'even'}`}
               style={{
-                top: `${cardOffsets[index] + 25}px`,
-                left: index % 2 === 0 ? 'auto' : '470px',
+                top: `${cardOffsets[index] + 45}px`,
+                left: index % 2 === 0 ? 'auto' : '465px',
                 right: index % 2 === 0 ? '470px' : 'auto',
               }}
             >
@@ -120,9 +91,9 @@ const Education = () => {
               className="education-card"
               ref={(el) => (cardsRef.current[index] = el)}
               style={{
-                left: index % 2 === 0 ? '-15px' : 'auto',
-                right: index % 2 === 0 ? 'auto' : '-20px',
-                top: `${cardOffsets[index]}px`,
+                left: index % 2 === 0 ? '105px' : 'auto',
+                right: index % 2 === 0 ? 'auto' : '105px',
+                top: `${cardOffsets[index] + 20}px`,
                 transform: index % 2 === 0 ? 'translateX(25%)' : 'translateX(-25%)',
               }}
             >
@@ -134,6 +105,7 @@ const Education = () => {
           </div>
         ))}
       </div>
+      <Experience /> {/* Add the Experience component here */}
     </section>
   );
 };

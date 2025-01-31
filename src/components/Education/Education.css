@@ -17,6 +17,39 @@
     position: relative;
     text-align: center; /* Center the text */
     width: 100%; /* Ensure the heading takes full width of the container */
+    animation: fadeIn 1s ease-in-out forwards; /* Add fade-in animation */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-15px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(20px);
+        opacity: 1;
+    }
 }
 
 .education-timeline {
@@ -41,8 +74,6 @@
 }
 
 /* Checkpoints (dots) on the timeline */
-/* Checkpoints (dots) on the timeline */
-/* Checkpoints (dots) on the timeline */
 .education-checkpoint {
     position: absolute;
     left: 50%;
@@ -56,13 +87,13 @@
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     top: 20px; /* Position slightly down from the top */
-  }
-  
-  /* Icon inside the checkpoint */
-  .checkpoint-icon {
-    font-size: 30px; /* Adjust the size as needed */
+}
+
+/* Icon inside the checkpoint */
+.checkpoint-icon {
+    font-size: 24px; /* Adjust the size as needed */
     color: #fff; /* Adjust the color as needed */
-  }
+}
 
 /* Education Cards */
 .education-card {
@@ -74,18 +105,44 @@
     position: absolute;
     width: 37%;
     transition: transform 0.3s ease; /* Smooth transition for transform */
+    opacity: 0; /* Initially hidden */
+    animation-fill-mode: forwards; /* Ensure the animation effect stays */
 }
 
 /* Left-side cards (odd ones) */
 .education-card.odd {
-    left: 0;
+    left: -15px;
     transform: translateX(25%);
+    animation: slideInLeft 0.5s ease-in-out forwards; /* Add slide-in animation for left cards */
 }
 
 /* Right-side cards (even ones) */
 .education-card.even {
-    right: 0;
+    right: -20px;
     transform: translateX(-25%);
+    animation: slideInRight 0.5s ease-in-out forwards; /* Add slide-in animation for right cards */
+}
+
+/* Add delays to each card's animation */
+.education-wrapper:nth-child(1) .education-card {
+    animation-delay: 0.5s;
+}
+
+.education-wrapper:nth-child(2) .education-card {
+    animation-delay: 1s;
+}
+
+.education-wrapper:nth-child(3) .education-card {
+    animation-delay: 1.5s;
+}
+
+/* Add more delays as needed */
+.education-wrapper:nth-child(4) .education-card {
+    animation-delay: 2s;
+}
+
+.education-wrapper:nth-child(5) .education-card {
+    animation-delay: 2.5s;
 }
 
 /* Triangles pointing towards the timeline */
@@ -156,7 +213,7 @@
 /* Description */
 .description {
     font-size: 1.2rem; /* Smallest font size for description */
-    font-weight: 400;
+    font-weight:400;
 }
 
 /* Responsive Adjustments */
