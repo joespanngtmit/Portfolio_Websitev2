@@ -12,12 +12,14 @@ body.dark-theme {
   --bg-color: #0a0a0a;
   --text-color: white;
   --accent-color: #D136CA;
+  --triangle-color: white;
 }
 
 body.light-theme {
   --bg-color: #f1f1f1;
   --text-color: #0a0a0a;
   --accent-color: #D136CA;
+  --triangle-color: black;
 }
 
 /* Apply global theme variables */

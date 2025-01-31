@@ -5,8 +5,9 @@ import Home from "./components/Home/Home";
 import About from "./components/Aboutme/AboutMe";
 import Skills from "./components/Skills/Skills";
 import ConnectMe from "./components/ConnectMe";
-import AllCertifications from "./components/Certification/AllCertifications"; // Import the new component
-import Footer from "./components/Footer";
+import AllCertifications from "./components/Certification/AllCertifications";
+import Education from "./components/Education/Education"; // Import the new Education component
+// import Footer from "./components/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import { ThemeProvider } from "./components/ParticleBackground/ThemeContext";
 import "./App.css";
@@ -25,10 +26,11 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/connect" element={<ConnectMe />} />
-              <Route path="/certifications" element={<AllCertifications />} /> {/* New route */}
+              <Route path="/certifications" element={<AllCertifications />} />
+              <Route path="/education" element={<Education />} /> {/* New route */}
             </Routes>
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     </ThemeProvider>

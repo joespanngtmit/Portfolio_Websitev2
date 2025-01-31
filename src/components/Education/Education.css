@@ -1,0 +1,198 @@
+/* Education Section Styling */
+.education-section {
+    padding: 60px 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.education-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+    text-align: center; /* Center the text */
+    width: 100%; /* Ensure the heading takes full width of the container */
+}
+
+.education-timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: var(--accent-color);
+    transform: translateX(-50%);
+}
+
+/* Checkpoints (dots) on the timeline */
+/* Checkpoints (dots) on the timeline */
+/* Checkpoints (dots) on the timeline */
+.education-checkpoint {
+    position: absolute;
+    left: 50%;
+    width: 60px; /* Increased size */
+    height: 60px; /* Increased size */
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    top: 20px; /* Position slightly down from the top */
+  }
+  
+  /* Icon inside the checkpoint */
+  .checkpoint-icon {
+    font-size: 30px; /* Adjust the size as needed */
+    color: #fff; /* Adjust the color as needed */
+  }
+
+/* Education Cards */
+.education-card {
+    background-color: var(--card-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: absolute;
+    width: 37%;
+    transition: transform 0.3s ease; /* Smooth transition for transform */
+}
+
+/* Left-side cards (odd ones) */
+.education-card.odd {
+    left: 0;
+    transform: translateX(25%);
+}
+
+/* Right-side cards (even ones) */
+.education-card.even {
+    right: 0;
+    transform: translateX(-25%);
+}
+
+/* Triangles pointing towards the timeline */
+
+/* Left-side cards (odd) - Triangle on the RIGHT side */
+.education-card.odd::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid var(--triangle-color); /* Triangle points right */
+    right: -10px; /* Move triangle to the right side of the left card */
+    top: 25px; /* Position slightly down from the top */
+    transform: translateY(-50%) rotate(180deg); /* Align with the top and rotate 180 degrees */
+    z-index: 2; /* Ensure triangle is above the checkpoint */
+}
+
+/* Right-side cards (even) - Triangle on the LEFT side */
+.education-card.even::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--triangle-color); /* Triangle points left */
+    left: -10px; /* Move triangle to the left side of the right card */
+    top: 25px; /* Position slightly down from the top */
+    transform: translateY(-50%) rotate(180deg); /* Align with the top and rotate 180 degrees */
+    z-index: 2; /* Ensure triangle is above the checkpoint */
+}
+
+/* Date next to the checkpoint */
+.education-date {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    color: var(--text-color);
+    z-index: 2; /* Ensure date is above the checkpoint */
+}
+
+/* Date for left-side cards (odd) */
+.education-date.odd {
+    right: 480px; /* Position to the right of the checkpoint */
+}
+
+/* Date for right-side cards (even) */
+.education-date.even {
+    left: 490px; /* Position to the left of the checkpoint */
+}
+
+.institution-name {
+    font-size: 1rem; /* Adjust the font size as needed */
+    font-weight: 700; /* Make it bold */
+    margin-bottom: 10px; /* Add some spacing below the heading */
+}
+
+/* Degree Name */
+.degree-name {
+    font-size: .8rem; /* Smaller font size for degree name */
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Description */
+.description {
+    font-size: 1.2rem; /* Smallest font size for description */
+    font-weight: 400;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .education-card {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        transform: none;
+    }
+
+    .education-checkpoint {
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Center the triangles for mobile view */
+    .education-card.odd::after,
+    .education-card.even::after {
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid var(--triangle-color);
+    }
+
+    /* Center the dates for mobile view */
+    .education-date {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Adjust the date position for mobile view */
+    .education-date.odd,
+    .education-date.even {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

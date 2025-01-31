@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useContext, useState } from 'react';
 import "./AboutMe.css";
 import profileDark from "../../assets/profile.jpg";
 import profileLight from "../../assets/profile1.jpg";
@@ -7,42 +7,55 @@ import { ThemeContext } from "../ParticleBackground/ThemeContext";
 const AboutMe = () => {
   const { isDarkTheme } = useContext(ThemeContext); // Access theme context
   const aboutMeRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-  const handleScroll = () => {
-    const aboutMeContainer = aboutMeRef.current;
-    const aboutMeElements = aboutMeContainer.querySelectorAll('.about-me-title, .about-me-card, .about-me-introduction, .about-me-quote');
-    const aboutMeContainerTop = aboutMeContainer.getBoundingClientRect().top;
-    const aboutMeContainerBottom = aboutMeContainer.getBoundingClientRect().bottom;
-    const windowHeight = window.innerHeight;
+    const handleScroll = () => {
+      const aboutMeContainer = aboutMeRef.current;
+      const aboutMeContainerTop = aboutMeContainer.getBoundingClientRect().top;
+      const aboutMeContainerBottom = aboutMeContainer.getBoundingClientRect().bottom;
+      const windowHeight = window.innerHeight;
 
-    if (aboutMeContainerTop < windowHeight && aboutMeContainerBottom > 0) {
-      aboutMeElements.forEach((element, index) => {
-        if (element.classList.contains('about-me-title')) {
-          element.style.animation = `slideDown 1.5s ease forwards`;
-        } else if (element.classList.contains('about-me-card')) {
-          element.style.animation = `slideUp 1.5s ease forwards`;
-          element.style.animationDelay = `${index * 0.3}s`;
-        } else if (element.classList.contains('about-me-introduction') || element.classList.contains('about-me-quote')) {
-          element.style.animation = `fadeIn 1.5s ease forwards`;
-          element.style.animationDelay = `${index * 0.3}s`;
-        }
-      });
-    } else {
-      aboutMeElements.forEach((element, index) => {
-        element.style.animation = `fadeOut 1.5s ease forwards`;
-        element.style.animationDelay = `${index * 0.3}s`;
-      });
-    }
-  };
+      if (aboutMeContainerTop < windowHeight && aboutMeContainerBottom > 0) {
+        // About Me section is in view, show elements
+        setIsVisible(true);
+      } else {
+        // About Me section is not in view, hide elements
+        setIsVisible(false);
+      }
+    };
 
-  handleScroll();
-  window.addEventListener('scroll', handleScroll);
-  return () => window.removeEventListener('scroll', handleScroll);
-}, []); // Empty dependency array to run only once
+    // Trigger animations when the component mounts
+    handleScroll();
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Ensure the content is only shown after the initial render is complete
+    const timeoutId = setTimeout(() => {
+      if (isVisible) {
+        aboutMeRef.current.querySelectorAll('.about-me-title, .about-me-card, .about-me-introduction, .about-me-quote').forEach((element, index) => {
+          if (element.classList.contains('about-me-title')) {
+            element.style.animation = `slideDown 1.5s ease forwards`;
+          } else if (element.classList.contains('about-me-card')) {
+            element.style.animation = `slideUp 1.5s ease forwards`;
+            element.style.animationDelay = `${index * 0.3}s`;
+          } else if (element.classList.contains('about-me-introduction') || element.classList.contains('about-me-quote')) {
+            element.style.animation = `fadeIn 1.5s ease forwards`;
+            element.style.animationDelay = `${index * 0.3}s`;
+          }
+        });
+      }
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, [isVisible]);
 
   return (
-    <section className="about-me-section" aria-labelledby="about-me-title" ref={aboutMeRef}>
+    <section className={`about-me-section ${isVisible ? 'visible' : ''}`} aria-labelledby="about-me-title" ref={aboutMeRef}>
       <div className="about-me-container">
         <h2 id="about-me-title" className="about-me-title">
           👋 About Me
