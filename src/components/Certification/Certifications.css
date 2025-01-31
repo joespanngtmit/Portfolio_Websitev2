@@ -165,3 +165,17 @@
     transform: translateY(50px);
   }
 }
+
+
+/* Grid Layout Responsiveness */
+@media (max-width: 1024px) {
+  .experience-timeline {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-timeline {
+      grid-template-columns: 1fr; /* 1 column on small screens */
+  }
+}
