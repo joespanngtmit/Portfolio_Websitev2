@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './Skills.css';
-import skillsData from '../Skills/Skills.json';
-import Certifications from '../Certification/Certifications';
+import React, { useState, useEffect, useRef } from "react";
+import "./Skills.css";
+import skillsData from "../Skills/Skills.json";
+import Certifications from "../Certification/Certifications";
 
 const Skills = () => {
   const [expandedSkill, setExpandedSkill] = useState(null);
@@ -24,8 +24,8 @@ const Skills = () => {
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleSkillClick = (skill) => {
@@ -49,24 +49,46 @@ const Skills = () => {
   };
 
   return (
-    <div className={`hierarchy ${isVisible ? 'visible' : ''}`} ref={skillsRef}>
-      <div className="node ceo">
-        <h2>My Skills</h2>
-      </div>
+    <div className={`hierarchy ${isVisible ? "visible" : ""}`} ref={skillsRef}>
+      <h2 className="skills-title">My Skills</h2>
       <div className="managers">
         {skillsData.map((skill, index) => (
-          <div key={index} className="node manager" onClick={() => handleSkillClick(skill.name)}>
+          <div
+            key={index}
+            className="node manager"
+            onClick={() => handleSkillClick(skill.name)}
+          >
             <h3>{skill.name}</h3>
           </div>
         ))}
       </div>
       {expandedSkill && (
-        <div className={`sub-managers ${isAnimating ? 'hidden' : 'visible'}`}>
-          {skillsData.find(skill => skill.name === expandedSkill)?.subSkills.map((subSkill, subIndex) => (
-            <div key={subIndex} className="node sub-node">
-              <h4>{subSkill}</h4>
+        <div className={`sub-managers ${isAnimating ? "hidden" : "visible"}`}>
+          {/* First 6 sub-skills go into the sub-managers container */}
+          {skillsData
+            .find((skill) => skill.name === expandedSkill)
+            ?.subSkills.slice(0, 6)
+            .map((subSkill, subIndex) => (
+              <div key={subIndex} className="node sub-node">
+                <h4>{subSkill}</h4>
+              </div>
+            ))}
+
+          {/* For small screens only, extra sub-skills (sub sub branches) are rendered here */}
+          {skillsData
+            .find((skill) => skill.name === expandedSkill)
+            ?.subSkills.slice(6).length > 0 && (
+            <div className="sub-sub-managers">
+              {skillsData
+                .find((skill) => skill.name === expandedSkill)
+                ?.subSkills.slice(6)
+                .map((subSkill, subIndex) => (
+                  <div key={subIndex} className="node sub-sub-node">
+                    <h4>{subSkill}</h4>
+                  </div>
+                ))}
             </div>
-          ))}
+          )}
         </div>
       )}
       <Certifications limit={6} />

@@ -272,7 +272,7 @@
 
     /* Adjust left property for 2nd card on small screens */
     .education-wrapper:nth-child(2) .education-card {
-        left: -20px !important; /* Adjust left position */
+        left: -17px !important; /* Adjust left position */
     }
 
     /* Show duration inside the card on small screens */

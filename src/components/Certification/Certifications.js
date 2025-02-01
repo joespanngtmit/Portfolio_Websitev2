@@ -50,14 +50,11 @@ const Certifications = ({ limit }) => {
         {certificationsData.slice(0, limit).map((cert, index) => (
           <div key={index} className="certification-card">
             <div className="certification-card-inner">
-              {/* Front Side */}
               <div className="certification-card-front">
                 <h3 className="certification-name">{cert.name}</h3>
                 <p className="certification-issuer">{cert.issuer}</p>
                 <p className="certification-date">{cert.date}</p>
               </div>
-
-              {/* Back Side */}
               <div className="certification-card-back">
                 <a href={`/certifications/${index}`} className="view-more-button">
                   View Certificate

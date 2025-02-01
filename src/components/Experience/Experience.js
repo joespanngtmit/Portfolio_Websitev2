@@ -17,30 +17,28 @@ const Experience = () => {
       ],
     },
     {
-        company: 'Capabl (from Elite Techno Groups)',
-        position: 'Python for AI/ML Intern',
-        duration: 'Aug 2021 - Sept 2021',
-        description: [
-          'Proficient in Python and its associated modules, I applied them effectively across various projects involving algorithm development and exploratory data analysis, including machine learning applications.',
-          'Utilized JSON for data manipulation, integration, and script writing within an inventory management project, ensuring efficient data exchange and facilitating machine learning model integration.',
-          'Experienced with key Python libraries, including NumPy for numerical analysis, Pandas for data manipulation, Matplotlib for data visualization, and Seaborn for statistical graphics, which contributed to comprehensive algorithm and machine learning model development.',
-          'Gained practical insights into the AI/ML domain through hands-on experience with relevant tools and techniques, enhancing learning solutions and testing in a collaborative environment focused on machine learning applications.'
-        ],
-      },
-      {
-        company: 'EntryLevel',
-        position: 'Data Analyst Virtual Experience',
-        duration: 'Jul 2021 - Aug 2021',
-        description: [
-          'Acquired skills in identifying and analyzing business problems effectively',
-          'Mastered various data cleaning techniques using Google Sheets to ensure data accuracy and consistency.',
-          'Developed expertise in creating Pivot Tables to extract and present key insights from datasets.',
-          'Gained proficiency in Tableau’s basic functionalities and utilized it to design impactful data visualizations.',
-          'Earned three badges: Critical Thinker, Team Player, and Last-Minute Hustle, recognizing achievements in analytical thinking, teamwork, and performance under tight deadlines.'
-        ],
-      },
-      
-    // other experience items...
+      company: 'Elite Techno Groups',
+      position: 'Python for AI/ML Intern',
+      duration: 'Aug 2021 - Sept 2021',
+      description: [
+        'Proficient in Python and its associated modules, I applied them effectively across various projects involving algorithm development and exploratory data analysis, including machine learning applications.',
+        'Utilized JSON for data manipulation, integration, and script writing within an inventory management project, ensuring efficient data exchange and facilitating machine learning model integration.',
+        'Experienced with key Python libraries, including NumPy for numerical analysis, Pandas for data manipulation, Matplotlib for data visualization, and Seaborn for statistical graphics, which contributed to comprehensive algorithm and machine learning model development.',
+        'Gained practical insights into the AI/ML domain through hands-on experience with relevant tools and techniques, enhancing learning solutions and testing in a collaborative environment focused on machine learning applications.'
+      ],
+    },
+    {
+      company: 'EntryLevel',
+      position: 'Data Analyst Virtual Experience',
+      duration: 'Jul 2021 - Aug 2021',
+      description: [
+        'Acquired skills in identifying and analyzing business problems effectively.',
+        'Mastered various data cleaning techniques using Google Sheets to ensure data accuracy and consistency.',
+        'Developed expertise in creating Pivot Tables to extract and present key insights from datasets.',
+        'Gained proficiency in Tableau’s basic functionalities and utilized it to design impactful data visualizations.',
+        'Earned three badges: Critical Thinker, Team Player, and Last-Minute Hustle, recognizing achievements in analytical thinking, teamwork, and performance under tight deadlines.'
+      ],
+    },
   ];
 
   useEffect(() => {
@@ -90,7 +88,9 @@ const Experience = () => {
             </div>
 
             <h3>{selectedExperience.position}</h3>
-            <ul>
+
+            {/* Display description as bullet points */}
+            <ul className="experience-points">
               {selectedExperience.description.map((desc, index) => (
                 <li key={index}>{desc}</li>
               ))}

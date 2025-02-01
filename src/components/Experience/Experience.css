@@ -6,6 +6,7 @@
     text-align: center;
 }
 
+/* Experience Title */
 .experience-title {
     font-size: 2.8rem;
     font-weight: 700;
@@ -22,14 +23,14 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    justify-content: center;
+    justify-items: center;
     margin: 0 auto;
     max-width: 1200px;
 }
 
 /* Experience Card (Outer Border Stable) */
 .experience-card {
-    width: 80%;
+    width: 100%;
     max-width: 280px;
     height: 250px;
     border: 2px solid var(--accent-color);
@@ -81,7 +82,8 @@
 
 /* Larger Company Name at the Top */
 .company-name {
-    font-size: 1.4rem; /* Make company name bigger */
+    color: var(--accent-color);
+    font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -145,73 +147,27 @@
     visibility: visible;
 }
 
-/* Modal Content (With Smooth Zoom-in/Zoom-out Animation) */
+/* Modal Content (With Smooth Zoom-in Animation) */
 .experience-modal-content {
     background-color: var(--card-color);
     width: 50%;
     max-width: 500px;
-    padding: 20px 20px 20px 20px; /* Extra padding for top-left spacing */
+    padding: 20px;
     border-radius: 10px;
-    text-align: left; /* Align text to left */
+    text-align: left;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transform: scale(0.8); /* Start Smaller for Zoom-out */
-    opacity: 0; /* Start Transparent */
+    transform: scale(0.8);
+    opacity: 0;
     transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
     position: relative;
-    max-height: 80vh; /* Limit height to 80% of the viewport height */
-    overflow-y: auto; /* Add scrolling if content exceeds height */
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
-/* Apply Zoom-in Effect on Modal Activation */
+/* Apply Zoom-in Effect */
 .experience-modal.active .experience-modal-content {
-    transform: scale(1); /* Zoom-in when modal opens */
+    transform: scale(1);
     opacity: 1;
-}
-
-/* Apply Zoom-out Effect on Modal Deactivation */
-.experience-modal:not(.active) .experience-modal-content {
-    transform: scale(0.8); /* Zoom-out when modal closes */
-    opacity: 0;
-}
-
-/* Flex Layout for Company Name and Duration */
-.experience-modal-content .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px; /* Space below the header */
-}
-
-/* Company Name Styling */
-.experience-modal-content h2 {
-    font-size: 1.2rem; /* Slightly bigger for emphasis */
-    font-weight: 700;
-    margin: 0; /* Remove default margin */
-    color: var(--accent-color); /* Accent color for the company name */
-}
-
-/* Duration Styling */
-.experience-modal-content .duration {
-    font-size: .9rem;
-    font-weight: 500;
-    margin-top: 10px;
-    color: var(--text-color); /* Text color for the duration */
-}
-
-/* Position Name Styling */
-.experience-modal-content h3 {
-    font-size: .9rem;
-    font-weight: 500;
-    margin-top: -17px;
-    color: var(--text-color); /* Text color for the position name */
-}
-
-/* Modal Text Below Position */
-.experience-modal-content p {
-    margin-top: 10px; /* Space below position name */
-    font-size: .9rem;
-    color: var(--text-color);
 }
 
 /* Style the unordered list in the modal */
@@ -221,13 +177,44 @@
     margin-top: 10px;
     font-size: 1rem;
     color: var(--text-color);
+    padding-left: 20px;
 }
 
 /* Style individual list items */
 .experience-modal-content ul li {
     margin-bottom: 10px;
     font-size: 0.95rem;
+    line-height: 1.5;
     color: var(--text-color);
+}
+
+/* Flex Layout for Company Name and Duration */
+.experience-modal-content .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Company Name Styling in Modal */
+.experience-modal-content h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--accent-color); /* Accent color */
+    text-transform: uppercase;
+    flex: 1; /* Allow it to take available space */
+    text-align: left; /* Align company name to left */
+}
+
+/* Duration Styling */
+.experience-modal-content .duration {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-color);
+    white-space: nowrap; /* Prevents breaking into multiple lines */
+    text-align: right; /* Align duration to right */
+    margin-top: 20px;
 }
 
 /* Close Button */
@@ -237,21 +224,43 @@
     font-size: 1.5rem;
     color: var(--text-color);
     position: absolute;
-    top: 0px;
-    right: 15px;
+    top: -2px;
+    right: 10px;
     cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+/* Hover Effect for Close Button */
+.close-modal:hover {
+    color: var(--accent-color); /* Change color to accent */
+    transform: scale(1.2); /* Slightly increase size */
 }
 
 
-/* Grid Layout Responsiveness */
-@media (max-width: 1024px) {
-    .certifications-list {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+/* Responsive Grid Adjustments */
+@media (max-width: 1185px) {
+    .experience-timeline {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        gap: 15px;
     }
 }
 
 @media (max-width: 768px) {
-    .certifications-list {
-        grid-template-columns: 1fr; /* 1 column on small screens */
+    .experience-timeline {
+        grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+    }
+    
+    .experience-card {
+        max-width: 90%;
+    }
+
+    .experience-modal-content {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .experience-modal-content {
+        width: 90%;
     }
 }
