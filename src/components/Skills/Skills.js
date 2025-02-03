@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Skills.css";
 import skillsData from "../Skills/Skills.json";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Certifications from "../Certification/Certifications";
 
 const Skills = () => {
@@ -8,6 +9,7 @@ const Skills = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const skillsRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate(); // Get the navigate function
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +48,10 @@ const Skills = () => {
         setExpandedSkill(skill);
       }
     }
+  };
+
+  const viewAllCertifications = () => {
+    navigate('/certifications'); // Redirect to AllCertifications page
   };
 
   return (
@@ -91,7 +97,18 @@ const Skills = () => {
           )}
         </div>
       )}
-      <Certifications limit={6} />
+      <div className="certifications-section">
+        <Certifications limit={6} />
+        <div className="view-all-button-container">
+          <button
+            className="view-all-button"
+            onClick={viewAllCertifications}
+            aria-label="View all certifications"
+          >
+            Show More
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

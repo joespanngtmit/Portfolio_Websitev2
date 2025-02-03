@@ -1,4 +1,5 @@
-/* Certifications Section Styling */
+@import "../Experience/Experience.css";
+
 .certifications-section {
   margin-top: 40px;
   padding: 20px;
@@ -31,7 +32,7 @@
 /* Outer stable card (Fixed Size) */
 .certification-card {
   width: 300px; /* Fixed width to prevent shrinking */
-  height: 250px; /* Fixed height */
+  height: 300px; /* Adjusted height to make space for text */
   border: 2px solid var(--accent-color);
   border-radius: 10px;
   background-color: transparent;
@@ -75,15 +76,77 @@
   text-align: center;
 }
 
-/* Front side */
+/* Front side - Matching Experience Card Background Color */
 .certification-card-front {
-  background-color: var(--card-color);
+  background-color: var(
+    --primary-color
+  ); /* Change this color to match your experience card's background */
+  padding: 20px 15px;
 }
 
-/* Back side */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Darker backdrop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px; /* Prevents modal from sticking to the edges */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  overflow: hidden; /* Prevents unnecessary scrolling */
+  position: relative;
+}
+
+.modal-content {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  overflow: hidden; /* Prevents unnecessary scrolling */
+  position: relative;
+}
+
+.certification-name {
+  color: var(--accent-color);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.certification-issuer,
+.certification-date {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+}
+
+/* Back side - Matching Experience Card Background Color */
 .certification-card-back {
-  background-color: var(--accent-color);
-  color: white;
+  background-color: var(
+    --accent-color
+  ); /* Same background color as the front */
+  color: var(--primary-color);
   transform: rotateY(180deg);
   display: flex;
   justify-content: center;
@@ -96,9 +159,9 @@
 /* View More Button Styles (Ensuring it stays original on flip) */
 .view-more-button {
   padding: 12px 20px;
-  background-color: white;
-  color: var(--accent-color);
-  border: 2px solid white;
+  background-color: var(--primary-color);
+  color: white;
+  border: 2px solid var(--primary-color);
   border-radius: 8px;
   text-decoration: none;
   font-size: 1.1rem;
@@ -118,12 +181,14 @@
 /* View All Button Styles */
 .view-all-button-container {
   text-align: right;
-  margin-top: 20px;
+  margin-top: 6px;
+  padding: 0 20px 10px 20px; /* Add padding to match the container's padding */
 }
 
 .view-all-button {
   display: inline-block;
   padding: 10px 20px;
+  right: 280px;
   font-size: 1rem;
   font-weight: bold;
   color: white;
@@ -131,12 +196,17 @@
   border: none;
   border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
 }
 
 .view-all-button:hover {
-  background-color: #d136ca;
+  background-color: #d136ca; /* Change color on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.view-all-button:active {
+  transform: scale(0.95); /* Slightly decrease size on click */
 }
 
 /* Slide Up Animation */

@@ -73,20 +73,46 @@
   transform: translateX(-50%);
 }
 
-/* Checkpoints (dots) on the timeline */
 .education-checkpoint {
   position: absolute;
   left: 50%;
-  width: 60px; /* Increased size */
-  height: 60px; /* Increased size */
+  width: 60px; /* Adjust size as needed */
+  height: 60px; /* Adjust size as needed */
   background-color: var(--accent-color);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  display: flex; /* Enable flexbox */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  top: 20px; /* Position slightly down from the top */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 20px;
+  
+  /* Apply the zoom out animation */
+  animation: zoomIn 0.9s ease backwards;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5); /* Start bigger */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1); /* End at normal size */
+    opacity: 1;
+  }
+} 
+
+
+.education-wrapper:nth-child(1) .education-checkpoint {
+  animation-delay: 0.5s;
+}
+
+.education-wrapper:nth-child(2) .education-checkpoint {
+  animation-delay: 1s;
+}
+
+.education-wrapper:nth-child(3) .education-checkpoint {
+  animation-delay: 1.5s;
 }
 
 /* Icon inside the checkpoint */
