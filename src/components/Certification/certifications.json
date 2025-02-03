@@ -4,74 +4,74 @@
     "issuer": "DevTown",
     "date": "Oct 2021",
     "ID": "Z16KbKk",
-    "Link": "/assets/DevTown.jpg"
+    "Link": "/certificates/DevTown.jpg"
   },
   {
     "name": "Python for ML/AI",
     "issuer": "Elite Techno Groups",
     "date": "Sep 2021",
     "ID": "ETGSI11865",
-    "Link": "/assets/Elite Techno Groups.jpg"
+    "Link": "/certificates/Elite Techno Groups.jpg"
   },
   {
     "name": "Data Analyst Virtual Experience",
     "issuer": "EntryLevel",
     "date": "Sep 2021",
-    "Link": "/assets/EntryLevel.jpg"
-  },
-  {
-    "name": "RSCIT",
-    "issuer": "Vardhman Mahaveer Open University",
-    "date": "Sep 2018",
-    "ID": "966180425094803789",
-    "Link": "/assets/RSCIT.pdf"
-  },
-  {
-    "name": "The Complete SQL Course 2021: Become a MYSQL Master",
-    "issuer": "Udemy",
-    "date": "January 2021",
-    "ID": "UC-c75db302-2d0a-4eb2-9e33-25f686c975b6",
-    "Link": "/assets/Udemy.jpg"
-  },
-  {
-    "name": "Python 3.5 Training",
-    "issuer": "EDUCBA",
-    "date": "May 2021",
-    "ID": "WA08INVIE",
-    "Link": "/assets/EDUCBA.jpg"
+    "Link": "/certificates/EntryLevel.jpg"
   },
   {
     "name": "Python Basic",
     "issuer": "HackerRank",
     "date": "May 2021",
     "ID": "a383310b2b84",
-    "Link": "/assets/HackerRank.png"
+    "Link": "/certificates/HackerRank.png"
   },
   {
-    "name": "Goldman Sachs Engineering Virtual Program",
-    "issuer": "Goldman Sachs",
-    "date": "February 2024",
-    "ID": "7KfgtS8JwYzir4ByR",
-    "Link": "/assets/Goldman Sachs.jpg"
+    "name": "RSCIT",
+    "issuer": "Vardhman Mahaveer Open University",
+    "date": "Sep 2018",
+    "ID": "966180425094803789",
+    "Link": "/certificates/RSCIT.pdf"
+  },
+  {
+    "name": "The Complete SQL Course 2021: Become a MYSQL Master",
+    "issuer": "Udemy",
+    "date": "January 2021",
+    "ID": "UC-c75db302-2d0a-4eb2-9e33-25f686c975b6",
+    "Link": "/certificates/Udemy.jpg"
   },
   {
     "name": "Microsoft Certified: Azure AI Fundamentals",
     "issuer": "Microsoft",
     "date": "April 2022",
     "ID": "746c693c-6af7-4c81-97d3-55976d4ea326",
-    "Link": "/assets/Microsoft.jpg"
+    "Link": "/certificates/Microsoft.jpg"
+  },
+  {
+    "name": "Python 3.5 Training",
+    "issuer": "EDUCBA",
+    "date": "May 2021",
+    "ID": "WA08INVIE",
+    "Link": "/certificates/EDUCBA.jpg"
+  },
+  {
+    "name": "Goldman Sachs Engineering Virtual Program",
+    "issuer": "Goldman Sachs",
+    "date": "February 2024",
+    "ID": "7KfgtS8JwYzir4ByR",
+    "Link": "/certificates/Goldman Sachs.jpg"
   },
   {
     "name": "Learning Data Analytics: 1 Foundations",
     "issuer": "LinkedIn",
     "date": "June 2022",
     "ID": "AZOESNLOYOseQaDFhojBZmHJhioT",
-    "Link": "/assets/LinkedIn.jpg"
+    "Link": "/certificates/LinkedIn.jpg"
   },
   {
     "name": "Generative AI at SAP",
     "issuer": "SAP",
     "date": "May 2024",
-    "Link": "/assets/Sap.jpg"
+    "Link": "/certificates/Sap.jpg"
   }
 ]
