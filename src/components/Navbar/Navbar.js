@@ -112,6 +112,16 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </li>
           <li role="presentation">
             <a
+              href="/projects"
+              onClick={() => handleNavClick("projects")}
+              className={activeSection === "projects" ? "active" : ""}
+              aria-label="Projects section"
+            >
+              Projects
+            </a>
+          </li>
+          <li role="presentation">
+            <a
               href="/connect"
               onClick={() => handleNavClick("connect")}
               className={activeSection === "connect" ? "active" : ""}

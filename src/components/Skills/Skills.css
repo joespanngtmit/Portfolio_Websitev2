@@ -7,10 +7,18 @@
 }
 
 .skills-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: var(--accent-color);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+  text-align: center; /* Center the text */
+  width: 100%; /* Ensure the heading takes full width of the container */
+  animation: fadeIn 2s ease-in-out forwards; /* Add fade-in animation */
 }
 
 .node {
@@ -255,7 +263,7 @@
     justify-content: center;
     gap: 0px;
     position: absolute;
-    top: 169px;
+    top: 184px;
     left: 35%; /* Place sub-branches to the right of branches */
     transform: translateX(-50%);
     z-index: 10;
@@ -328,34 +336,34 @@
     position: static;
     display: flex;
     flex-direction: row;
-    gap: 20px;            /* Space between sub-branches */
+    gap: 20px; /* Space between sub-branches */
     justify-content: center;
     font-size: 15px;
     width: 100%;
   }
-  
+
   /* Ensure all sub-branches have the same dimensions as the branches */
   .sub-node,
   .sub-sub-node {
-    width: 150px;         /* Same width as branches */
-    height: 80px;         /* Same height as branches */
+    width: 150px; /* Same width as branches */
+    height: 80px; /* Same height as branches */
     align-content: center;
   }
-  
+
   /* Instead of hiding sub-sub branches, merge them inline with sub-branches */
   .sub-sub-managers {
-    display: inline-flex;  /* Display inline with the sub-nodes */
-    gap: 20px;             /* Space between extra sub-branches */
+    display: inline-flex; /* Display inline with the sub-nodes */
+    gap: 20px; /* Space between extra sub-branches */
     align-items: center;
   }
-  
+
   /* Remove any extra margins or positioning from sub-nodes if needed */
   .sub-node:hover,
   .sub-sub-node:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   .line,
   .vertical-line {
     display: none;

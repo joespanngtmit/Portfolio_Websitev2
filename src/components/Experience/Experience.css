@@ -155,7 +155,7 @@
 
 /* Modal Content (With Smooth Zoom-in Animation) */
 .experience-modal-content {
-    background-color: var(--card-color);
+    background-color: var(--modal-bg);
     width: 50%;
     max-width: 500px;
     padding: 20px;

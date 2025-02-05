@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import About from "./components/Aboutme/AboutMe";
 import Skills from "./components/Skills/Skills";
-import ConnectMe from "./components/ConnectMe";
+import Contact from "./components/contact/contact";
 import AllCertifications from "./components/Certification/AllCertifications";
+import Projects from "./components/Projects/Projects";
 import Education from "./components/Education/Education"; // Import the new Education component
 // import Footer from "./components/Footer";
 import Navbar from "./components/Navbar/Navbar";
@@ -25,9 +26,10 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/skills" element={<Skills />} />
-              <Route path="/connect" element={<ConnectMe />} />
+              <Route path="/connect" element={<Contact />} />
               <Route path="/certifications" element={<AllCertifications />} />
               <Route path="/education" element={<Education />} /> {/* New route */}
+              <Route path="/projects" element={<Projects />} />
             </Routes>
           </div>
           {/* <Footer /> */}

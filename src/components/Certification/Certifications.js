@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './Certifications.css';
-import certificationsData from './certifications.json';
+import React, { useState, useEffect, useRef } from "react";
+import "./Certifications.css";
+import certificationsData from "./certifications.json";
 
 const Certifications = ({ limit }) => {
   const certificationsRef = useRef(null);
@@ -10,12 +10,19 @@ const Certifications = ({ limit }) => {
   useEffect(() => {
     const handleScroll = () => {
       const certificationsContainer = certificationsRef.current;
-      const certifications = certificationsContainer.querySelectorAll('.certification-card');
-      const certificationsContainerTop = certificationsContainer.getBoundingClientRect().top;
-      const certificationsContainerBottom = certificationsContainer.getBoundingClientRect().bottom;
+      const certifications = certificationsContainer.querySelectorAll(
+        ".certification-card"
+      );
+      const certificationsContainerTop =
+        certificationsContainer.getBoundingClientRect().top;
+      const certificationsContainerBottom =
+        certificationsContainer.getBoundingClientRect().bottom;
       const windowHeight = window.innerHeight;
 
-      if (certificationsContainerTop < windowHeight && certificationsContainerBottom > 0) {
+      if (
+        certificationsContainerTop < windowHeight &&
+        certificationsContainerBottom > 0
+      ) {
         // Certifications are in view, show them
         certifications.forEach((cert, index) => {
           cert.style.animation = `slideUp 1.5s ease forwards`;
@@ -23,7 +30,9 @@ const Certifications = ({ limit }) => {
         });
 
         // Show the heading
-        const heading = certificationsContainer.querySelector('.certifications-title');
+        const heading = certificationsContainer.querySelector(
+          ".certifications-title"
+        );
         heading.style.animation = `slideDown 1.5s ease forwards`;
       } else {
         // Certifications are not in view, hide them
@@ -33,7 +42,9 @@ const Certifications = ({ limit }) => {
         });
 
         // Hide the heading
-        const heading = certificationsContainer.querySelector('.certifications-title');
+        const heading = certificationsContainer.querySelector(
+          ".certifications-title"
+        );
         heading.style.animation = `fadeOut 1.5s ease forwards`;
       }
     };
@@ -42,8 +53,8 @@ const Certifications = ({ limit }) => {
     handleScroll();
 
     // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const closeModal = () => {
@@ -85,11 +96,18 @@ const Certifications = ({ limit }) => {
             <button className="close-modal" onClick={closeModal}>
               ×
             </button>
-            <h2>{selectedCertification.name}</h2>
-            <p>{selectedCertification.issuer}</p>
-            <p>{selectedCertification.date}</p>
-            {selectedCertification.Link && (
-              selectedCertification.Link.endsWith('.pdf') ? (
+            <h2 className="modal-name">{selectedCertification.name}</h2>
+            <p className="modal-date">{selectedCertification.date}</p>
+            <div className="modal-details">
+              <p className="modal-issuer">
+                <b>Issuer:</b> {selectedCertification.issuer}
+              </p>
+              {selectedCertification.ID && (
+                <p className="modal-id"> <b>ID:</b> {selectedCertification.ID}</p>
+              )}
+            </div>
+            {selectedCertification.Link &&
+              (selectedCertification.Link.endsWith(".pdf") ? (
                 <iframe
                   src={selectedCertification.Link}
                   width="100%"
@@ -103,13 +121,12 @@ const Certifications = ({ limit }) => {
                   src={selectedCertification.Link}
                   alt={`Certificate for ${selectedCertification.name}`}
                   style={{
-                    width: '100%',
-                    maxHeight: '500px',
-                    objectFit: 'contain',
+                    width: "100%",
+                    maxHeight: "500px",
+                    objectFit: "contain",
                   }}
                 />
-              )
-            )}
+              ))}
           </div>
         </div>
       )}

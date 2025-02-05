@@ -1,0 +1,241 @@
+body.dark-theme {
+  --placeholder: #ffffff99;
+}
+
+body.light-theme {
+  --placeholder: 00000099;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: var(--bg-color);
+  min-height: 100vh;
+}
+
+.contact-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+  text-align: center; /* Center the text */
+  width: 100%; /* Ensure the heading takes full width of the container */
+  animation: fadeIn 2s ease-in-out forwards; /* Add fade-in animation */
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 320px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.contact-card p {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-card p svg {
+  margin-right: 8px;
+  color: var(--accent-color);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: var(--text-color);
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: var(--accent-color);
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 48%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Textbox Focus Effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 2px solid var(--accent-color);
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.5); /* Glow effect on focus */
+}
+
+/* Placeholder Style */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--placeholder);
+  font-style: italic;
+}
+
+/* Button Style */
+.contact-form button {
+  padding: 15px;
+  background: var(--accent-color);
+  border: none;
+  color: var(--text-color);
+  border-radius: 50px;
+  font-size: 2.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-form button:hover {
+  background: var(--text-hover);
+}
+
+/* Message Text Style */
+.message {
+  text-align: center;
+  margin-top: 10px;
+  color: var(--accent-color);
+  font-size: 16px;
+  position: relative;
+  font-weight: bold; /* Make the text bolder */
+  text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color),
+    0 0 30px var(--accent-color); /* Glow effect */
+}
+
+.message.sent {
+  animation: flyBird 1s ease-in-out forwards;
+}
+
+.message-icon {
+  position: absolute;
+  left: -50px; /* Position the bird to the left */
+  top: 0;
+  font-size: 24px;
+  color: var(--accent-color);
+  animation: flyBird 1s ease-in-out forwards;
+  text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color),
+    0 0 30px var(--accent-color); /* Glow effect on the bird */
+}
+
+/* Flying Bird Animation */
+@keyframes flyBird {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(200px, -100px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(400px, -200px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.map-container {
+  margin-top: 20px;
+  width: 48%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-form {
+  margin-top: 0;
+  width: 48%;
+}
+
+/* Social Icons Section */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: var(--text-color);
+  font-size: 24px;
+  margin: 0 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: var(--accent-color);
+}
+
+/* Footer Styles */
+.contact-footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.contact-footer p {
+  margin: 0;
+}
+
+.contact-footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-container,
+  .contact-form {
+    width: 100%;
+  }
+}

@@ -3,23 +3,29 @@
   --text-color: white; /* Default text color (for dark mode) */
   --light-bg-color: #f1f1f1; /* Light theme background color */
   --light-text-color: #0a0a0a; /* Light theme text color */
-  --accent-color: #D136CA; /* Accent color */
-  --dark-slider-bg: url('../../assets/dark.jpg'); /* Dark theme slider background */
-  --light-slider-bg: url('../../assets/light.jpg'); /* Light theme slider background */
+  --accent-color: #d136ca; /* Accent color */
+  --dark-slider-bg: url("../../assets/dark.jpg"); /* Dark theme slider background */
+  --light-slider-bg: url("../../assets/light.jpg"); /* Light theme slider background */
 }
 
 body.dark-theme {
   --bg-color: #0a0a0a;
   --text-color: white;
-  --accent-color: #D136CA;
+  --accent-color: #d136ca;
   --triangle-color: white;
+  --modal-bg: #000000d9;
+  --project-card:#2e2b2b95;
+  --icon-color: #f1f1f1;
 }
 
 body.light-theme {
   --bg-color: #f1f1f1;
   --text-color: #0a0a0a;
-  --accent-color: #D136CA;
+  --accent-color: #d136ca;
   --triangle-color: black;
+  --modal-bg: #7b7b7bd9;
+  --project-card:#89898995;
+  --icon-color:#0a0a0a;
 }
 
 /* Apply global theme variables */
@@ -105,7 +111,7 @@ body.light-theme .goyal {
 }
 
 .nav-links li a::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;

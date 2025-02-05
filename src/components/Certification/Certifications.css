@@ -4,19 +4,23 @@
   margin-top: 40px;
   padding: 20px;
   background-color: transparent;
-  text-align: center;
   border: none;
   box-shadow: none;
 }
 
 .certifications-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: var(--accent-color);
-  opacity: 0; /* Initially hidden */
-  transform: translateY(-50px); /* Initial position for slideDown */
-  transition: opacity 1.5s ease, transform 1.5s ease;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+  text-align: center; /* Center the text */
+  width: 100%; /* Ensure the heading takes full width of the container */
+  animation: fadeIn 2s ease-in-out forwards; /* Add fade-in animation */
 }
 
 .certifications-list {
@@ -29,24 +33,22 @@
   margin: 0 auto;
 }
 
-/* Outer stable card (Fixed Size) */
 .certification-card {
-  width: 300px; /* Fixed width to prevent shrinking */
-  height: 300px; /* Adjusted height to make space for text */
+  width: 300px;
+  height: 300px;
   border: 2px solid var(--accent-color);
   border-radius: 10px;
   background-color: transparent;
-  perspective: 1000px; /* Enables 3D effect */
+  perspective: 1000px;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0; /* Initially hidden */
-  transform: translateY(50px); /* Initial position for slideUp */
+  opacity: 0;
+  transform: translateY(50px);
   transition: opacity 1.5s ease, transform 1.5s ease;
-  will-change: opacity, transform; /* Hint for browser */
+  will-change: opacity, transform;
 }
 
-/* Inner flipping container */
 .certification-card-inner {
   width: 100%;
   height: 100%;
@@ -55,12 +57,10 @@
   transition: transform 0.6s ease-in-out;
 }
 
-/* Flip effect on hover */
 .certification-card:hover .certification-card-inner {
   transform: rotateY(180deg);
 }
 
-/* Front & Back styles */
 .certification-card-front,
 .certification-card-back {
   position: absolute;
@@ -76,54 +76,16 @@
   text-align: center;
 }
 
-/* Front side - Matching Experience Card Background Color */
 .certification-card-front {
-  background-color: var(
-    --primary-color
-  ); /* Change this color to match your experience card's background */
+  background-color: var(--primary-color);
   padding: 20px 15px;
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.85); /* Darker backdrop */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  padding: 20px; /* Prevents modal from sticking to the edges */
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 90%;
-  max-height: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-  overflow: hidden; /* Prevents unnecessary scrolling */
-  position: relative;
-}
-
-.modal-content {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 90%;
-  max-height: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-  overflow: hidden; /* Prevents unnecessary scrolling */
-  position: relative;
+.certification-card-back {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  transform: rotateY(180deg);
+  z-index: 1;
 }
 
 .certification-name {
@@ -141,29 +103,12 @@
   margin-bottom: 5px;
 }
 
-/* Back side - Matching Experience Card Background Color */
-.certification-card-back {
-  background-color: var(
-    --accent-color
-  ); /* Same background color as the front */
-  color: var(--primary-color);
-  transform: rotateY(180deg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 1;
-  visibility: visible;
-  z-index: 1; /* Ensure the back side is on top */
-}
-
-/* View More Button Styles (Ensuring it stays original on flip) */
 .view-more-button {
   padding: 12px 20px;
   background-color: var(--primary-color);
   color: white;
   border: 2px solid var(--primary-color);
   border-radius: 8px;
-  text-decoration: none;
   font-size: 1.1rem;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
@@ -178,38 +123,89 @@
   transform: translateY(0);
 }
 
-/* View All Button Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background-color: var(--modal-bg);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90vh; /* Use viewport height for max-height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  position: relative;
+  text-align: left;
+}
+
+.modal-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin: 0 0 5px 0;
+}
+
+.modal-date {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin: 0 0 10px 0;
+}
+
+.modal-details {
+  margin-bottom: 20px;
+}
+
+.modal-issuer {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+}
+
+.modal-id {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
 .view-all-button-container {
   text-align: right;
   margin-top: 6px;
-  padding: 0 20px 10px 20px; /* Add padding to match the container's padding */
+  padding: 0 20px 10px 20px;
 }
 
 .view-all-button {
   display: inline-block;
   padding: 10px 20px;
-  right: 280px;
   font-size: 1rem;
   font-weight: bold;
   color: white;
   background-color: var(--accent-color);
   border: none;
   border-radius: 5px;
-  text-decoration: none;
   transition: background-color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
 }
 
 .view-all-button:hover {
-  background-color: #d136ca; /* Change color on hover */
-  transform: scale(1.05); /* Slightly increase size on hover */
+  background-color: #d136ca;
+  transform: scale(1.05);
 }
 
 .view-all-button:active {
-  transform: scale(0.95); /* Slightly decrease size on click */
+  transform: scale(0.95);
 }
 
-/* Slide Up Animation */
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -221,7 +217,6 @@
   }
 }
 
-/* Slide Down Animation */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -233,7 +228,6 @@
   }
 }
 
-/* Fade Out Animation */
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -245,15 +239,14 @@
   }
 }
 
-/* Grid Layout Responsiveness */
 @media (max-width: 1024px) {
   .certifications-list {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .certifications-list {
-    grid-template-columns: 1fr; /* 1 column on small screens */
+    grid-template-columns: 1fr;
   }
 }
