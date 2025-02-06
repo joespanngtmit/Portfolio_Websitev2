@@ -1,12 +1,3 @@
-/* Theme-specific variables */
-body.dark-theme {
-  --card-color: #161616;
-}
-
-body.light-theme {
-  --card-color: #cccccc;
-}
-
 /* About Me Section Styling */
 .about-me-section {
   display: flex;

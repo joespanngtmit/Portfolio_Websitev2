@@ -1,11 +1,3 @@
-body.light-theme{
-  --bottom-color:#0000000d;
-}
-
-body.dark-theme{
-  --bottom-color:#ffffff0d;
-}
-
 .projects-section {
   padding: 2rem;
   padding-top: 32px; /* Extra top padding to offset the navbar */
