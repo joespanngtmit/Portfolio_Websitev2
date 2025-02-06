@@ -18,6 +18,8 @@ body.dark-theme {
   --icon-color: #f1f1f1;
   --card-color: #161616;
   --bottom-color:#ffffff0d;
+  --placeholder: #ffffff99;
+  --box-hover: #ffffff33;
 }
 
 body.light-theme {
@@ -30,6 +32,17 @@ body.light-theme {
   --icon-color: #0a0a0a;
   --card-color: #cccccc;
   --bottom-color:#0000000d;
+  --placeholder: #00000099;
+  --box-hover: #33333333;
+}
+
+/* Global Loading State - Hides All Content Except Ball */
+body.loading * {
+  visibility: hidden; /* Hides all content, including navbar and home components */
+}
+
+body.loading .loader-ball {
+  visibility: visible; /* Ensures the ball is visible during loading */
 }
 
 body {

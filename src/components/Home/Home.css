@@ -227,32 +227,32 @@ body.dark-theme .linkedin:hover {
   }
 
   /* Keyframes for the pop-in effect */
-@keyframes popIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
-/* If you want to have a pop-out effect when the user interacts, for example, hovering: */
-.profile-photo:hover {
-  animation: popOut 0.8s ease-out forwards; /* Apply pop-out on hover */
-}
+  /* If you want to have a pop-out effect when the user interacts, for example, hovering: */
+  .profile-photo:hover {
+    animation: popOut 0.8s ease-out forwards; /* Apply pop-out on hover */
+  }
 
-@keyframes popOut {
-  0% {
-    opacity: 1;
-    transform: scale(1);
+  @keyframes popOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
   }
-  100% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-}
 
   .home-text {
     text-align: center; /* Center the text */
@@ -270,15 +270,6 @@ body.dark-theme .linkedin:hover {
   .home-text h2 {
     font-size: 1.2rem;
   }
-}
-
-/* Global Loading State - Hides All Content Except Ball */
-body.loading * {
-  visibility: hidden; /* Hides all content, including navbar and home components */
-}
-
-body.loading .loader-ball {
-  visibility: visible; /* Ensures the ball is visible during loading */
 }
 
 /* Loader Ball */
@@ -345,3 +336,5 @@ body.loading .loader-ball {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
+
+
