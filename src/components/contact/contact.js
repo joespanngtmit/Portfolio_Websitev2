@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import "../contact/contact.css";
-import logo from "../../assets/logo.png"; // Import your logo
+import logo from "../../assets/logo.png";
 import {
   FaFacebook,
   FaInstagram,
@@ -14,7 +14,7 @@ import {
   FaEnvelope,
   FaPhoneAlt,
 } from "react-icons/fa";
-import Footer from "../Footer/Footer"; // Import the Footer component
+import Footer from "../Footer/Footer";
 
 const Contact = () => {
   const form = useRef();
@@ -22,14 +22,17 @@ const Contact = () => {
   const [isSent, setIsSent] = useState(false);
   const [buttonText, setButtonText] = useState("Send");
   const [loading, setLoading] = useState(true);
+  const [isContentLoaded, setIsContentLoaded] = useState(false);
 
   useEffect(() => {
-    // Simulate loading delay
-    const timer = setTimeout(() => {
+    const loadingTimer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Adjust delay as needed
+      setTimeout(() => {
+        setIsContentLoaded(true);
+      }, 1000); // Delay to ensure loading animation finishes
+    }, 3500); // Loading animation duration (3.5s)
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(loadingTimer);
   }, []);
 
   const sendEmail = (e) => {
@@ -68,10 +71,29 @@ const Contact = () => {
         </div>
       ) : (
         <>
-          <h2 className="contact-heading">My Contact</h2>
+          <h2
+            className={`contact-heading ${isContentLoaded ? "animate-in" : ""}`}
+            style={{
+              opacity: isContentLoaded ? 1 : 0,
+              transition: "opacity 0.6s ease 0.1s",
+            }}
+          >
+            My Contact
+          </h2>
 
           {/* Map and Contact Info Section */}
-          <div className="map-info-container">
+          <div
+            className={`map-info-container ${
+              isContentLoaded ? "animate-in" : ""
+            }`}
+            style={{
+              opacity: isContentLoaded ? 1 : 0,
+              transform: isContentLoaded
+                ? "translateX(0)"
+                : "translateX(-50px)",
+              transition: "opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s",
+            }}
+          >
             <div className="map-container">
               <iframe
                 title="Google Map"
@@ -89,7 +111,8 @@ const Contact = () => {
                 <FaMapMarkerAlt className="contact-icon" />
                 <div className="contact-info-text">
                   <h4>Address</h4>
-                  <p>R-152, Narayan Vihar, Jaipur, Rajasthan, 302020</p>
+                  <p>R-152, Narayan Vihar,</p>
+                  <p>Gopalpura Byepass Jaipur, Rajasthan, 302020</p>
                 </div>
               </div>
               <div className="contact-info-item">
@@ -110,8 +133,25 @@ const Contact = () => {
           </div>
 
           {/* "Let's Connect" Section */}
-          <div className="connect-form">
-            <h3 className="contact-heading">Let's Connect</h3>
+          <div
+            className={`connect-form ${isContentLoaded ? "animate-in" : ""}`}
+            style={{
+              opacity: isContentLoaded ? 1 : 0,
+              transform: isContentLoaded ? "translateY(0)" : "translateY(50px)",
+              transition: "opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s",
+            }}
+          >
+            <h3
+              className={`contact-heading ${
+                isContentLoaded ? "animate-in" : ""
+              }`}
+              style={{
+                opacity: isContentLoaded ? 1 : 0,
+                transition: "opacity 0.6s ease 0.5s",
+              }}
+            >
+              Let's Connect
+            </h3>
             <div className="form-logo-container">
               <div className="logo-container">
                 <img src={logo} alt="Logo" className="contact-logo" />
@@ -123,17 +163,29 @@ const Contact = () => {
                     name="user_name"
                     placeholder="Your Name"
                     required
+                    style={{
+                      opacity: isContentLoaded ? 1 : 0,
+                      transition: "opacity 0.6s ease 0.6s",
+                    }}
                   />
                   <input
                     type="email"
                     name="user_email"
                     placeholder="Your Email"
                     required
+                    style={{
+                      opacity: isContentLoaded ? 1 : 0,
+                      transition: "opacity 0.6s ease 0.7s",
+                    }}
                   />
                   <textarea
                     name="message"
                     placeholder="Your Message"
                     required
+                    style={{
+                      opacity: isContentLoaded ? 1 : 0,
+                      transition: "opacity 0.6s ease 0.8s",
+                    }}
                   />
                   <div className="button-container">
                     <button type="submit">
@@ -141,14 +193,30 @@ const Contact = () => {
                       {isSent && <FaPaperPlane className="button-icon" />}
                     </button>
                   </div>
-                  {message && <p className="message">{message}</p>}
+                  {message && (
+                    <p
+                      className="message"
+                      style={{
+                        opacity: isContentLoaded ? 1 : 0,
+                        transition: "opacity 0.6s ease 0.9s",
+                      }}
+                    >
+                      {message}
+                    </p>
+                  )}
                 </form>
               </div>
             </div>
           </div>
 
           {/* Social Icons Section */}
-          <div className="social-icons">
+          <div
+            className={`social-icons ${isContentLoaded ? "animate-in" : ""}`}
+            style={{
+              opacity: isContentLoaded ? 1 : 0,
+              transition: "opacity 0.6s ease 1.0s",
+            }}
+          >
             <a
               href="https://facebook.com/yourhandle"
               target="_blank"
@@ -187,7 +255,12 @@ const Contact = () => {
             </a>
           </div>
 
-          <Footer />
+          <Footer
+            style={{
+              opacity: isContentLoaded ? 1 : 0,
+              transition: "opacity 0.6s ease 1.2s",
+            }}
+          />
         </>
       )}
     </div>
