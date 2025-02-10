@@ -64,7 +64,7 @@ const ProjectsSection = () => {
                     data-text={project.name}
                     style={{
                       "--r": rotationValue,
-                      // "--delay": `${delay}s`,
+                      "--delay": `${delay}s`,
                     }}
                   >
                     <div className="card-content">
