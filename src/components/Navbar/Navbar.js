@@ -42,10 +42,11 @@ const Navbar = ({ activeSection, setActiveSection }) => {
       style={{ top: `${top}px` }}
     >
       <div className="navbar-content">
-        <div className="logo">
+        {/* Make the logo clickable */}
+        <a href="/" onClick={() => handleNavClick("home")} className="logo">
           <span className="rohan">Rohan</span>
           <span className="goyal">Goyal</span>
-        </div>
+        </a>
 
         <div
           className={`hamburger-icon ${isMenuOpen ? "open" : ""}`}
@@ -103,7 +104,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           <li role="presentation">
             <a
               href="/education"
-              onClick={() => handleNavClick("Education")}
+              onClick={() => handleNavClick("education")}
               className={activeSection === "education" ? "active" : ""}
               aria-label="Education section"
             >
