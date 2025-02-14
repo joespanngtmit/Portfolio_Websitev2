@@ -41,21 +41,21 @@ Explore the live portfolio [here](https://this-is-rohan-goyal.vercel.app/).
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/your-github-username/your-portfolio-repo.git
+git clone https://github.com/37rohan/Portfolio_Website.git
 ```
 
 ### 2. Install Dependencies
 ```sh
-cd your-portfolio-repo
+cd Portfolio_Website
 npm install
 ```
 
-### 3. Run the Application
+### 3. Run the Application Locally
 ```sh
 npm start
 ```
 
-### 4. Build for Production
+### 4. Build for Production (Build & Deploy)
 ```sh
 npm run build
 ```
