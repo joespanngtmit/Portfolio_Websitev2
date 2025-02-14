@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext, useMemo } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useInView } from "react-intersection-observer";
 import {
   FaFacebook,
@@ -18,12 +19,16 @@ import profileLight from "../../assets/profile1.jpg";
 import { ThemeContext } from "../ParticleBackground/ThemeContext";
 
 function Home() {
+  const navigate = useNavigate();
   const { isDarkTheme } = useContext(ThemeContext); // Access theme context
   const [text, setText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [profilePic, setProfilePic] = useState(profileDark); // Default profile picture for dark theme
-  const textArray = useMemo(() => ["Data Analyst", "Python Developer", "Photographer", "Rider"], []);
+  const textArray = useMemo(
+    () => ["Data Analyst", "Python Developer", "Photographer", "Rider"],
+    []
+  );
   const [isLoading, setIsLoading] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -68,7 +73,7 @@ function Home() {
   }, [charIndex, currentIndex, textArray]);
 
   // Determine the theme color based on the current theme
-  const themeColor = isDarkTheme ? '#ffffff' : '#000000';
+  const themeColor = isDarkTheme ? "#ffffff" : "#000000";
 
   return (
     <section
@@ -105,7 +110,7 @@ function Home() {
           </p>
           <div className="social-icons" aria-label="Social media links">
             <a
-              href="https://facebook.com/yourhandle"
+              href="https://www.facebook.com/Rohangoyal2616"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon facebook"
@@ -114,7 +119,7 @@ function Home() {
               <FaFacebook size={30} />
             </a>
             <a
-              href="https://x.com/yourhandle"
+              href="https://x.com/aggarwalrohan37"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon x-icon"
@@ -123,7 +128,7 @@ function Home() {
               <FaXTwitter size={30} /> {/* X Twitter logo */}
             </a>
             <a
-              href="https://instagram.com/yourhandle"
+              href="https://instagram.com/rohan_agarwal_37"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon instagram"
@@ -132,7 +137,7 @@ function Home() {
               <FaInstagram size={30} />
             </a>
             <a
-              href="https://linkedin.com/in/yourhandle"
+              href="https://www.linkedin.com/in/goyal-rohan"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon linkedin"
@@ -144,7 +149,7 @@ function Home() {
 
           <button
             className="home-text"
-            onClick={() => (window.location.href = "#about")}
+            onClick={() => navigate("/about")}
             aria-label="Navigate to About section"
           >
             Wan'na Connect

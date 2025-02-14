@@ -218,7 +218,7 @@ const Contact = () => {
             }}
           >
             <a
-              href="https://facebook.com/yourhandle"
+              href="https://www.facebook.com/Rohangoyal2616"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon facebook"
@@ -227,7 +227,7 @@ const Contact = () => {
               <FaFacebook size={30} />
             </a>
             <a
-              href="https://x.com/yourhandle"
+              href="https://x.com/aggarwalrohan37"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon x-icon"
@@ -236,7 +236,7 @@ const Contact = () => {
               <FaXTwitter size={30} />
             </a>
             <a
-              href="https://instagram.com/yourhandle"
+              href="https://instagram.com/rohan_agarwal_37"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon instagram"
@@ -245,7 +245,7 @@ const Contact = () => {
               <FaInstagram size={30} />
             </a>
             <a
-              href="https://linkedin.com/in/yourhandle"
+              href="https://www.linkedin.com/in/goyal-rohan"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon linkedin"
