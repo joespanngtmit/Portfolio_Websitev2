@@ -26,7 +26,7 @@ function Home() {
   const [charIndex, setCharIndex] = useState(0);
   const [profilePic, setProfilePic] = useState(profileDark); // Default profile picture for dark theme
   const textArray = useMemo(
-    () => ["Data Analyst", "Python Developer", "Photographer", "Rider"],
+    () => ["Data Analyst", "Python Developer", "Rider"],
     []
   );
   const [isLoading, setIsLoading] = useState(true);
