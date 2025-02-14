@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Rohan Goyal's Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Portfolio](https://img.shields.io/badge/Portfolio-React-blue)](https://this-is-rohan-goyal.vercel.app/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![LinkedIn](https://img.shields.io/badge/Connect-LinkedIn-blue)](https://linkedin.com/in/goyal-rohan)
+---
 
-## Available Scripts
+Welcome to **Rohan Goyal's Portfolio** – a unique blend of technical expertise and creative flair. Dive into a showcase of my projects, skills, and professional journey as a Data Analyst, Python Developer.
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **Non-Scrollable Navigation:** Experience smooth transitions with one section visible at a time.
+- **Glassmorphism UI:** Modern design with sleek, glass-like effects.
+- **Interactive Animations:** Engaging particle backgrounds and dynamic flip cards.
+- **Theme Switching:** Instantly toggle between light and dark themes.
+- **Responsive Design:** Optimized for desktops, tablets, and mobile devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📚 Table of Contents
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [🌐 Demo](#-demo)
+- [💻 Technologies Used](#-technologies-used)
+- [🛠️ How to Use](#️-how-to-use)
+- [📑 Sections Overview](#-sections-overview)
+- [🤝 Contributing](#-contributing)
+- [📬 Contact](#-contact)
 
-### `npm test`
+## 🌐 Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Explore the live portfolio [here](https://this-is-rohan-goyal.vercel.app/).
 
-### `npm run build`
+## 💻 Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend:** React, HTML5, CSS3, Tailwind CSS
+- **Animations:** Framer Motion, React-Spring, CSS Transitions
+- **Deployment:** Vercel
+- **Email Integration:** EmailJS
+- **Data Visualization:** Recharts for interactive skill distribution charts
+- **Mapping:** Google Maps API for location-based interactivity
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠️ How to Use
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Clone the Repository
+```sh
+git clone https://github.com/37rohan/Portfolio_Website.git
+```
 
-### `npm run eject`
+### 2. Install Dependencies
+```sh
+cd Portfolio_Website
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. Run the Application Locally
+```sh
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Build for Production (Build & Deploy)
+```sh
+npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 5. Deploy
+Use Vercel or any other deployment platform to deploy the `build` folder.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📑 Sections Overview
 
-## Learn More
+- **Home:** Introduction with a dynamic typing effect and animated profile picture.
+- **About:** A visually appealing layout with a profile image and background details.
+- **Skills:** Showcasing my technical skills using an interactive skills tree.
+- **Experience:** Flip cards displaying work experience details with modals for descriptions.
+- **Education:** Information about my academic background and certifications.
+- **Projects:** Portfolio of projects with descriptions, images, and live links.
+- **Contact:** Glassmorphic contact form with EmailJS integration and an interactive Google Map.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🤝 Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
 
-### Code Splitting
+## 📬 Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to reach out via [email](https://this-is-rohan-goyal.vercel.app/connect) or connect with me on [LinkedIn](https://linkedin.com/in/goyal-rohan).
