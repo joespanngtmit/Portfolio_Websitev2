@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import About from "./components/Aboutme/AboutMe";
+import Resume from "./components/Resume/Resume";
 import Skills from "./components/Skills/Skills";
 import Contact from "./components/contact/contact";
 import AllCertifications from "./components/Certification/AllCertifications";
@@ -25,11 +26,12 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/resume" element={<Resume />} />
               <Route path="/skills" element={<Skills />} />
-              <Route path="/connect" element={<Contact />} />
               <Route path="/certifications" element={<AllCertifications />} />
-              <Route path="/education" element={<Education />} /> {/* New route */}
+              <Route path="/education" element={<Education />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/connect" element={<Contact />} />
             </Routes>
           </div>
           {/* <Footer /> */}
