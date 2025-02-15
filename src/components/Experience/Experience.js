@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import './Experience.css';
+import React, { useState, useEffect } from "react";
+import "./Experience.css";
 
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState(null);
@@ -7,36 +7,36 @@ const Experience = () => {
 
   const experienceData = [
     {
-      company: 'DevTown',
-      position: 'Data Analyst Intern',
-      duration: 'Jul 2021 - Oct 2021',
+      company: "Perficient Placements",
+      position: "Data Analyst ",
+      duration: "Apr 2024 - Present",
       description: [
-        'Acquired proficiency in Python for data analysis and machine learning, developing algorithms and working with libraries such as NumPy for numerical computing, Pandas for data manipulation, Matplotlib for data visualization, and Seaborn for statistical graphics.',
-        'Gained practical experience in managing relational databases with SQLite and Db Browser, integrating machine learning algorithms for effective data storage, retrieval, and management in a collaborative environment.',
-        'Developed hands-on expertise in statistical analysis, exploratory data analysis, and machine learning, utilizing tools like Scikit-learn in Python and the R programming language for algorithm development and testing.'
+        "Utilize statistical methods and data analysis to identify trends, patterns, and anomalies, improving business metrics accuracy by 20%. Leverage big data, cloud-based technologies, and visualization tools to convert raw data into actionable insights, boosting strategic decision-making efficiency by 30%.",
+        "Develop 10+ clear, insightful reports and interactive dashboards monthly, simplifying complex datasets for stakeholders. Customize presentations for both technical and non-technical audiences, increasing data-driven decision adoption by 25%.",
+        "Design, optimize, and refine 100+ SQL queries for efficient data extraction, manipulation, and analysis. Enhance query performance by 40%, ensuring seamless processing of large datasets and improving overall data integration and management.",
+        "Automate and enhance ETL workflows, reducing manual processing time by 50%. Utilize AWS and Azure for scalable data solutions while staying updated on emerging trends in automation and big data processing, ensuring high-performance pipelines that enable real-time decision-making.",
       ],
     },
     {
-      company: 'Elite Techno Groups',
-      position: 'Python for AI/ML Intern',
-      duration: 'Aug 2021 - Sept 2021',
+      company: "Magna Infotech",
+      position: "Data Analyst",
+      duration: "Jan 2023 - Mar 2024",
       description: [
-        'Proficient in Python and its associated modules, I applied them effectively across various projects involving algorithm development and exploratory data analysis, including machine learning applications.',
-        'Utilized JSON for data manipulation, integration, and script writing within an inventory management project, ensuring efficient data exchange and facilitating machine learning model integration.',
-        'Experienced with key Python libraries, including NumPy for numerical analysis, Pandas for data manipulation, Matplotlib for data visualization, and Seaborn for statistical graphics, which contributed to comprehensive algorithm and machine learning model development.',
-        'Gained practical insights into the AI/ML domain through hands-on experience with relevant tools and techniques, enhancing learning solutions and testing in a collaborative environment focused on machine learning applications.'
+        "Executed data collection, cleaning, and preprocessing across 5+ data sources, ensuring 98% data accuracy, consistency, and integrity.",
+        "Implemented quality assurance processes, enhancing data reliability for analysis and reporting by 30%.",
+        "Performed exploratory data analysis (EDA) using Python (Pandas, NumPy, Matplotlib, Seaborn) and SQL, identifying 15+ key trends and patterns that informed strategic decisions. Applied mathematical and statistical techniques to enhance predictive modeling accuracy by 20%.",
+        "Developed 10+ interactive dashboards and reports in Tableau, improving stakeholder decision-making efficiency by 25%. Optimized visualization processes, reducing dashboard load times by 40% for a better user experience.",
+        "Collaborated in an Agile environment, contributing to 20+ sprint meetings, stand-ups, and discussions to enhance data workflows and reporting efficiency. Committed to continuous learning, implementing 5+ best practices in data optimization and management.",
       ],
     },
     {
-      company: 'EntryLevel',
-      position: 'Data Analyst Virtual Experience',
-      duration: 'Jul 2021 - Aug 2021',
+      company: "DevTown",
+      position: "Data Analyst Intern",
+      duration: "Jun 2021 - Nov 2021",
       description: [
-        'Acquired skills in identifying and analyzing business problems effectively.',
-        'Mastered various data cleaning techniques using Google Sheets to ensure data accuracy and consistency.',
-        'Developed expertise in creating Pivot Tables to extract and present key insights from datasets.',
-        'Gained proficiency in Tableau’s basic functionalities and utilized it to design impactful data visualizations.',
-        'Earned three badges: Critical Thinker, Team Player, and Last-Minute Hustle, recognizing achievements in analytical thinking, teamwork, and performance under tight deadlines.'
+        "Gained hands-on experience in Python for data analysis, leveraging NumPy, Pandas, and Matplotlib/Seaborn to perform EDA and extract insights in finance and marketing datasets.",
+        "Developed proficiency in SQLite and DB Browser, executing 50+ queries for efficient data extraction, ensuring 95%+ data accuracy and optimized storage.",
+        "Applied statistical analysis and EDA using Scikit-learn and R, evaluating key performance indicators (KPIs) and supporting data-driven decision-making through predictive insights.",
       ],
     },
   ];
@@ -67,7 +67,10 @@ const Experience = () => {
                 <p className="experience-description">{exp.duration}</p>
               </div>
               <div className="experience-card-back">
-                <button className="view-more-button" onClick={() => setSelectedExperience(exp)}>
+                <button
+                  className="view-more-button"
+                  onClick={() => setSelectedExperience(exp)}
+                >
                   View More
                 </button>
               </div>
@@ -78,10 +81,18 @@ const Experience = () => {
 
       {/* Modal for Detailed View */}
       {selectedExperience && (
-        <div className={`experience-modal ${showModal ? 'active' : ''}`} onClick={closeModal}>
-          <div className="experience-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-modal" onClick={closeModal}>×</button>
-            
+        <div
+          className={`experience-modal ${showModal ? "active" : ""}`}
+          onClick={closeModal}
+        >
+          <div
+            className="experience-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="close-modal" onClick={closeModal}>
+              ×
+            </button>
+
             <div className="header">
               <h2>{selectedExperience.company}</h2>
               <div className="duration">{selectedExperience.duration}</div>
