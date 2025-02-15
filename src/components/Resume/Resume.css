@@ -89,8 +89,6 @@ body {
   height: auto !important;
   border-radius: 12px;
   border: 1px solid var(--accent-color);
-  /* Shadow with right and bottom offset for a 3D effect */
-  box-shadow: 12px 4px 25px var(--accent-color), 0 2px 6px var(--accent-color); /* Persistent soft shadow */
 }
 
 /* Ensure the resume container does not stretch */
