@@ -69,8 +69,7 @@
   margin-top: 20px;
   gap: 20px;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .sub-node {
@@ -119,33 +118,18 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(20px);
   }
 }
 
 .sub-managers.visible {
   opacity: 1;
-  transform: translateY(0);
-  animation: fadeIn 1s ease forwards;
 }
 
 .sub-managers.hidden {
-  animation: fadeOut 1s ease forwards;
+  opacity: 0;
 }
 
 /* Slide Down Animation for My Skills Heading */
@@ -250,9 +234,9 @@
     flex-direction: column;
     align-items: normal;
     position: relative; /* Add relative positioning */
-    padding: 25px 1px 25px 1px;
+    padding: 25px 1px 25px 20px;
     margin-top: -4px;
-    font-size: 15px;
+    font-size: 14px;
     width: 75%;
   }
 
@@ -264,12 +248,12 @@
     gap: 0px;
     position: absolute;
     top: 184px;
-    left: 35%; /* Place sub-branches to the right of branches */
+    left: 40%; /* Place sub-branches to the right of branches */
     transform: translateX(-50%);
-    z-index: 10;
+    z-index: 9;
     opacity: 1;
     width: 32%;
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .sub-sub-managers {
@@ -370,8 +354,6 @@
   }
 }
 
-/* Add these styles to Skills.css */
-
 /* Loading Container */
 .loading-container {
   position: fixed;
@@ -427,5 +409,3 @@
     opacity: 0;
   }
 }
-
-

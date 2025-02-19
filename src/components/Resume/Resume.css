@@ -239,15 +239,15 @@ body {
     font-size: 16px;
   }
   .download-btn {
-    bottom: 25px;
-    right: 50px;
+    bottom: 335px;
+    right: 35px;
     padding: 10px; /* Reduce padding */
     font-size: 20px;
   }
 
   .download-btn svg {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 16px;
   }
   .download-btn:hover {
     background: transparent;

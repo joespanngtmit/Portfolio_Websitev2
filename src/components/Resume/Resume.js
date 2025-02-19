@@ -68,7 +68,7 @@ const Resume = () => {
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                   className="flip-page"
                 >
-                  <Page pageNumber={currentPage} scale={1.2} />
+                  <Page pageNumber={currentPage} scale={1.8} />
                 </motion.div>
               </AnimatePresence>
             </Document>

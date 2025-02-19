@@ -44,7 +44,6 @@ body.light-theme .goyal {
   display: flex;
   gap: 20px;
   margin: 0;
-  margin-right: 20px;
   width: 100%;
   justify-content: flex-end; /* Align to the right for large screens */
 }
@@ -105,7 +104,7 @@ body.light-theme .nav-links.show {
 .theme-switch {
   position: relative;
   display: inline-block;
-  width: 170px;
+  width: 145px;
   height: 50px;
 }
 
@@ -120,6 +119,7 @@ body.light-theme .nav-links.show {
   .theme-switch {
     width: 80px;
     height: 40px;
+    margin-right: 20px;
   }
 
   .theme-switch .slider:before {
@@ -143,6 +143,7 @@ body.light-theme .nav-links.show {
     flex-grow: 1;
     font-size: 1.5rem;
     gap: 5px;
+    margin-left: 25px;
   }
 
   .navbar-right {
@@ -153,6 +154,7 @@ body.light-theme .nav-links.show {
 
   /* Hamburger icon should be visible */
   .hamburger-icon {
+    margin-right: 30px;
     display: flex;
     width: 30px;
     height: 25px;
@@ -220,7 +222,7 @@ body.light-theme .nav-links.show {
     right: 0;
     background-color: var(--bg-color);
     width: 100%;
-    padding: 20px;
+    padding: 155px;
     z-index: 5;
   }
 

@@ -62,19 +62,31 @@
 }
 
 .about-me-profile-picture {
+  position: relative;
   width: 200px;
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 20px;
-  border: 5px solid var(--accent-color);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border: 5px var(--accent-color);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4), 0 0 20px 10px var(--accent-color); /* Accent color glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-me-profile-picture:hover {
+  transform: scale(1.03); /* Slightly magnify on hover */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 30px 15px var(--accent-color); /* Larger glow on hover */
+}
+
+.about-me-profile-picture:hover .about-me-profile-image {
+  transform: scale(4); /* Slight zoom effect on hover */
 }
 
 .about-me-profile-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .about-me-content {

@@ -1,73 +1,58 @@
 /* Home Section Styling */
 .home-section {
-  height: 80vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0 20px;
+  overflow: hidden; /* Prevent scrolling */
 }
 
-/* Container for Content (Text and Profile Picture) */
-.home-container {
-  display: flex;
-  justify-content: space-between; /* Space between the text and profile picture */
-  align-items: center; /* Center vertically */
+.home-content {
+  flex: 1;
   width: 100%;
-  max-width: 1200px; /* Limit the max width */
-  margin-top: 30px; /* Adds margin from the top */
-  flex-wrap: wrap; /* Allow items to wrap on small screens */
-  transition: all 0.3s ease; /* Smooth transition for layout changes */
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Left Column (Text) Styling */
 .home-text {
-  text-align: left; /* Left-align text */
   max-width: 600px;
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: flex-start; /* Align text to the left */
-  justify-content: center; /* Center vertically */
-  transition: transform 0.3s ease; /* Smooth transition for text */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Profile Picture Styling */
-.profile-pic {
-  width: 300px; /* Initial size */
-  height: 300px; /* Initial size */
-  border-radius: 50%; /* Make it circular */
-  object-fit: cover;
-  border: 10px #6f0165; /* Darker glow color for border */
-  box-shadow: 0 0 30px 15px rgba(146, 33, 146, 0.8); /* More spread and a stronger glow */
-  transition: box-shadow 0.3s ease, border 0.3s ease, transform 0.3s ease; /* Smooth transition */
-  margin-left: -30px; /* Keep the profile picture left alignment */
-  margin-right: 40px;
-  margin-top: 20px; /* Adds space on top of the profile picture */
-  transform-origin: center; /* Ensure proper scaling and transition */
-}
-
-/* Optional: Add a hover effect for more intense glow */
-.profile-pic:hover {
-  box-shadow: 0 0 40px 20px rgba(146, 33, 146, 1); /* More intense glowing effect on hover */
-  border: 10px #922192; /* Change the border to a more intense glow color on hover */
-}
-
-/* Text Styling */
 .home-text p {
-  font-size: 1.5rem; /* Increased font size for "Hello, I'm" */
+  font-size: 1.5rem;
   font-weight: bold;
-  margin: 0;
 }
 
 .home-text h1 {
-  font-size: 3rem; /* Kept size consistent for the main heading */
+  font-size: 3rem;
   font-weight: bold;
-  margin: 5px 0;
 }
 
 .home-text h2 {
-  font-size: 1.5rem; /* Decreased font size for the subheading */
+  font-size: 1.5rem;
   font-weight: bold;
-  margin: 5px 0;
+}
+
+p {
+  color: var(--accent-color); /* Changed color of the span */
+}
+
+h1 span {
+  color: var(--accent-color); /* Changed color of the span */
 }
 
 /* Typewriter Effect Text */
@@ -76,86 +61,67 @@
   font-weight: bold;
 }
 
-/* More specific selector for the last paragraph */
-.home-text .last-paragraph {
-  font-size: 1.2rem !important; /* Decreased font size */
-  line-height: 1.4 !important; /* Adjust spacing between lines */
-  font-weight: normal !important; /* Remove bold styling */
-  margin: 5px auto !important; /* Reduced margin to decrease space between last paragraph and social icons */
-}
-
 /* Social Icons Styling */
 .social-icons {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: flex-start; /* Align social icons to the left */
-  gap: 10px; /* Reduced gap between icons */
-  margin-top: 10px; /* Reduced space between social icons and the last paragraph */
+  justify-content: center;
+  gap: 10px;
 }
 
 /* Styling for individual icons */
 .social-icons a {
-  font-size: 2rem; /* Increased font size for the icons */
-  color: white; /* Default color for icons in dark theme */
-  border: 2px solid transparent; /* White border around the icon */
-  border-radius: 50%; /* Make them circular */
-  padding: 12px; /* Adjusted padding to make a perfect circle around the icon */
+  font-size: 2rem;
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent; /* Transparent background */
-  transition: all 0.3s ease; /* Smooth transition for any changes */
+  background-color: transparent;
+  transition: all 0.3s ease;
 }
 
 /* Social icons in light theme should have black color */
 body.light-theme .social-icons a {
-  color: black; /* Default color for icons in light theme */
+  color: black;
 }
 
-/* Hover effect for light theme */
 body.light-theme .social-icons a:hover {
-  transform: scale(1.1); /* Slightly scale the icon on hover */
+  transform: scale(1.1);
 }
 
 body.light-theme .facebook:hover {
-  color: #1a4195; /* Facebook color on hover */
+  color: #1a4195;
 }
 
 body.light-theme .instagram:hover {
-  color: #b52354; /* Instagram color on hover */
+  color: #b52354;
 }
 
 body.light-theme .linkedin:hover {
-  color: #013d5d; /* LinkedIn color on hover */
+  color: #013d5d;
 }
 
-/* Hover effect for dark theme */
+
 body.dark-theme .social-icons a:hover {
-  transform: scale(1.1); /* Slightly scale the icon on hover */
+  transform: scale(1.1);
 }
 
 body.dark-theme .facebook:hover {
-  color: #2b4d97; /* Facebook color on hover */
+  color: #2b4d97;
 }
 
 body.dark-theme .instagram:hover {
-  color: #c72b5f; /* Instagram color on hover */
+  color: #c72b5f;
 }
 
 body.dark-theme .linkedin:hover {
-  color: #016296; /* LinkedIn color on hover */
-}
-
-/* Social icon general hover effect */
-.social-icon {
-  font-size: 30px;
-  color: #555;
-  text-decoration: none;
-  background-color: transparent;
-  transition: color 0.3s, transform 0.3s;
-}
-
-.social-icon:hover {
-  transform: scale(1.2);
+  color: #016296;
 }
 
 /* Button Styling */
@@ -177,99 +143,6 @@ body.dark-theme .linkedin:hover {
   transform: translateY(-5px) rotateX(10deg) rotateY(10deg); /* Apply 3D movement on hover */
   background-color: #d136ca;
   color: white;
-}
-
-/* For screens between 849px and 768px, stack profile picture above text */
-@media (max-width: 849px) and (min-width: 768px) {
-  .home-container {
-    flex-direction: column; /* Stack profile picture and text vertically */
-    align-items: center; /* Center the content */
-    justify-content: center; /* Vertically center */
-    transition: all 0.3s ease; /* Smooth transition */
-  }
-
-  .profile-pic {
-    width: 220px; /* Adjust profile picture size */
-    height: 220px; /* Adjust profile picture size */
-    margin-bottom: 20px; /* Space between profile picture and text */
-    margin-top: 30px; /* Added space at the top to prevent overlap with navbar */
-    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease; /* Smooth transition */
-    transform: scale(0.9); /* Smoothly scale down the profile picture */
-  }
-
-  .home-text {
-    text-align: center; /* Center the text */
-    padding-left: 10px; /* Add some padding for better spacing */
-  }
-}
-
-/* For smaller screens, rearrange the profile picture and text */
-@media (max-width: 768px) {
-  .home-container {
-    flex-direction: column; /* Stack profile picture above text */
-    align-items: center; /* Center the content */
-    transition: all 0.3s ease; /* Ensure smooth transition */
-  }
-
-  .profile-container {
-    order: -1; /* Ensures the profile picture is on top */
-  }
-
-  .profile-pic {
-    width: 200px; /* Smaller profile picture */
-    height: 200px;
-    margin-bottom: 20px; /* Space between profile picture and text */
-    margin-top: 130px; /* Added space at the top to prevent overlap with navbar */
-    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease; /* Smooth transition */
-    transform: scale(0.5); /* Smoothly scale down the profile picture */
-    animation: popIn 0.8s ease-out forwards;
-    opacity: 0;
-  }
-
-  /* Keyframes for the pop-in effect */
-  @keyframes popIn {
-    0% {
-      opacity: 0;
-      transform: scale(0.5);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  /* If you want to have a pop-out effect when the user interacts, for example, hovering: */
-  .profile-photo:hover {
-    animation: popOut 0.8s ease-out forwards; /* Apply pop-out on hover */
-  }
-
-  @keyframes popOut {
-    0% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(0.5);
-    }
-  }
-
-  .home-text {
-    text-align: center; /* Center the text */
-  }
-
-  /* Adjust font size for smaller screens */
-  .home-text p {
-    font-size: 1.2rem;
-  }
-
-  .home-text h1 {
-    font-size: 2.5rem;
-  }
-
-  .home-text h2 {
-    font-size: 1.2rem;
-  }
 }
 
 /* Loader Ball */
@@ -336,5 +209,3 @@ body.dark-theme .linkedin:hover {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
-
-

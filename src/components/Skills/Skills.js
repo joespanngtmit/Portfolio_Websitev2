@@ -91,7 +91,7 @@ const Skills = () => {
                 ?.subSkills.slice(0, 6)
                 .map((subSkill, subIndex) => (
                   <div key={subIndex} className="node sub-node">
-                    <h4>{subSkill}</h4>
+                    <h3>{subSkill}</h3>
                   </div>
                 ))}
               {skillsData
@@ -103,7 +103,7 @@ const Skills = () => {
                     ?.subSkills.slice(6)
                     .map((subSkill, subIndex) => (
                       <div key={subIndex} className="node sub-sub-node">
-                        <h4>{subSkill}</h4>
+                        <h3>{subSkill}</h3>
                       </div>
                     ))}
                 </div>
