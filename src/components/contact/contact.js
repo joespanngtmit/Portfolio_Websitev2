@@ -7,6 +7,7 @@ import {
   FaInstagram,
   FaLinkedin,
   FaXTwitter,
+  FaGithub,
 } from "react-icons/fa6";
 import {
   FaPaperPlane,
@@ -83,9 +84,8 @@ const Contact = () => {
 
           {/* Map and Contact Info Section */}
           <div
-            className={`map-info-container ${
-              isContentLoaded ? "animate-in" : ""
-            }`}
+            className={`map-info-container ${isContentLoaded ? "animate-in" : ""
+              }`}
             style={{
               opacity: isContentLoaded ? 1 : 0,
               transform: isContentLoaded
@@ -142,9 +142,8 @@ const Contact = () => {
             }}
           >
             <h3
-              className={`contact-heading ${
-                isContentLoaded ? "animate-in" : ""
-              }`}
+              className={`contact-heading ${isContentLoaded ? "animate-in" : ""
+                }`}
               style={{
                 opacity: isContentLoaded ? 1 : 0,
                 transition: "opacity 0.6s ease 0.5s",
@@ -225,6 +224,15 @@ const Contact = () => {
               aria-label="Facebook profile"
             >
               <FaFacebook size={30} />
+            </a>
+            <a
+              href="https://github.com/37rohan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon github"
+              aria-label="GitHub profile"
+            >
+              <FaGithub size={30} /> {/* Requires importing FaGithub from react-icons/fa6 */}
             </a>
             <a
               href="https://x.com/aggarwalrohan37"

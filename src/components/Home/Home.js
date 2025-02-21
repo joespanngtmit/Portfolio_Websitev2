@@ -115,7 +115,7 @@ function Home() {
           <FaFacebook size={30} />
         </a>
         <a
-          href="https://github.com/your-username"
+          href="https://github.com/37rohan"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon github"
