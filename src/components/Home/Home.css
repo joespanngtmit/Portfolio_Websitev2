@@ -209,3 +209,34 @@ body.dark-theme .linkedin:hover {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
+
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+  .home-text p {
+    font-size: 1.2rem;
+  }
+
+  .home-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .home-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .home-text button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .social-icons {
+    gap: 8px;
+    left:42%;
+  }
+
+  .social-icons a {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+}

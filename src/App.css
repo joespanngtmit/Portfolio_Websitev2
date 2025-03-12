@@ -20,6 +20,7 @@ body.dark-theme {
   --bottom-color:#ffffff0d;
   --placeholder: #ffffff99;
   --box-hover: #ffffff33;
+  --bg-footer: #ffffff1a;
 }
 
 body.light-theme {
@@ -34,6 +35,7 @@ body.light-theme {
   --bottom-color:#0000000d;
   --placeholder: #00000099;
   --box-hover: #33333333;
+  --lg-footer:#0d00001a;
 }
 
 /* Global Loading State - Hides All Content Except Ball */

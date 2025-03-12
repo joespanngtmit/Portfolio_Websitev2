@@ -230,14 +230,15 @@
 }
 
 /* --- Social Icons --- */
-.social-icons {
+.contact-social-icons {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 40px;
+  padding: 0 20px;
 }
 
-.social-icons a {
+.contact-social-icons a {
   font-size: 2rem;
   color: var(--text-color);
   border: 2px solid transparent;
@@ -250,8 +251,8 @@
   transition: all 0.3s ease;
 }
 
-.social-icons a:hover {
-  transform: scale(2);
+.contact-social-icons a:hover {
+  transform: scale(1.2);
 }
 
 /* --- Footer --- */
@@ -309,10 +310,15 @@
   .contact-form {
     width: 100%;
   }
+
+  .social-icons {
+    position: relative;
+    bottom: auto;
+    margin: 20px 0;
+  }
 }
 
 /* --- Loading Animation --- */
-/* Add or update these styles in contact.css */
 .loading-container {
   position: fixed;
   top: 0;
@@ -369,4 +375,3 @@
 .loader-ball.expand {
   animation: expand-out 1.5s forwards; /* Expands and fades out */
 }
-

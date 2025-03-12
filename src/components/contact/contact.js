@@ -210,7 +210,7 @@ const Contact = () => {
 
           {/* Social Icons Section */}
           <div
-            className={`social-icons ${isContentLoaded ? "animate-in" : ""}`}
+            className={`contact-social-icons ${isContentLoaded ? "animate-in" : ""}`}
             style={{
               opacity: isContentLoaded ? 1 : 0,
               transition: "opacity 0.6s ease 1.0s",
@@ -232,7 +232,7 @@ const Contact = () => {
               className="social-icon github"
               aria-label="GitHub profile"
             >
-              <FaGithub size={30} /> {/* Requires importing FaGithub from react-icons/fa6 */}
+              <FaGithub size={30} />
             </a>
             <a
               href="https://x.com/aggarwalrohan37"
