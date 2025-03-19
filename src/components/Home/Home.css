@@ -231,8 +231,9 @@ body.dark-theme .linkedin:hover {
   }
 
   .social-icons {
+    bottom: 60px;
     gap: 8px;
-    left:42%;
+    left:50%;
   }
 
   .social-icons a {
