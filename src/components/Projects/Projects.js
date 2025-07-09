@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import projects from "./projects.json";
 import "./ProjectsSection.css";
 import { BsGlobe, BsBoxes } from "react-icons/bs";
-import { MdHomeWork } from "react-icons/md";
-import { FaCalculator, FaCode } from "react-icons/fa6";
-import { GiThink } from "react-icons/gi";
-import { SiGoogleanalytics } from "react-icons/si";
-import { FaCloudShowersHeavy, FaCar, FaClipboardCheck, FaGamepad, FaWpforms, FaRibbon } from "react-icons/fa";
+import { FaCode, FaUserDoctor } from "react-icons/fa6";
+import { GiThink, GiOpenTreasureChest  } from "react-icons/gi";
+import { SiHiveBlockchain } from "react-icons/si";
+import { FaMoneyBill, FaFlagUsa, FaRibbon, FaCloudShowersHeavy  } from "react-icons/fa";
+import { GoArrowRight } from "react-icons/go";
+import { CgGames, CgPokemon  } from "react-icons/cg";
+import { MdQuiz, MdOutlinePassword  } from "react-icons/md";
+import { FcPlanner } from "react-icons/fc";
 
 // Helper function to split the array into chunks of a given size.
 const chunkArray = (arr, chunkSize) => {
@@ -19,20 +22,21 @@ const chunkArray = (arr, chunkSize) => {
 
 const ProjectsSection = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [expandedProject, setExpandedProject] = useState(null);
   const rotations = [-21, 7, 25];
   const icons = [
     <BsGlobe />,
-    <FaCar />,
-    <MdHomeWork />,
-    <FaCalculator />,
-    <GiThink />,
+    <FaFlagUsa />,
+    <FaUserDoctor />,
+    <CgGames />,
+    <FaMoneyBill />,
+    <CgPokemon />,
+    <SiHiveBlockchain />,
+    <MdQuiz />,
+    <MdOutlinePassword  />,
+    <GiOpenTreasureChest />,
     <FaCloudShowersHeavy />,
-    <SiGoogleanalytics />,
-    <FaClipboardCheck />,
-    <FaGamepad />,
-    <FaWpforms />,
-    <FaRibbon />,
-    <BsBoxes />,
+    <FcPlanner />,
   ];
   const projectRows = chunkArray(projects, 3);
 
@@ -56,19 +60,27 @@ const ProjectsSection = () => {
                 const rotationValue = rotations[index] ?? 0;
                 const icon = icons[rowIndex * 3 + index] ?? <GiThink />;
                 const delay = (rowIndex * 3 + index) * 0.1; // Staggered delay
-
+                const isExpanded = expandedProject === project.name;
+                const handleCardClick = () => {
+                  setExpandedProject(isExpanded ? null : project.name);
+                };
                 return (
                   <div
                     key={project.name + index}
                     className="glass"
                     data-text={project.name}
+                    onClick={handleCardClick}
                     style={{
                       "--r": rotationValue,
                       "--delay": `${delay}s`,
                     }}
                   >
                     <div className="card-content">
-                      <h3 className="project-icon">{icon}</h3>
+                      {isExpanded ? (
+                        <p className="project-description">
+                          {project.description}
+                        </p>
+                      ) : (<h3 className="project-icon">{icon}</h3>)}
                     </div>
                     <a
                       href={project.link}
@@ -78,6 +90,16 @@ const ProjectsSection = () => {
                     >
                       <FaCode className="code-icon" />
                     </a>
+                    {project.live_url && 
+                    <a
+                      href={project.live_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="code-icon-live-link"
+                    >
+                      <GoArrowRight className="code-icon" />
+                    </a>}
+                    
                   </div>
                 );
               })}

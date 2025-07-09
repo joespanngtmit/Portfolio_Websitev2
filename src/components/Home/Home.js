@@ -2,10 +2,7 @@ import React, { useState, useEffect, useContext, useMemo } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useInView } from "react-intersection-observer";
 import {
-  FaFacebook,
-  FaInstagram,
   FaLinkedin,
-  FaXTwitter,
   FaGithub,
 } from "react-icons/fa6";
 import "../../App.css"; // Global styles for the app
@@ -25,7 +22,7 @@ function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const textArray = useMemo(
-    () => ["Data Analyst", "Python Developer", "PhotoGrapher"],
+    () => ["Full Stack Developer", "Python Developer", "React Developer", "Nak Muay"],
     []
   );
 
@@ -88,7 +85,7 @@ function Home() {
           className={`home-text ${isLoaded ? "content-visible" : "hidden-content"}`}
         >
           <p>Hello, I'm</p>
-          <h1 id="home-title">Rohan Goyal<span>.</span> </h1>
+          <h1 id="home-title">Joseph Spann<span>.</span> </h1>
           <h2>
             <span>{text}</span>
           </h2>
@@ -98,7 +95,7 @@ function Home() {
             onClick={() => navigate("/about")}
             aria-label="Navigate to About section"
           >
-            Wan'na Connect
+            Let's Connect
           </button>
         </div>
       </div>
@@ -106,43 +103,16 @@ function Home() {
       {/* Social Icons at the Bottom */}
       <div className="social-icons" aria-label="Social media links">
         <a
-          href="https://www.facebook.com/Rohangoyal2616"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-icon facebook"
-          aria-label="Facebook profile"
-        >
-          <FaFacebook size={30} />
-        </a>
-        <a
-          href="https://github.com/37rohan"
+          href="https://github.com/joespanngtmit"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon github"
           aria-label="GitHub profile"
         >
-          <FaGithub size={30} /> {/* Requires importing FaGithub from react-icons/fa6 */}
+          <FaGithub size={30} />
         </a>
         <a
-          href="https://x.com/aggarwalrohan37"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-icon x-icon"
-          aria-label="X profile"
-        >
-          <FaXTwitter size={30} /> {/* X Twitter logo */}
-        </a>
-        <a
-          href="https://instagram.com/rohan_agarwal_37"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-icon instagram"
-          aria-label="Instagram profile"
-        >
-          <FaInstagram size={30} />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/goyal-rohan"
+          href="https://www.linkedin.com/in/joseph-spann-12a684140/"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon linkedin"

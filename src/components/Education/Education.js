@@ -8,25 +8,25 @@ const Education = () => {
   const educationData = [
     {
       logo: "/path/to/institution1-logo.png",
-      institution: "Poornima University",
-      degree: "Bachelor of Computer Applications (Data Science)",
-      duration: "2020 - 2023",
+      institution: "University of California, San Diego Extension",
+      degree: "Web Develeopement Bootcamp",
+      duration: "2020 - 2021",
       description:
-        "Completed a comprehensive program covering core computer science topics including algorithms, data structures, and software engineering.",
+        "Successfully completed a 256-hour web development program centered on the MERN stack, gaining practical experience in building user-friendly, production-ready applications.",
     },
     {
-      institution: "Guru Ram Rai Public School",
-      degree: "Senior Secondary Education | 11th & 12th Standard",
-      duration: "2018 - 2020",
+      institution: "Grossmont College",
+      degree: "Associate Degree in Computer Science and Mathematics",
+      duration: "2019 - 2020",
       description:
-        "Focused on foundational programming skills and software development practices.",
+        "Completed a comprehensive academic program focused on the foundations of software engineering and analytical problem-solving. Coursework included Java, C++, data structures, and core programming principles, providing a strong base in both theoretical and applied computer science.",
     },
     {
-      institution: "Tagore Public School",
-      degree: "High School | 9th & 10th Standard",
-      duration: "2016 - 2018",
+      institution: "San Diego City College",
+      degree: "Computer Science Coursework",
+      duration: "2018 - 2019",
       description:
-        "Focused on foundational programming skills and software development practices.",
+        "Began my formal education in computer science while working full-time, balancing professional responsibilities with evening and weekend classes. Focused on foundational courses in programming, logic, and mathematics, with the intent to transfer to a community college offering a more specialized computer science pathway. This experience laid the groundwork for my successful transition to Grossmont College and ultimately toward pursuing a four-year degree.",
     },
     // Add more education entries as needed
   ];

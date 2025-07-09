@@ -117,8 +117,26 @@
   transition: all 0.3s ease-in-out; /* Smooth transition */
 }
 
+.code-icon-live-link {
+  position: absolute;
+  right: 10px; /* Adjust to position closer to the border */
+  top: 70%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  font-size: 0.5rem;
+  text-decoration: none;
+  border: 1px solid var(--text-color); /* Border around the icon */
+  border-radius: 50%; /* Makes the border circular */
+  padding: 0.3rem; /* Space around the icon */
+  background: transparent; /* Transparent by default */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
 /* Hover effect: Fill the background white and change icon color */
-.code-icon-link:hover {
+.code-icon-link:hover,  .code-icon-live-link:hover{
   background: var(--modal-bg); /* Circle fills white */
   color: var(--accent-color); /* Icon changes to accent color */
   border-color: var(--accent-color); /* Optional: Make the border white */
@@ -130,6 +148,32 @@
   padding: 0.2rem 0.5rem;
   border-radius: 5px;
   font-size: 0.75rem;
+}
+
+.project-description {
+  max-height: 150px; /* Adjust height as needed */
+  overflow-y: auto;
+  margin-top: 10px;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) transparent;
+  margin-bottom: 60px;
+}
+
+/* Custom scrollbar for WebKit browsers */
+.project-description::-webkit-scrollbar {
+  width: 6px;
+}
+.project-description::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 6px;
+}
+.project-description::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /* Keyframes for animation */

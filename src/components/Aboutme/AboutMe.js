@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AboutMe.css";
 import profileDark from "../../assets/profile.jpg";
-import profileLight from "../../assets/profile1.jpg";
 import { ThemeContext } from "../ParticleBackground/ThemeContext";
 
 const AboutMe = () => {
@@ -90,8 +89,8 @@ const AboutMe = () => {
           <div className="about-me-card">
             <div className="about-me-profile-picture">
               <img
-                src={isDarkTheme ? profileDark : profileLight}
-                alt="Rohan Goyal"
+                src={isDarkTheme? profileDark : profileDark}
+                alt="Joseph Spann"
                 className="about-me-profile-image"
                 onMouseEnter={(e) => (e.target.style.transform = "scale(1.05)")}
                 onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
@@ -99,31 +98,26 @@ const AboutMe = () => {
             </div>
             <div className="about-me-content">
               <p className="about-me-introduction">
-                Hey there! I'm Rohan Goyal, a passionate Data Analyst with over
-                3 years of experience. 📊 I love diving into complex data and
-                uncovering hidden insights that drive impactful decisions. 🚀
+                Hey there! I'm Joseph Spann, a passionate Full Stack Developer with over
+                3 years of experience in building streamlined, user-friendly web applications. 💻
+                I specialize in crafting responsive, efficient, and intuitive user experiences that deliver real-world impact.
               </p>
               <p className="about-me-introduction">
-                When I'm not crunching numbers, you can find me behind the
-                camera, capturing life's moments through my lens. 📸 I'm also a
-                big fan of hitting the open road on my bike, feeling the wind in
-                my hair, and exploring new places. 🚴‍♂️
+                Outside of development, I stay active through Muay Thai training 🥊, enjoy peaceful days fishing 🎣,
+                and love walking my dog or exploring hiking trails 🐕⛰️. These hobbies keep me balanced and energized.
               </p>
               <p className="about-me-introduction">
-                I believe in blending creativity with technical expertise to
-                solve complex problems and create lasting memories. 🎨💡 My
-                mission is to keep growing, learning, and making a meaningful
-                impact, both in my professional and personal life.
+                I approach both code and life with creativity, discipline, and a growth mindset. Whether building software
+                or exploring the outdoors, I’m always striving to push limits and make a meaningful impact.
               </p>
               <blockquote className="about-me-quote">
-                "The journey of a thousand miles begins with one step." - Lao
-                Tzu
+                "First, solve the problem. Then, write the code." — Max Delbono
               </blockquote>
               <div className="about-me-cta-button">
                 <button
                   onClick={handleResumeClick}
                   className="about-me-download-resume"
-                  aria-label="View Rohan Goyal's Resume"
+                  aria-label="View Joseph Spann's Resume"
                 >
                   View Resume 📝
                 </button>

@@ -44,8 +44,8 @@ const Navbar = ({ activeSection, setActiveSection }) => {
       <div className="navbar-content">
         {/* Make the logo clickable */}
         <a href="/" onClick={() => handleNavClick("home")} className="logo">
-          <span className="rohan">R</span>
-          <span className="goyal">G</span>
+          <span className="Joseph">Joseph</span>
+          <span className="Spann">.S()</span>
         </a>
 
         <div

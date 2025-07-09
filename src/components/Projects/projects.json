@@ -1,86 +1,92 @@
 [
   {
-    "name": "Portfolio Website",
-    "link": "https://github.com/37rohan/Portfolio_Website",
+    "name": "Starter Portfolio Site",
+    "link": "https://github.com/jpspann91/React-Portfolio",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "This starter portfolio website built with React.",
+    "technologies": ["React", "CSS", "HTML"],
+    "live_url": "https://jpspann91.github.io/React-Portfolio/"
   },
   {
-    "name": "Used Car Price Prediction",
-    "link": "https://github.com/37rohan/Used_Car_Price_Prediction",
-    "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "name": "VetVantage",
+    "link": "https://github.com/info-gtmit/DBQDocAPIFunnel",
+    "linkType": "Private",
+    "description": "Development Phase application to assist US Veterans with their disability ratings with the VA, client side",
+    "technologies": ["React", "Django", "Python", "MongoDB", "PostgreSQL", "Azure"],
+    "live_url":"https://dbq-funnel-dev.azurewebsites.net/"
   },
   {
-    "name": "Housing Analysis in Brazil",
-    "link": "https://github.com/37rohan/Housing-in-Brazil",
-    "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "name": "VetVantage MD",
+    "link": "https://github.com/info-gtmit/DBQDoc",
+    "linkType": "Private",
+    "description": "Development Phase application to assist US Veterans with their disability ratings with the VA, doctor side",
+    "technologies": ["React", "Django", "Python", "MongoDB", "PostgreSQL", "Azure"],
+    "live_url": "https://dbqdoc-develop.azurewebsites.net/"
   },
   {
-    "name": "Faulty Calculator",
-    "link": "https://github.com/37rohan/Faulty_Calculator",
+    "name": "Nexus Game Dashboard",
+    "link": "https://github.com/jpspann91/Project3",
     "linkType": "View Code",
-    "description": "A dashboard using Python's Dash framework to visualize complex datasets.",
-    "technologies": ["Python", "Dash", "Plotly", "Pandas"]
+    "description": "An asynchronous turn based game application that allows you to play simple games with your friends. Sign up to play classic games like Tik Tak Toe and Connect 4, challenge your friends and receive notifications when it is your turn to play. Can be used on all mobile devices and computer screens",
+    "technologies": ["React.js", "Express.js", "Node.js", "MongoDB/ MySQL", "GraphQL"]
   },
   {
-    "name": "Guessing a Number",
-    "link": "https://github.com/37rohan/Guessing_a_Number",
+    "name": "E-Commerce Site",
+    "link": "https://github.com/DavisRansom/E-Commerce-Marketplace",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "An E-Commerce website built with Handlebars.js. Allows users to create an admin account to start selling products on the site. Users can also create a buyer account so they purchase items as well. Stripe is used to manage payment. Users can view past orders as well.",
+    "technologies": ["Javascript", "Handlebars.js", "CSS", "HTML"]
   },
   {
-    "name": "Weather Info",
-    "link": "https://github.com/37rohan/Weather_App",
+    "name": "Find Ya Pokemon",
+    "link": "https://github.com/JMYoung93/Find-Ya-Pokemon",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "A fun and simple website built with DOM manipulation. You can look up your favorite pokemon view an image from the official trading card game and find a sprite. You can also build a small team of 6 pokemon with four randomly generated moves",
+    "technologies": ["Javascript", "CSS", "HTML", "LocalStorage"]
   },
   {
-    "name": "Olympic Analysis",
+    "name": "BlockChain Basics",
     "link": "https://github.com/37rohan/Olympic_Analysis",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "A simple program to show the basics of blockchain. It uses p2p messaging and servers to connect to a blockchain wallet (not provided). Uses a miner to encrypt the blockchain and merkle nodes to link them together.",
+    "technologies": ["Java"]
   },
   {
-    "name": "Text Summarizer",
+    "name": "Code Quiz",
     "link": "https://github.com/rohangoyal",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "A very simple coding quiz built with CSS, HTML and DOM manipulation. Can be built on to include more questions and more features if needed",
+    "technologies": ["Javascript", "CSS", "HTML"],
+    "live_url": "https://jpspann91.github.io/CodeQuiz/"
   },
   {
-    "name": "Snake Water Gun Game",
-    "link": "https://github.com/37rohan/Snake_Water_Gun_Game",
+    "name": "Password Generator",
+    "link": "https://github.com/jpspann91/PasswordGenerator",
     "linkType": "View Code",
     "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "technologies": ["React", "TypeScript", "CSS", "HTML"],
+    "live_url":"https://jpspann91.github.io/PasswordGenerator/"
   },
   {
-    "name": "Dynamic Student Enrollment Form",
-    "link": "https://github.com/37rohan/Dynamic_Student_Enrollment_Form",
+    "name": "Treasure Game",
+    "link": "https://github.com/jpspann91/TreasureGame",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "'An application built with Java. Finding a treasure rewards 1-3 points. Finding a troll means you loose all your gold. You have 25 tries to get a high score. Built as a final project for a beginners Java class. No live site currently",
+    "technologies": ["Java"]
   },
   {
-    "name": "Breast Cancer Prediction",
-    "link": "https://github.com/37rohan/Breast_Cancer_Prediction",
+    "name": "Weather Dashboard",
+    "link": "https://github.com/jpspann91/WeatherDashboard",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "Application to look up the weather forecast in a city of your choice. Tyope into the search bar, hit enter, and you will be able to see the current weather for the city searched as well as a 5 day forecast. Also saves recently searched cities as well.",
+    "technologies": ["Javascript", "CSS", "HTML"]
   },
   {
-    "name": "Inventory Management System",
-    "link": "https://github.com/37rohan/Inventory_Management_System",
+    "name": "Workday Planner",
+    "link": "https://github.com/jpspann91/WorkDayPlanner",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "An application to help you organize your workday. Lets you add task by the hour and also lets users edit and delete tasks as needed. Color will also change if the event is in the past as well.",
+    "technologies": ["Javascript", "CSS", "HTML"],
+    "live_url": "https://jpspann91.github.io/WorkDayPlanner/"
   }
 ]

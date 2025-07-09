@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Skills.css";
 import skillsData from "../Skills/Skills.json";
 import { useNavigate } from 'react-router-dom';
-import Certifications from "../Certification/Certifications";
-
+import { skillIcons } from "./iconMap";
 const Skills = () => {
   const [expandedSkill, setExpandedSkill] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -13,6 +12,7 @@ const Skills = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(skillsData)
     const handleScroll = () => {
       const skillsContainer = skillsRef.current;
       const skillsContainerTop = skillsContainer.getBoundingClientRect().top;
@@ -73,6 +73,8 @@ const Skills = () => {
       ) : (
         <div className={`skills-content ${isVisible ? "visible" : ""}`}>
           <h2 className="skills-title">My Skills</h2>
+          <h6 className="skills-sub-title">Choose a category below</h6>
+          
           <div className="managers">
             {skillsData.map((skill, index) => (
               <div
@@ -88,29 +90,19 @@ const Skills = () => {
             <div className={`sub-managers ${isAnimating ? "hidden" : "visible"}`}>
               {skillsData
                 .find((skill) => skill.name === expandedSkill)
-                ?.subSkills.slice(0, 6)
-                .map((subSkill, subIndex) => (
-                  <div key={subIndex} className="node sub-node">
-                    <h3>{subSkill}</h3>
-                  </div>
-                ))}
-              {skillsData
-                .find((skill) => skill.name === expandedSkill)
-                ?.subSkills.slice(6).length > 0 && (
-                <div className="sub-sub-managers">
-                  {skillsData
-                    .find((skill) => skill.name === expandedSkill)
-                    ?.subSkills.slice(6)
-                    .map((subSkill, subIndex) => (
-                      <div key={subIndex} className="node sub-sub-node">
-                        <h3>{subSkill}</h3>
-                      </div>
-                    ))}
-                </div>
-              )}
+                ?.subSkills
+                .map((subSkill, subIndex) => {
+                  const Icon = skillIcons[subSkill] || null;
+                  return (
+                    <div key={subIndex} className="node sub-node">
+                      {Icon && <Icon style={{ fontSize: "1.4rem", marginBottom: "6px" }} />}
+                      <h3>{subSkill}</h3>
+                    </div>
+                  )
+                })}
             </div>
           )}
-          <div className="certifications-section">
+          {/* <div className="certifications-section">
             <Certifications limit={6} />
             <div className="view-all-button-container">
               <button
@@ -121,7 +113,7 @@ const Skills = () => {
                 Show More
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

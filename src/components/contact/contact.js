@@ -1,12 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import "../contact/contact.css";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.gif";
 import {
-  FaFacebook,
-  FaInstagram,
   FaLinkedin,
-  FaXTwitter,
   FaGithub,
 } from "react-icons/fa6";
 import {
@@ -38,13 +35,14 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    console.log(form, form.current);
+    
     emailjs
       .sendForm(
-        "rohan_37",
-        "template_uyncwed",
+        "service_ufddul9",
+        "template_reomwa8",
         form.current,
-        "gJbxjpBvMAj9lBzo8"
+        "0n8L_Yjijn8bBmF86"
       )
       .then(
         () => {
@@ -58,7 +56,8 @@ const Contact = () => {
             setButtonText("Send");
           }, 3000);
         },
-        () => {
+        (error) => {
+          console.log(error);
           setMessage("Failed to send message. Try again.");
         }
       );
@@ -97,7 +96,7 @@ const Contact = () => {
             <div className="map-container">
               <iframe
                 title="Google Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.348679014678!2d75.7228760748932!3d26.860660962326524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db528a76be157%3A0x6ec1f70a7a7a603a!2sAjay%20Deep%20Garg%2C%20R-152%2C%20R-152%2C%20Narayan%20Vihar%2C%20R-%20Block%2C%20Narayan%20Vihar%2C%20Jaipur%2C%20Rajasthan%20302020!5e0!3m2!1sen!2sin!4v1738776377725!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d429158.43821156706!2d-117.43741038952228!3d32.82405592239951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9530fad921e4b%3A0xd3a21fdfd15df79!2sSan%20Diego%2C%20CA!5e0!3m2!1sen!2sus!4v1752024070656!5m2!1sen!2sus"
                 width="100%"
                 height="300"
                 style={{ border: "0" }}
@@ -111,22 +110,22 @@ const Contact = () => {
                 <FaMapMarkerAlt className="contact-icon" />
                 <div className="contact-info-text">
                   <h4>Address</h4>
-                  <p>R-152, Narayan Vihar,</p>
-                  <p>Gopalpura Byepass Jaipur, Rajasthan, 302020</p>
+                  <p>San Diego, California</p>
+                  <p>United States, 91977</p>
                 </div>
               </div>
               <div className="contact-info-item">
                 <FaEnvelope className="contact-icon" />
                 <div className="contact-info-text">
                   <h4>Email</h4>
-                  <p>rohangoyal264@gmail.com</p>
+                  <p>joespann91@gmail.com</p>
                 </div>
               </div>
               <div className="contact-info-item">
                 <FaPhoneAlt className="contact-icon" />
                 <div className="contact-info-text">
                   <h4>Phone</h4>
-                  <p>+91 63778 - 16163</p>
+                  <p>+1 619-309-5639</p>
                 </div>
               </div>
             </div>
@@ -216,7 +215,7 @@ const Contact = () => {
               transition: "opacity 0.6s ease 1.0s",
             }}
           >
-            <a
+            {/* <a
               href="https://www.facebook.com/Rohangoyal2616"
               target="_blank"
               rel="noopener noreferrer"
@@ -224,9 +223,9 @@ const Contact = () => {
               aria-label="Facebook profile"
             >
               <FaFacebook size={30} />
-            </a>
+            </a> */}
             <a
-              href="https://github.com/37rohan"
+              href="https://github.com/joespanngtmit"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon github"
@@ -234,7 +233,7 @@ const Contact = () => {
             >
               <FaGithub size={30} />
             </a>
-            <a
+            {/* <a
               href="https://x.com/aggarwalrohan37"
               target="_blank"
               rel="noopener noreferrer"
@@ -242,8 +241,8 @@ const Contact = () => {
               aria-label="X (Twitter) profile"
             >
               <FaXTwitter size={30} />
-            </a>
-            <a
+            </a> */}
+            {/* <a
               href="https://instagram.com/rohan_agarwal_37"
               target="_blank"
               rel="noopener noreferrer"
@@ -251,9 +250,9 @@ const Contact = () => {
               aria-label="Instagram profile"
             >
               <FaInstagram size={30} />
-            </a>
+            </a> */}
             <a
-              href="https://www.linkedin.com/in/goyal-rohan"
+              href="https://www.linkedin.com/in/joseph-spann-12a684140/"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon linkedin"

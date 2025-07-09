@@ -10,6 +10,7 @@ body {
   color: var(--accent-color);
   text-align: center;
   overflow: hidden; /* Ensures no unwanted horizontal scroll */
+  background: transparent;
 }
 
 /* Title Styling */

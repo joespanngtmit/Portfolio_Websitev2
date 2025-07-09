@@ -3,6 +3,7 @@ import { Document, Page, pdfjs } from "react-pdf";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiDownload } from "react-icons/fi"; // Import Download Icon
 import "./Resume.css"; // Ensure this has the loading styles
+import ResumeConfetti from "../ParticleBackground/ResumeConfetti";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -41,6 +42,7 @@ const Resume = () => {
 
   return (
     <div className="resume-container">
+      <ResumeConfetti/>
       <h1 className="resume-title">My Resume</h1>
       {isPDFLoading ? (
         <div className="loading-container">
@@ -50,7 +52,7 @@ const Resume = () => {
         <>
           <div className="pdf-container">
             <Document
-              file={`${process.env.PUBLIC_URL}/Rohan_Goyal2.pdf`}
+              file={`${process.env.PUBLIC_URL}/Joseph_Spann_Resume.pdf`}
               onLoadSuccess={({ numPages }) => {
                 // Still set numPages for pagination
                 setNumPages(numPages);
@@ -75,8 +77,8 @@ const Resume = () => {
 
             {/* Download Button */}
             <a
-              href={`${process.env.PUBLIC_URL}/Rohan_Goyal.pdf`}
-              download="Rohan_Goyal_Resume.pdf"
+              href={`${process.env.PUBLIC_URL}/Joseph_Spann_Resume.pdf`}
+              download="Joseph_Spann_Resume.pdf"
               className="download-btn"
             >
               <FiDownload />

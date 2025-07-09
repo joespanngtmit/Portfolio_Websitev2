@@ -1,11 +1,11 @@
-# Rohan Goyal's Portfolio
+# Joseph Spann's Portfolio
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-React-blue)](https://this-is-rohan-goyal.vercel.app/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![LinkedIn](https://img.shields.io/badge/Connect-LinkedIn-blue)](https://linkedin.com/in/goyal-rohan)
 ---
 
-Welcome to **Rohan Goyal's Portfolio** – a unique blend of technical expertise and creative flair. Dive into a showcase of my projects, skills, and professional journey as a Data Analyst, Python Developer.
+Welcome to **Joseph Spann's Portfolio** – a unique blend of technical expertise and creative flair. Dive into a showcase of my projects, skills, and professional journey as a Data Analyst, Python Developer.
 
 ## 🚀 Features
 

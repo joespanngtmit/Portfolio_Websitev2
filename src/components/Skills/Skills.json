@@ -4,47 +4,59 @@
     "subSkills": [
       "Python",
       "SQL",
-      "R",
-      "Core Java",
+      "C++",
+      "Java",
       "HTML",
       "CSS",
-      "JavaScript"
+      "JavaScript",
+      "TypeScript",
+      "Bash"
     ]
   },
   {
-    "name": "Data Analytics",
+    "name": "FrontEnd Frameworks",
     "subSkills": [
-      "Data Cleaning",
-      "Data Transformation",
-      "Data Visualization",
-      "Data Pipelines",
-      "ETL Processes",
-      "Data Warehousing",
-      "A/B Testing",
-      "Hypothesis Testing"
+      "React",
+      "jQuery",
+      "Bootstrap",
+      "Tailwind CSS",
+      "Bulma CSS",
+      "Ant Design",
+      "Next.js",
+      "HTML/CSS"
     ]
+  },
+  {
+    "name": "BackEnd Frameworks",
+    "subSkills": ["Node.js", "Express.js", "Django", "Flask", "FastAPI", "NestJS"]
   },
   {
     "name": "Databases",
-    "subSkills": ["MySQL", "PostgreSQL", "MongoDB", "DB2", "Oracle"]
+    "subSkills": ["MySQL", "PostgreSQL", "MongoDB", "SQLite"]
   },
   {
-    "name": "Frameworks / Libraries",
-    "subSkills": ["ReactJS", "NodeJS", "NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-Learn"]
+    "name": "API/ Web Tech",
+    "subSkills": ["RESTful APIs", "GraphQL", "JSON", "WebSockets", "Swagger"]
   },
   {
-    "name": "Machine Learning",
+    "name": "Development Principles",
     "subSkills": [
-      "Linear Regression",
-      "Logistic Regression",
-      "Random Forest",
-      "K-Means Clustering",
-      "XGBoost",
-      "KNN"
+      "MVC",
+      "OOP",
+      "Microservices",
+      "API Development"
     ]
   },
   {
-    "name": "Version Control",
-    "subSkills": ["Git", "GitHub", "GitLab"]
+    "name": "Cloud Platforms & DevOps Tools",
+    "subSkills": ["Heroku", "Azure Platform", "Azure AI", "Docker", "CI/CD", "Google Cloud"]
+  },
+  {
+    "name": "AI & ML Integration",
+    "subSkills": ["ChatGPT", "OpenAI", "Gemini", "Azure AI Services"]
+  },
+  {
+    "name": "Version Control & Etc",
+    "subSkills": ["GitHub", "GitBash", "GitLab", "Stripe", "Twilio", "Sendgrid"]
   }
 ]
